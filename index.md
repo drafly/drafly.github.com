@@ -1,7 +1,7 @@
-﻿---
+---
 layout: page
 title: drafly
-tagline: do not lose your faith
+tagline: 韩龙飞的博客
 ---
 {% include JB/setup %}
 
