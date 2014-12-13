@@ -1,7 +1,7 @@
 ﻿---
 layout: page
-title: 韩龙飞的博客
-tagline: 如果你未曾失败过，那只能说明你的努力还不够——做最好的自己
+title: drafly
+tagline: do not lose your faith
 ---
 {% include JB/setup %}
 
