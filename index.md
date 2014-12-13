@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Hello World!
-tagline: Supporting tagline
+title: 任君是个大臭屁
+tagline: 如果你未曾失败过，那只能说明你的努力还不够——做最好的自己
 ---
 {% include JB/setup %}
 
