@@ -1,7 +1,7 @@
-ï»¿---
+---
 layout: page
-title: ä»»å›æ˜¯ä¸ªå¤§è‡­å±
-tagline: å¦‚æœä½ æœªæ›¾å¤±è´¥è¿‡ï¼Œé‚£åªèƒ½è¯´æ˜ä½ çš„åŠªåŠ›è¿˜ä¸å¤Ÿâ€”â€”åšæœ€å¥½çš„è‡ªå·±
+title: ÈÎ¾ıÊÇ¸ö´ó³ôÆ¨
+tagline: Èç¹ûÄãÎ´ÔøÊ§°Ü¹ı£¬ÄÇÖ»ÄÜËµÃ÷ÄãµÄÅ¬Á¦»¹²»¹»¡ª¡ª×ö×îºÃµÄ×Ô¼º
 ---
 {% include JB/setup %}
 
@@ -13,13 +13,13 @@ Complete usage and documentation available at: [Jekyll Bootstrap](http://jekyllb
 
 In `_config.yml` remember to specify your own data:
     
-    title : Drafly's Blog
+    title : My Blog =)
     
     author :
-      name : Longfei Han
-      email : hanlongfei@hotmail.com
-      github : drafly
-      twitter : drafly
+      name : Name Lastname
+      email : blah@email.test
+      github : username
+      twitter : username
 
 The theme should reference these variables whenever needed.
     
