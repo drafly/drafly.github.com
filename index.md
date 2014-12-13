@@ -1,11 +1,14 @@
 ---
 layout: page
-title: drafly
-tagline: 韩龙飞的博客
+title: 韩龙飞——任君
+tagline: 如果你未曾失败过，说明你的努力还远远不够——做最好的自己
 ---
 {% include JB/setup %}
 
 Read [Jekyll Quick Start](http://jekyllbootstrap.com/usage/jekyll-quick-start.html)
+
+编码问题请阅读 [Jekyll在Windows下面中文编码问题](http://www.cnblogs.com/aleda/articles/Jekyll-in-Windows-following-Chinese-encoding-problem-solutions.html)
+发表博文请阅读 [Jekyll在github上构建免费的Web应用](http://blog.fens.me/jekyll-bootstarp-github/)
 
 Complete usage and documentation available at: [Jekyll Bootstrap](http://jekyllbootstrap.com)
 
@@ -16,7 +19,7 @@ In `_config.yml` remember to specify your own data:
     title : Drafly's Blog
     
     author :
-      name : Longfei Han
+      name : Longfei Han(韩龙飞)
       email : hanlongfei@hotmail.com
       github : drafly
       twitter : drafly
