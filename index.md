@@ -19,7 +19,7 @@ attributes.id = "slider";
 swfobject.embedSWF("design3edge.swf", "content_slider", "575", "265", "9", "expressInstall.swf", flashvars, attributes);
 </script>
 
-<div style="width:1000px; height:600px; margin: 10px 50px 00px 50px">
+<div style="width:1000px; height:600px; margin: 00px 50px 00px 50px">
 <div style="float:left; width:575px">
 
 <div id="content_slider"> <a href="http://www.adobe.com/go/getflashplayer"> <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="" /> </a> </div>
