@@ -8,6 +8,7 @@ tagline: 如果你未曾失败过，说明你的努力还远远不够——做�
 Read [Jekyll Quick Start](http://jekyllbootstrap.com/usage/jekyll-quick-start.html)
 
 编码问题请阅读 [Jekyll在Windows下面中文编码问题](http://www.cnblogs.com/aleda/articles/Jekyll-in-Windows-following-Chinese-encoding-problem-solutions.html)
+<br>
 发表博文请阅读 [Jekyll在github上构建免费的Web应用](http://blog.fens.me/jekyll-bootstarp-github/)
 
 Complete usage and documentation available at: [Jekyll Bootstrap](http://jekyllbootstrap.com)
