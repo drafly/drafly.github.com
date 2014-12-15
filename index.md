@@ -5,46 +5,44 @@ tagline: 如果你未曾失败过，说明你的努力还远远不够——做�
 ---
 {% include JB/setup %}
 
-Read [Jekyll Quick Start](http://jekyllbootstrap.com/usage/jekyll-quick-start.html)
+<script type="text/javascript" src="js/jquery.pngFix.js"></script>
+<script type="text/javascript">$(document).ready(function(){ $(document).pngFix(); });</script>
+<script type="text/javascript" src="js/swfobject.js"></script>
 
-编码问题请阅读 [Jekyll在Windows下面中文编码问题](http://www.cnblogs.com/aleda/articles/Jekyll-in-Windows-following-Chinese-encoding-problem-solutions.html)
-<br>
-发表博文请阅读 [Jekyll在github上构建免费的Web应用](http://blog.fens.me/jekyll-bootstarp-github/)
+<script type="text/javascript">
+var flashvars = {};
+flashvars.xml = "config.xml";
+flashvars.font = "font.swf";
+var attributes = {};
+attributes.wmode = "transparent";
+attributes.id = "slider";
+swfobject.embedSWF("design3edge.swf", "content_slider", "575", "265", "9", "expressInstall.swf", flashvars, attributes);
+</script>
 
-Complete usage and documentation available at: [Jekyll Bootstrap](http://jekyllbootstrap.com)
+<div style="width:1000px; height:600px; margin: 10px 50px">
+<div style="float:left; width:575px">
 
-## Update Author Attributes
+<div id="content_slider"> <a href="http://www.adobe.com/go/getflashplayer"> <img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="" /> </a> </div>
 
-In `_config.yml` remember to specify your own data:
-    
-    title : Drafly's Blog
-    
-    author :
-      name : Longfei Han(韩龙飞)
-      email : hanlongfei@hotmail.com
-      github : drafly
-      twitter : drafly
+<div style="height:15px"> </div>
 
-The theme should reference these variables whenever needed.
-    
-## Sample Posts
+<div style="height:270px; width:575px">
+<img src="/img/personal.jpg" width="200" height="270" align="left"/>
 
-This blog contains sample posts which help stage pages and blog data.
-When you don't need the samples anymore just delete the `_posts/core-samples` folder.
+<span style="align: right; margin-left:2em; text-align:center; font-family: KaiTi; font-weight: bold; line-height:1.5em; overflow:visible; font-size:16pt; text-shadow:#f3f3f3 1px 1px 0px, #b2b2b2 1px 2px 0">
+这里是韩龙飞的个人主页。目前就读于北京理工大学，2010年入学，博士在读。喜欢折腾些新鲜玩意，但都不深入。热衷于统计学和机器学习方法，喜欢鼓捣R语言和网站开发，提倡分享和开源，努力坚持健身，热爱球类运动。篮球、羽毛球都会一点点，喜欢Huston Rockets，绝对的Arsenal支持者。目前，正努力成为一名优秀的博士生，狂热的机器学习极客，称职的老公。愿未来一切顺利！
+</span>
+</div>
+</div>
 
-    $ rm -rf _posts/core-samples
-
-Here's a sample "posts list".
-
-<ul class="posts">
+<div style="float:left; width:225px">
+<span style="align: right; margin-left:2em; text-align:center; font-family: KaiTi; font-weight: bold; line-height:1.5em; font-size:16pt">
+博客列表
+</span>
+<ul class="posts" style="font-family: KaiTi; font-weight: bold; font-size: 14pt">
   {% for post in site.posts %}
     <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
   {% endfor %}
 </ul>
-
-## To-Do
-
-This theme is still unfinished. If you'd like to be added as a contributor, [please fork](http://github.com/plusjade/jekyll-bootstrap)!
-We need to clean up the themes, make theme usage guides with theme-specific markup examples.
-
-
+</div>
+</div>
