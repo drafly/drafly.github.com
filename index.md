@@ -27,7 +27,7 @@ swfobject.embedSWF("design3edge.swf", "content_slider", "575", "265", "9", "expr
 <div style="height:15px"> </div>
 
 <div style="height:270px; width:575px">
-<img src="/img/personal.jpg" width="200" height="270" align="left"/>
+<img src="/img/personal.JPG" width="200" height="270" align="left"/>
 
 <span style="align: right; margin-left:2em; text-align:center; font-family: KaiTi; font-weight: bold; line-height:1.5em; overflow:visible; font-size:16pt; text-shadow:#f3f3f3 1px 1px 0px, #b2b2b2 1px 2px 0">
 这里是韩龙飞的个人主页。目前就读于北京理工大学，2010年入学，博士在读。喜欢折腾些新鲜玩意，但都不深入。热衷于统计学和机器学习方法，喜欢鼓捣R语言和网站开发，提倡分享和开源，努力坚持健身，热爱球类运动。篮球、羽毛球都会一点点，喜欢Huston Rockets，绝对的Arsenal支持者。目前，正努力成为一名优秀的博士生，狂热的机器学习极客，称职的老公。愿未来一切顺利！
