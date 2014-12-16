@@ -21,6 +21,7 @@ GitHub是一个神奇的网站！！
 1. 工欲善其事必先利其器之软件安装：
 - GitHub for Windows安装及使用参考[GitHub for Windows使用图文教程](http://blog.sina.com.cn/s/blog_53ab41fd0101b428.html)；
 - Ruby和Jekyll安装及使用参考[win7下安装jekyll——在github上创建自己的博客](http://blog.csdn.net/hutaoer06051/article/details/8574010)；这里需要指出的是**Ruby安装路径中不要有中文字符和空格**；
+- 如果`gem install xxx`显示无法连接时，是由于国内网络原因，导致 rubygems.org 存放在 Amazon S3 上面的资源文件间歇性连接失败。这时用[淘宝源](https://ruby.taobao.org/)镜像代替官网版本即可。具体操作请见[RubyGems 镜像](https://ruby.taobao.org/)；
 - notepad++及高亮插件安装使用参考[notepad++安装markdown插件](http://blog.csdn.net/myweishanli/article/details/41311701)；
 1. 大功告成之文章撰写与发布：如何撰写和发布文章请参考[Jekyll在github上构建免费的Web应用](http://blog.fens.me/jekyll-bootstarp-github/)；
 1. 精益求精之Markdown及Disqus使用：Markdown使用简介请参考[深入浅出Markdown](http://drafly.github.io/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/2014/12/15/markdown/)，里面同时包含了关于如何使用**Latex公式**编辑和**Prettify代码高亮**的使用教程。Disqus搭建及设置请参考[Disqus教程](http://drafly.github.io/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/2014/12/15/disqus/)；
