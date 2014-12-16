@@ -27,7 +27,7 @@ GitHub是一个神奇的网站！！
 3. notepad++及高亮插件安装使用参考[notepad++安装markdown插件](http://blog.csdn.net/myweishanli/article/details/41311701)；
 
 #### 2. 大功告成之文章撰写与发布
-1. 在克隆项目到本地文件夹的上一层执行以下代码，将jekyll bootstrap模板克隆到自己GitHub主页：
+1. 在克隆项目到本地文件夹执行以下代码，将jekyll bootstrap模板克隆到自己GitHub主页：
 `$ git clone https://github.com/plusjade/jekyll-bootstrap.git username.github.com`
 2. 进入自己GitHub主页文件夹，在本地开启Jekyll服务，在浏览器输入localhost:4000即可查看自己的网页；
 `$ cd username.github.com
