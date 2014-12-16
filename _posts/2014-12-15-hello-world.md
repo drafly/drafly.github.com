@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "GitHub搭建个人网页教程"
+title: "GitHub搭建个人网页"
 description: 
 category: "博客搭建"
 tags: 
