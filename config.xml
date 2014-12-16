@@ -58,6 +58,10 @@
         <slide>
        		<url>img/slide_5.jpg</url>
         </slide>
+		<transition num="1" direction="right" shader="flat" />
+		<slide>
+       		<url>img/slide_6.jpg</url>
+        </slide>
 				
 	</slides>
 </cu3er>
