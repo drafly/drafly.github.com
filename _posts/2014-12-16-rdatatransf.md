@@ -6,6 +6,7 @@ category: "Statistical Computing with R"
 tags: [R]
 ---
 {% include JB/setup %}
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 
 ### 数据操作
 上面一部分介绍了R中一些变量类型的操作，一般来讲，当R运行时，所有变量，数据，函数及结果都以对象(objects)的形式存在计算机的活动内存中，我们可以通过用一些运算符(如算术，逻辑，比较等)和一些函数(其本身也是对象)来对这些对象进行操作。但是如果该对象已经存在，那么它以前的值将会自动被新值冲掉。对于数据操作而言，常用指令有：
