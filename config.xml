@@ -38,12 +38,12 @@
 	<slides>
 	
         <slide>
-            <url>img/slide_1.jpg</url>
+            <url>img/slide_5.jpg</url>
         </slide>
 		<!-- changing transition between first & second slide -->
         <transition num="3" slicing="vertical" direction="down"/>
         <slide>
-       		<url>img/slide_2.jpg</url>
+       		<url>img/slide_6.jpg</url>
         </slide>		
 		<!-- changing transition between second & third slide -->
         <transition num="4" direction="right" shader="flat" />
@@ -56,11 +56,11 @@
         </slide>
 		<transition num="6" slicing="vertical" direction="up" shader="flat" delay="0.05" z_multiplier="4" />
         <slide>
-       		<url>img/slide_5.jpg</url>
+       		<url>img/slide_1.jpg</url>
         </slide>
 		<transition num="1" direction="right" shader="flat" />
 		<slide>
-       		<url>img/slide_6.jpg</url>
+       		<url>img/slide_2.jpg</url>
         </slide>
 				
 	</slides>

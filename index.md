@@ -13,10 +13,14 @@ tagline: 如果你未曾失败过，说明你的努力还远远不够——做�
 var flashvars = {};
 flashvars.xml = "config.xml";
 flashvars.font = "font.swf";
+var params = {};
+params.scale = "noborder";
+params.align = "center";
 var attributes = {};
 attributes.wmode = "transparent";
 attributes.id = "slider";
-swfobject.embedSWF("design3edge.swf", "content_slider", "575", "265", "9", "expressInstall.swf", flashvars, attributes);
+swfobject.embedSWF("design3edge.swf", "content_slider", "575", "265", "9", "expressInstall.swf", flashvars, params, attributes);
+
 </script>
 
 <div style="width:1200px; height:600px; margin: 00px 50px 00px 50px">
