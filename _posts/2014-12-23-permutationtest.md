@@ -40,7 +40,7 @@ $$P(\hat{\theta}^* \ge \hat{\theta})=({N \atop n})^{-1} \sum_{j=1}^NI(\hat{\thet
 1. 判断在显著水平$$\alpha$$下是否拒绝原假设$$\hat{p} \le \alpha$$。
 
 ### 4. 实例
-下面通过一个例子来说明Permutation Tests的计算过程，另一个实例可戳[Permutation Test置换检验](http://www.plob.org/2012/12/19/3176.html)。
+下面通过一个例子来说明Permutation Tests的计算过程，另两个个实例可戳[Permutation Test置换检验](http://www.plob.org/2012/12/19/3176.html)和R Studio上[Hypertension Dataset实例](http://spark.rstudio.com/ahmed/permutation/)
 
 假设我们想知道大豆(soybean)与亚麻籽(linseed)两种种子重量是否一致，如果二者都服从同方差的正态分布，我们可以通过**双样本T检验**来检测二者重量的均值是否有差异来证明。但是，我们不清楚这两个随机变量服从那种分布，所以需要采用非参数估计的假设检验方法来证明二者重量是否一致，即采用置换检验。通过执行下面的代码我们可以发现随机变量X(大豆)和随机变量Y(亚麻籽)的样本量分别为14和12，但如果采用置换检验其组合方式一共有9,657,700种可能。所以即使对于小样本量而言，置换检验的计算代价仍然很高，我们这里则需要随机抽样B次(其中$$26 \ll B \ll 9,657,700$$)来近似估计统计量。
 
