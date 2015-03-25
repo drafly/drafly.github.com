@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "概率密度估计"
+title: "R语言——概率密度估计"
 description: ""
 category: "Statistical Computing with R"
 tags: [R]
