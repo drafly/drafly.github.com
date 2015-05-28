@@ -5,7 +5,7 @@ description: ""
 category: "Optimization"
 tags: [机器学习, 凸优化]
 ---
-\{ % include JB/setup %\}
+{ % include JB/setup %}
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
 
@@ -91,6 +91,19 @@ $$\{ \theta_1 x_1\ +\ \ldots\ +\ \theta_k x_k\ \mid\ x_i \in C,\ \theta_i \ge 0,
 <img src="/img/R/affine/halfspace.jpg" width="400"/>
 
 因为半空间的定义为$$\{ x \mid a^T x \le b\}$$，所以根据上图我们可以发现，半空间是任何与向量$$a$$呈钝角的向量的集合。多个半平面围成的集合就称为多面体（polyhedra），关于多面体和单纯形的定义和相关概念这里就不在赘述，有兴趣的同学可以参考stanford大学Boyd教授《convex optimization》一书中的2.2.2～2.2.5节。
+
+#### g. 不改变凸性的运算
+不改变凸集性质的运算对于凸集而言很重要，因为凸集的优良性质会使得优化求解过程更为简单，同时，我们也可以根据具体问题构建凸函数解决对应问题。不改变凸集的运算主要有以下几种：
+
+1. 交集（intersection）：如果$$S_1$$和$$S_2$$是凸集，那么$$S_1 \cap S_2$$仍为凸集。子空间、仿射集、凸锥、多面体都可以通过半空间或者超平面（二者都是凸集）构成，且每一个闭合的凸集都可以由有限个半空间的交集构成。即如果$$S_{\alpha}$$是凸集，那么$$\cap_{\alpha \in \mathbb{A}} S_{\alpha}$$仍为凸集；
+
+1. 仿射函数（affine function）：在仿射集的定义中，我们提到仿射集可以被线性方程所表示，因此，具有$$f(x)=Ax\ +\ b$$形式，其中，$$A \in \mathbb\{ R\}^\{ m\times n\},\ b \in \mathbb\{ R\}^m$$的函数都可以成为仿射函数$$f:\mathbb{R}^n \rightarrow \mathbb{R}^m$$。我们先从简单的变化看起，如果$$S\subseteq \mathbb{R}^n$$是凸集，同时，$$\alpha \in \mathbb{R}$$以及$$a \in \mathbb{R}^n$$，很明显，$$\alpha S=\{ \alpha x \mid x\in S \},\ S+a=\{ x+a \mid x \in S \}$$都为凸集，这两种操作称为变换（scaling）和平移（translation）。所以根据仿射函数的定义，仿射函数的变换形式仍保持原始凸集集合的性质，例如对凸集执行投影、集合相加等的操作后的集合仍为凸集。
+
+1. 透视函数（perspective function）：透视函数定义为$$P:\ \mathbb{R}^{n+1} \rightarrow \mathbb{R}^n$$，透视函数通过规约变换或者归一化向量的最后一个分量，去除向量的一个维度，从n＋1维降低到n维。该思想可以用初中物理学到的针孔呈像来解释。假设存在一个针孔摄像机在背面存在一个平面$$x_3=0$$，一个物体$$x\in \mathbb{R}^3$$通过小孔成像映射到平面上，会使得呈像变成二维画面。如下图所示，空间上二维的点投影到一维直线$$x_3-= -1$$上，二维点的最后一个分量变成－1，成像成直线上的一个线段。很明显，如果成像前的物体为凸集，则映射后仍为凸集：
+
+<img src="/img/R/affine/perspective.jpg" width="400"/>
+
+4. 线性分式（linear－fractional function）：定义为$$f(x)=(Ax+b) / (c^Tx+d)$$，从定义可以看出，仿射函数和线性函数都是线性分式的特殊形式，**这部分内容理解的还不是特别清楚，所以暂时先不写这部分的内容了**。
 
 ### 总结
 总的来说，这一节所讲述的问题比较枯燥，但是对于日后理解svm等算法会有很大帮助。具体细节等到svm篇章再做具体介绍。
