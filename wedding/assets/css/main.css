@@ -1551,7 +1551,7 @@
 /* Basic */
 
 	html, body {
-		background: #FF79BC;
+		background: #FFAAD5;
 	}
 
 	body.is-loading *, body.is-loading *:before, body.is-loading *:after {
@@ -1756,7 +1756,7 @@
 		}
 
 		99% {
-			color: #FF79BC;
+			color: #FFAAD5;
 			z-index: 100001;
 			-moz-transform: scale(0.5) rotate(360deg);
 			-webkit-transform: scale(0.5) rotate(360deg);
@@ -1765,7 +1765,7 @@
 		}
 
 		100% {
-			color: #FF79BC;
+			color: #FFAAD5;
 			z-index: -1;
 			-moz-transform: scale(0.5) rotate(360deg);
 			-webkit-transform: scale(0.5) rotate(360deg);
@@ -1785,7 +1785,7 @@
 		}
 
 		99% {
-			color: #FF79BC;
+			color: #FFAAD5;
 			z-index: 100001;
 			-moz-transform: scale(0.5) rotate(360deg);
 			-webkit-transform: scale(0.5) rotate(360deg);
@@ -1794,7 +1794,7 @@
 		}
 
 		100% {
-			color: #FF79BC;
+			color: #FFAAD5;
 			z-index: -1;
 			-moz-transform: scale(0.5) rotate(360deg);
 			-webkit-transform: scale(0.5) rotate(360deg);
@@ -1814,7 +1814,7 @@
 		}
 
 		99% {
-			color: #FF79BC;
+			color: #FFAAD5;
 			z-index: 100001;
 			-moz-transform: scale(0.5) rotate(360deg);
 			-webkit-transform: scale(0.5) rotate(360deg);
@@ -1823,7 +1823,7 @@
 		}
 
 		100% {
-			color: #FF79BC;
+			color: #FFAAD5;
 			z-index: -1;
 			-moz-transform: scale(0.5) rotate(360deg);
 			-webkit-transform: scale(0.5) rotate(360deg);
@@ -1843,7 +1843,7 @@
 		}
 
 		99% {
-			color: #FF79BC;
+			color: #FFAAD5;
 			z-index: 100001;
 			-moz-transform: scale(0.5) rotate(360deg);
 			-webkit-transform: scale(0.5) rotate(360deg);
@@ -1852,7 +1852,7 @@
 		}
 
 		100% {
-			color: #FF79BC;
+			color: #FFAAD5;
 			z-index: -1;
 			-moz-transform: scale(0.5) rotate(360deg);
 			-webkit-transform: scale(0.5) rotate(360deg);
@@ -2057,7 +2057,7 @@
 			-webkit-animation: overlay-hide 1.5s ease-in forwards !important;
 			-ms-animation: overlay-hide 1.5s ease-in forwards !important;
 			animation: overlay-hide 1.5s ease-in forwards !important;
-			background: #FF79BC;
+			background: #FFAAD5;
 			content: '';
 			display: block;
 			height: 100%;
@@ -2133,7 +2133,7 @@
 	}
 
 		header.major:after {
-			background: #FF79BC;
+			background: #FFAAD5;
 			content: '';
 			display: inline-block;
 			height: 0.2em;
@@ -2244,7 +2244,7 @@
 	}
 
 	select option {
-		background-color: #FF79BC;
+		background-color: #FFAAD5;
 		color: #ffffff;
 	}
 
@@ -2405,7 +2405,7 @@
 			}
 
 			.icon.alt:before {
-				color: #FF79BC !important;
+				color: #FFAAD5 !important;
 				text-shadow: 1px 0 0 #ffffff, -1px 0 0 #ffffff, 0 1px 0 #ffffff, 0 -1px 0 #ffffff;
 			}
 
@@ -2964,7 +2964,7 @@
 			-webkit-transition: -webkit-transform 1s ease, opacity 1s ease;
 			-ms-transition: -ms-transform 1s ease, opacity 1s ease;
 			transition: transform 1s ease, opacity 1s ease;
-			background: #FF79BC;
+			background: #FFAAD5;
 			border-style: solid;
 			opacity: 1;
 			position: absolute;
@@ -3020,15 +3020,15 @@
 		}
 
 		.spotlight.style1 .content {
-			border-color: #FF79BC;
+			border-color: #FFAAD5;
 		}
 
 		.spotlight.style2 .content {
-			border-color: #FF79BC;
+			border-color: #FFAAD5;
 		}
 
 		.spotlight.style3 .content {
-			border-color: #FF79BC;
+			border-color: #FFAAD5;
 		}
 
 		.spotlight.inactive .content {
@@ -3234,7 +3234,7 @@
 				-webkit-transform: rotate(45deg);
 				-ms-transform: rotate(45deg);
 				transform: rotate(45deg);
-				background: #FF79BC;
+				background: #FFAAD5;
 				content: '';
 				display: block;
 				height: 1em;
@@ -3332,7 +3332,7 @@
 
 	#banner {
 		background-attachment: fixed;
-		background-color: #FF79BC;
+		background-color: #FFAAD5;
 		background-image: url("../../images/banner.jpg");
 		background-position: center center;
 		background-size: cover;
@@ -3353,7 +3353,7 @@
 
 		#banner:after {
 			background-image: -moz-linear-gradient(top, rgba(23, 24, 32, 0.95), rgba(23, 24, 32, 0.95)), url("images/overlay.png");;
-			background-image: -webkit-linear-gradient(top, #FF79BC, #FF79BC), url("images/overlay.png");;
+			background-image: -webkit-linear-gradient(top, #FFAAD5, #FFAAD5), url("images/overlay.png");;
 			background-image: -ms-linear-gradient(top, rgba(23, 24, 32, 0.95), rgba(23, 24, 32, 0.95)), url("images/overlay.png");;
 			background-image: linear-gradient(top, rgba(23, 24, 32, 0.95), rgba(23, 24, 32, 0.95)), url("images/overlay.png");;
 			content: '';
@@ -3413,7 +3413,7 @@
 /* Footer */
 
 	#footer {
-		background: #FF79BC;
+		background: #FFAAD5;
 		padding: 6em 0;
 		text-align: center;
 	}
@@ -3552,7 +3552,7 @@
 				}
 
 				.spotlight .content {
-					background-color: #FF79BC;
+					background-color: #FFAAD5;
 					border-width: 0 !important;
 					border-top-width: 0.35em !important;
 					bottom: auto !important;
@@ -3752,7 +3752,7 @@
 				top: 0;
 				width: 100%;
 				z-index: 10001;
-				background: #FF79BC;
+				background: #FFAAD5;
 				box-shadow: 0 0.125em 0.125em 0 rgba(0, 0, 0, 0.125);
 			}
 
@@ -3826,7 +3826,7 @@
 				top: 0;
 				width: 275px;
 				z-index: 10002;
-				background: #FF79BC;
+				background: #FFAAD5;
 				padding: 0.75em 1.25em;
 			}
 
