@@ -2133,7 +2133,7 @@
 	}
 
 		header.major:after {
-			background: #e44c65;
+			background: #A688B1;
 			content: '';
 			display: inline-block;
 			height: 0.2em;
@@ -3020,15 +3020,15 @@
 		}
 
 		.spotlight.style1 .content {
-			border-color: #e44c65;
+			border-color: #A688B1;
 		}
 
 		.spotlight.style2 .content {
-			border-color: #5480f1;
+			border-color: #A688B1;
 		}
 
 		.spotlight.style3 .content {
-			border-color: #39c088;
+			border-color: #A688B1;
 		}
 
 		.spotlight.inactive .content {
@@ -3394,7 +3394,7 @@
 			#banner .content .image {
 				border-radius: 100%;
 				display: inline-block;
-				height: 18em;
+				/*height: 18em; */
 				margin-left: 1em;
 				vertical-align: middle;
 				width: 18em;
@@ -3497,7 +3497,7 @@
 
 			.spotlight.left .content, .spotlight.right .content {
 				padding: 4.5em 2.5em;
-				width: 25em;
+                width: 16em;   /*修改bander的宽度*/
 			}
 
 		/* Wrapper */
