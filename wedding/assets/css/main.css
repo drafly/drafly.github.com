@@ -3394,7 +3394,7 @@
 			#banner .content .image {
 				border-radius: 100%;
 				display: inline-block;
-				height: 13em;  /* 修改大头照*/
+				 /* height: 13em;  修改大头照*/
 				margin-left: 1em;
 				vertical-align: middle;
 				width: 18em;
