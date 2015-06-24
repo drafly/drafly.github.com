@@ -2057,7 +2057,7 @@
 			-webkit-animation: overlay-hide 1.5s ease-in forwards !important;
 			-ms-animation: overlay-hide 1.5s ease-in forwards !important;
 			animation: overlay-hide 1.5s ease-in forwards !important;
-			background: #1c1d26;
+			background: #A688B1;
 			content: '';
 			display: block;
 			height: 100%;
@@ -2244,7 +2244,7 @@
 	}
 
 	select option {
-		background-color: #1c1d26;
+		background-color: #A688B1;
 		color: #ffffff;
 	}
 
@@ -3551,7 +3551,7 @@
 				}
 
 				.spotlight .content {
-					background-color: #1c1d26;
+					background-color: #A688B1;
 					border-width: 0 !important;
 					border-top-width: 0.35em !important;
 					bottom: auto !important;
