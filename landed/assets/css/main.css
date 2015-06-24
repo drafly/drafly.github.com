@@ -2964,7 +2964,7 @@
 			-webkit-transition: -webkit-transform 1s ease, opacity 1s ease;
 			-ms-transition: -ms-transform 1s ease, opacity 1s ease;
 			transition: transform 1s ease, opacity 1s ease;
-			background: rgba(23, 24, 32, 0.95);
+			background: #A688B1;
 			border-style: solid;
 			opacity: 1;
 			position: absolute;
@@ -3234,7 +3234,7 @@
 				-webkit-transform: rotate(45deg);
 				-ms-transform: rotate(45deg);
 				transform: rotate(45deg);
-				background: #272833;
+				background: #A688B1;
 				content: '';
 				display: block;
 				height: 1em;
@@ -3332,7 +3332,7 @@
 
 	#banner {
 		background-attachment: fixed;
-		background-color: #272833;
+		background-color: #A688B1;
 		background-image: url("../../images/banner.jpg");
 		background-position: center center;
 		background-size: cover;
@@ -3353,7 +3353,7 @@
 
 		#banner:after {
 			background-image: -moz-linear-gradient(top, rgba(23, 24, 32, 0.95), rgba(23, 24, 32, 0.95)), url("images/overlay.png");;
-			background-image: -webkit-linear-gradient(top, rgba(23, 24, 32, 0.95), rgba(23, 24, 32, 0.95)), url("images/overlay.png");;
+			background-image: -webkit-linear-gradient(top, #A688B1, #A688B1), url("images/overlay.png");;
 			background-image: -ms-linear-gradient(top, rgba(23, 24, 32, 0.95), rgba(23, 24, 32, 0.95)), url("images/overlay.png");;
 			background-image: linear-gradient(top, rgba(23, 24, 32, 0.95), rgba(23, 24, 32, 0.95)), url("images/overlay.png");;
 			content: '';
@@ -3413,7 +3413,7 @@
 /* Footer */
 
 	#footer {
-		background: #272833;
+		background: #A688B1;
 		padding: 6em 0;
 		text-align: center;
 	}
@@ -3751,7 +3751,7 @@
 				top: 0;
 				width: 100%;
 				z-index: 10001;
-				background: #272833;
+				background: #A688B1;
 				box-shadow: 0 0.125em 0.125em 0 rgba(0, 0, 0, 0.125);
 			}
 
@@ -3825,7 +3825,7 @@
 				top: 0;
 				width: 275px;
 				z-index: 10002;
-				background: #181920;
+				background: #A688B1;
 				padding: 0.75em 1.25em;
 			}
 
