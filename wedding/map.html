@@ -17,42 +17,43 @@ body, button, input, select, textarea {
 }
 </style>
 <script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp"></script>
-<script>
-var infoWin;
-var init = function() {
-    var center = new qq.maps.LatLng(33.0179031723,112.6281324625);
-    var map = new qq.maps.Map(document.getElementById('container'),{
-        center: center,
-        zoom: 13
-    });
-	infoWin = new qq.maps.InfoWindow({
-        map: map
-    });
-	var marker = new qq.maps.Marker({
-                    map:map,
-                    position: center
-                });
-	var anchor = new qq.maps.Point(20, 45),          //icon的地图位置
-                size = new qq.maps.Size(48, 48),     //icon的大小
-                origin = new qq.maps.Point(0, 0),
-                icon = new qq.maps.MarkerImage(
-                    "images/xin.jpeg",              //icon的存储位置
-                    size,
-                    origin,
-                    anchor
-                );
-	infoWin.open();
-	infoWin.setContent('<div style="width:200px;height:180px;padding-top:10px;font-size:16px">'+
-		'<img style="float:left;" src="images/location.png"/></br></br></br></br></br></br></br></br></br></br></br> '+
-		'<a style="color:red;">南阳市天润富瑞阁酒店</a></br>地址：<a style="color:green;">南阳市宛城区迎宾大道6号(南阳大桥东侧路北)</a></div>');
-	infoWin.setPosition(center);
-	marker.setIcon(icon);
-}
-</script>
+<script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp"></script>
+        <script>
+        var infoWin;
+        var init = function() {
+            var center = new qq.maps.LatLng(33.0179031723,112.6281324625);
+            var map = new qq.maps.Map(document.getElementById('container'),{
+                center: center,
+                zoom: 13
+            });
+            infoWin = new qq.maps.InfoWindow({
+                map: map
+            });
+            var marker = new qq.maps.Marker({
+                            map:map,
+                            position: center
+                        });
+            var anchor = new qq.maps.Point(20, 45),          //icon的地图位置
+                        size = new qq.maps.Size(48, 48),     //icon的大小
+                        origin = new qq.maps.Point(0, 0),
+                        icon = new qq.maps.MarkerImage(
+                            "images/xin.jpeg",              //icon的存储位置
+                            size,
+                            origin,
+                            anchor
+                        );
+            infoWin.open();
+            infoWin.setContent('<div style="width:180px;height:150px;padding-top:10px;font-size:16px">'+
+                '<img style="float:left;" src="images/location.jpeg"/></br> '+
+                '<a style="font-size:10pt; color:red;">南阳市天润富瑞阁酒店</a></br>地址：<a style="font-size:10pt; color:green;">南阳市宛城区迎宾大道6号</a></div>');
+            infoWin.setPosition(center);
+            marker.setIcon(icon);
+        }
+        </script>
 </head>
 <body onload="init()">
 
-    <div style="width:420px;height:760px;" id="container"></div>
+    <div style="width:330px;height:330px;" id="container"></div>
 </body>
 
 </html>

@@ -13,9 +13,9 @@
         <link rel="stylesheet" href="assets/css/main.css" />
         <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
         <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-        <bgsound src="SkinnyLove.mp3" loop="-1">
+        <!--<bgsound src="SkinnyLove.mp3" loop="-1">-->
 
-        <script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp"></script>
+        <!--<script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp"></script>
         <script>
         var infoWin;
         var init = function() {
@@ -47,13 +47,13 @@
             infoWin.setPosition(center);
             marker.setIcon(icon);
         }
-        </script>
+        </script>-->
     </head>
     <body class="landing"  onload="init()">
         <!-- onmousewheel="return false;" 禁止使用鼠标滚轮-->
         <audio autoplay="autoplay" height="100" width="100">
             <source src="SkinnyLove.mp3" type="audio/mp3" />
-            <source src="SkinnyLove.ogg" type="audio/ogg" />
+            <!--<source src="SkinnyLove.ogg" type="audio/ogg" />-->
             <embed height="100" width="100" src="SkinnyLove.mp3" />
         </audio>
         <div id="page-wrapper">
@@ -164,8 +164,10 @@
                         </div>
                     </div>
                     -->
-                    <div style="width:300px;height:360px;margin:0 auto;" id="container"></div>
-                <!--</div>-->
+                    <div >
+                    <iframe src="map.html" name="result_display" scrolling="no" height="360px" width="320px" frameborder="0"></iframe>
+                </div>
+                <!--<style="width:320px;height:360px;margin:0 auto;" id="container"/div>-->
             </section>
             
             <!-- Footer -->
