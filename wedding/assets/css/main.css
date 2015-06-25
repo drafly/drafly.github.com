@@ -3566,7 +3566,7 @@
 				}
 
 				.spotlight .goto-next {
-					display: none;
+					display: block;
 				}
 
 		/* Wrapper */
