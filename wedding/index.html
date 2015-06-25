@@ -14,8 +14,43 @@
         <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
         <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
         <bgsound src="SkinnyLove.mp3" loop="-1">
+
+        <script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp"></script>
+        <script>
+        var infoWin;
+        var init = function() {
+            var center = new qq.maps.LatLng(33.0179031723,112.6281324625);
+            var map = new qq.maps.Map(document.getElementById('container'),{
+                center: center,
+                zoom: 13
+            });
+            infoWin = new qq.maps.InfoWindow({
+                map: map
+            });
+            var marker = new qq.maps.Marker({
+                            map:map,
+                            position: center
+                        });
+            var anchor = new qq.maps.Point(20, 45),          //icon的地图位置
+                        size = new qq.maps.Size(48, 48),     //icon的大小
+                        origin = new qq.maps.Point(0, 0),
+                        icon = new qq.maps.MarkerImage(
+                            "images/xin.jpeg",              //icon的存储位置
+                            size,
+                            origin,
+                            anchor
+                        );
+            infoWin.open();
+            infoWin.setContent('<div style="width:250px;height:230px;padding-top:10px;font-size:16px">'+
+                '<img style="float:left;" src="images/location.png"/></br></br></br></br></br></br></br></br></br></br></br> '+
+                '<a style="color:red;">南阳市天润富瑞阁酒店</a></br>地址：<a style="color:green;">南阳市宛城区迎宾大道6号(南阳大桥东侧路北)</a></div>');
+            infoWin.setPosition(center);
+            marker.setIcon(icon);
+        }
+        </script>
     </head>
-    <body class="landing" onmousewheel="return false;">
+    <body class="landing"  onload="init()">
+        <!-- onmousewheel="return false;" 禁止使用鼠标滚轮-->
         <audio autoplay="autoplay" height="100" width="100">
             <source src="SkinnyLove.mp3" type="audio/mp3" />
             <source src="SkinnyLove.ogg" type="audio/ogg" />
@@ -52,7 +87,7 @@
 
             <!-- One -->
             <section id="one" class="spotlight style1 bottom">
-                <span class="image fit main"><img src="images/071.JPG" alt="" /></span>
+                <span class="image fit main"><img src="images/092.JPG" alt="" /></span>
                 <div class="content">
                     <div class="container">
                         <div class="row">
@@ -81,7 +116,7 @@
             
             <!-- Two -->
             <section id="two" class="spotlight style3 left">
-                <span class="image fit main"><img src="images/092.JPG" alt="" /></span>
+                <span class="image fit main"><img src="images/024.JPG" alt="" /></span>
                 <div class="content">
                     <header>
                         <h2>我们的歌</h2>
@@ -98,11 +133,12 @@
             
             <!-- Three -->
             <section id="three" class="wrapper style1 special fade-up">
-                <div class="container">
+                <!--<div class="container">-->
                     <header class="major">
                         <h2>婚礼喜帖</h2>
                         <p>provided by 韩龙飞 &amp; 任君</p>
                     </header>
+                    <!--
                     <div class="box alt">
                         <div class="row uniform">
                             <section class="4u 6u$(medium) 12u$(xsmall)">
@@ -110,6 +146,8 @@
                                 <h3>联系我</h3>
                                 <p>如果需要联系我，请拨13717719031</p>
                             </section>
+                    -->
+                    <!--
                             <section class="4u 6u$(medium) 12u$(xsmall)">
                                 <span class="icon alt major fa-paper-plane" onclick="javascript:window.location.href='map.html'"></span>
                                 <h3>位置</h3>
@@ -122,11 +160,14 @@
                             </section>
                         </div>
                     </div>
-                </div>
+                    -->
+                    <div style="width:420px;height:500px;margin:0 auto;" id="container"></div>
+                <!--</div>-->
             </section>
             
             <!-- Footer -->
             <footer id="footer">
+             <!--
                 <ul class="icons">
                     <li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
                     <li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
@@ -135,6 +176,7 @@
                     <li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
                     <li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
                 </ul>
+            -->
                 <ul class="copyright">
                     <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://www.hanlongfei.com">韩龙飞</a></li>
                 </ul>

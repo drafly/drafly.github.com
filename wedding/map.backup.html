@@ -32,27 +32,16 @@ var init = function() {
                     map:map,
                     position: center
                 });
-	var anchor = new qq.maps.Point(20, 45),          //icon的地图位置
-                size = new qq.maps.Size(48, 48),     //icon的大小
-                origin = new qq.maps.Point(0, 0),
-                icon = new qq.maps.MarkerImage(
-                    "images/xin.jpeg",              //icon的存储位置
-                    size,
-                    origin,
-                    anchor
-                );
 	infoWin.open();
 	infoWin.setContent('<div style="width:250px;height:230px;padding-top:10px;font-size:16px">'+
 		'<img style="float:left;" src="images/location.png"/></br></br></br></br></br></br></br></br></br></br></br> '+
 		'<a style="color:red;">南阳市天润富瑞阁酒店</a></br>地址：<a style="color:green;">南阳市宛城区迎宾大道6号(南阳大桥东侧路北)</a></div>');
 	infoWin.setPosition(center);
-	marker.setIcon(icon);
+	markers.push(marker);
 }
 </script>
 </head>
 <body onload="init()">
-
-    <div style="width:420px;height:760px;" id="container"></div>
+    <div style="width:420px;height:760px" id="container"></div>
 </body>
-
 </html>
