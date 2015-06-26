@@ -63,14 +63,13 @@
                         <div class="row">
                             <div class="4u 12u$(medium)">
                                 <header>
-                                    <h2 style="font-size:16pt; text-align:left;">尊敬的XXX 和 XXX：<br /> 
+                                    <h2 style="font-size:16pt; text-align:left;">尊敬的<span id="zunjingde"></span>：<br /> 
                                         &nbsp; &nbsp; &nbsp; &nbsp; 诚挚的邀请您莅临韩龙飞和任君的结婚典礼！</h2>
                                 </header>
                             </div>
                             <div>
                                 <h2 style="font-size:16pt; text-align:left;">时间：2015年7月18日（星期六） <br />
                                     席设：河南省南阳市天润富瑞阁酒店</h2>
-                                <p style="font-size:16pt; text-align:center;">XXX厅</p>
                             </div>
                             <!--
                             <div class="4u$ 12u$(medium)">
@@ -170,9 +169,27 @@
         <script src="assets/js/jquery.scrollex.min.js"></script>
         <script src="assets/js/skel.min.js"></script>
         <script src="assets/js/util.js"></script>
+		<script src="assets/js/util-cf.js"></script>
+		<script src="assets/js/webutil.js"></script>
         <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
         <script src="assets/js/main.js"></script>
         <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
         <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		
+		<script>
+		user1 = WebUtil.getQueryVar('user1', "");
+		user2 = WebUtil.getQueryVar('user2', "");
+		var zunjing = document.getElementById('zunjingde'); 
+		if(user1 != "" && user2 != ""){
+			zunjing.innerHTML = user1+"和"+user2;
+		}
+		if(user1 != "" && user2 == ""){
+			zunjing.innerHTML = user1;
+		}
+		if(user1 == "" && user2 == ""){
+			zunjing.innerHTML = "来宾";
+		}
+		</script>
+		
     </body>
 </html>
