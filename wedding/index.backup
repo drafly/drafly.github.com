@@ -10,14 +10,44 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-        <link href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="assets/css/main.css" />
         <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
         <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
         <!--<bgsound src="SkinnyLove.mp3" loop="-1">-->
 
-        <!--<script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp"></script>-->
-
+        <!--<script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp"></script>
+        <script>
+        var infoWin;
+        var init = function() {
+            var center = new qq.maps.LatLng(33.0179031723,112.6281324625);
+            var map = new qq.maps.Map(document.getElementById('container'),{
+                center: center,
+                zoom: 13
+            });
+            infoWin = new qq.maps.InfoWindow({
+                map: map
+            });
+            var marker = new qq.maps.Marker({
+                            map:map,
+                            position: center
+                        });
+            var anchor = new qq.maps.Point(20, 45),          //icon的地图位置
+                        size = new qq.maps.Size(48, 48),     //icon的大小
+                        origin = new qq.maps.Point(0, 0),
+                        icon = new qq.maps.MarkerImage(
+                            "images/xin.jpeg",              //icon的存储位置
+                            size,
+                            origin,
+                            anchor
+                        );
+            infoWin.open();
+            infoWin.setContent('<div style="width:180px;height:150px;padding-top:10px;font-size:16px">'+
+                '<img style="float:left;" src="images/location.jpeg"/></br> '+
+                '<a style="font-size:10pt; color:red;">南阳市天润富瑞阁酒店</a></br>地址：<a style="font-size:10pt; color:green;">南阳市宛城区迎宾大道6号</a></div>');
+            infoWin.setPosition(center);
+            marker.setIcon(icon);
+        }
+        </script>-->
     </head>
     <body class="landing"  onload="init()">
         <!-- onmousewheel="return false;" 禁止使用鼠标滚轮-->
@@ -31,11 +61,11 @@
             <!-- Header -->
             <header id="header">
                 <h2 id="logo" style="font-size:18pt; color:purple;">请 &nbsp;&nbsp;&nbsp;柬</a></h2>
-                <nav id="nav">
+                <!--<nav id="nav">
                     <ul>
                         <li><a href="index.html">Home</a></li>
                     </ul>
-                </nav>
+                </nav>-->
             </header>
             
             <!-- Banner -->
@@ -64,13 +94,12 @@
                             <div class="4u 12u$(medium)">
                                 <header>
                                     <h2 style="font-size:16pt; text-align:left;">尊敬的XXX 和 XXX：<br /> 
-                                        &nbsp; &nbsp; &nbsp; &nbsp; 诚挚的邀请您莅临韩龙飞和任君的结婚典礼！</h2>
+                                        诚挚的邀请您莅临韩龙飞和任君的结婚典礼！</h2>
                                 </header>
                             </div>
                             <div>
                                 <h2 style="font-size:16pt; text-align:left;">时间：2015年7月18日（星期六） <br />
-                                    席设：河南省南阳市天润富瑞阁酒店</h2>
-                                <p style="font-size:16pt; text-align:center;">XXX厅</p>
+                                    席设：河南省南阳市天润富瑞阁酒店XXX厅</h2>
                             </div>
                             <!--
                             <div class="4u$ 12u$(medium)">
@@ -91,8 +120,7 @@
                     <header>
                         <h2>我们的歌</h2>
                         <p>一份真正的感情，需要彼此的珍惜；一份执着的守望，需要彼此的用心。<br />
-                        我们想追求的其实很简单，情总在，爱依然～～<br />
-                        幸福到永远！</p>
+                        我们想追求的其实很简单，情总在，爱依然～～</p>
                     </header>
                     <!--<p>小时侯，幸福是一件东西，拥有就幸福；长大后，幸福是一个目标，达到就幸福；现在，我们发现幸福原来是一种心态，领悟就会幸福。愿我们都会幸福永远！</p>-->
                     <ul class="actions">
@@ -104,7 +132,7 @@
             
             <!-- Three -->
             <section id="three" class="wrapper style1 special fade-up">
-                <div class="container">
+                <!--<div class="container">-->
                     <div class="major">
                         <h2>婚礼喜帖</h2>
                         <!--<p>provided by 韩龙飞 &amp; 任君</p>-->
@@ -136,17 +164,14 @@
                         </div>
                     </div>
                     -->
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xs-12" style="height:300px;">
-                                <iframe src="map.html" name="result_display" scrolling="no" height="100%" width="100%" frameborder="0"></iframe>
-                            </div>
-                        </div>
-                    </div>
+                    <div >
+                    <iframe src="map.html" name="result_display" scrolling="no" height="360px" width="320px" frameborder="0"></iframe>
                 </div>
+                <!--<style="width:320px;height:360px;margin:0 auto;" id="container"/div>-->
             </section>
             
             <!-- Footer -->
+            <!--
             <footer id="footer">
                 <ul class="icons">
                     <li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
@@ -156,10 +181,11 @@
                     <li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
                     <li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
                 </ul>
-                <!--<ul class="copyright">
+                <ul class="copyright">
                     <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://www.hanlongfei.com">韩龙飞</a></li>
-                </ul>-->
+                </ul>
             </footer>
+            -->
             
         </div>
         
@@ -172,7 +198,6 @@
         <script src="assets/js/util.js"></script>
         <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
         <script src="assets/js/main.js"></script>
-        <script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
-        <script src="http://cdn.bootcss.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+        
     </body>
 </html>
