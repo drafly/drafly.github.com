@@ -2989,7 +2989,7 @@
 
 		.spotlight.top .content, .spotlight.bottom .content {
 			left: 0;
-			padding: 5.1em 0 3.1em 0;
+			padding: 5.1em 0 2.1em 0;
 			width: 100%;
 		}
 
@@ -3542,7 +3542,9 @@
 
 			.spotlight {
 				background-attachment: scroll;
-				height: auto;
+				height: auto!important;
+				height:100px;
+				min-height:100px;
 			}
 
 				.spotlight .image.main {
