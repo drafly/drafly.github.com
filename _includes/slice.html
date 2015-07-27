@@ -1,0 +1,34 @@
+<!-- jQuery -->
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+    //解决jquery冲突问题
+    //因为博客里还加载了其他的js库，在另外一个js库中也定义了符号的话，那么我们在使用符号时就发生了冲突。
+    //所以在加载jquery时还要解决$命名冲突。
+    //解决jquery$符号命名冲突的问题，可参考http://www.cnblogs.com/RascallySnake/archive/2010/05/07/1729417.html。
+    var nc = jQuery.noConflict();
+    </script>
+
+<div class="flexslider">
+    <ul class="slides">
+        <li><img src="img/slide_1.jpg" /></li>
+        <li><img src="img/slide_2.jpg" /></li>
+        <li><img src="img/slide_3.jpg" /></li>
+        <li><img src="img/slide_4.jpg" /></li>
+        <li><img src="img/slide_5.jpg" /></li>
+    </ul>
+</div>
+
+<!-- FlexSlider -->
+<script src="js/jquery.flexslider.js"></script>
+
+<script type="text/javascript">
+    nc(document).ready(function(){
+                      nc('.flexslider').flexslider({
+                                                   animation: "slide",
+                                                   slideshow: true,
+                                                   animationLoop: true,
+                                                   directionNav: false,
+                                                   controlNav: false
+                                               });
+                   });
+    </script>

@@ -1,14 +1,117 @@
+<!--该网页实现标签云功能-->
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" src="https://raw.github.com/dynamicguy/tagcloud/master/src/tagcloud.jquery.js"></script>
+<script type="text/javascript" src="http://addywaddy.github.io/jquery.tagcloud.js/jquery.tagcloud.0-0-1.js"></script>
 
+<style>
+    /* Mother effin brute force CSS reset... */
+    /* Always include after any other CSS */
+    * {
+        resize: none;
+        border: none;
+        outline: none;
+        text-decoration: none;
+        padding: 0px;
+        margin: 0px;
+        list-style-type: none;
+    }
+</style>
 
-<script type="text/javascript" src="{{ site.url  }}/js/jquery.tagcloud.js"></script>
+<script type="text/javascript">
+    //解决jquery冲突问题
+    //因为博客里还加载了其他的js库，在另外一个js库中也定义了符号的话，那么我们在使用符号时就发生了冲突。
+    //所以在加载jquery时还要解决$命名冲突。
+    //解决jquery$符号命名冲突的问题，可参考http://www.cnblogs.com/RascallySnake/archive/2010/05/07/1729417.html。
+    var jq = jQuery.noConflict();
+    </script>
 
-<div id='tag_cloud'>
-    <h3>Tag Could</h3>
-    
-    <div class="tags">
-        {% for tag in site.tags  %}
-        <a href="{{ site.url  }}/tag/{{ tag[0]  }}/" title="{{ tag[1].size  }} posts" rel="{{ tag[1].size  }}">
-            {{ tag[0] }}</a>
-        {% endfor  %}
+<div id='tagcloud'>
+    <ul>
+        {% for post in site.posts %}
+        <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
+        {% endfor %}
+    </ul>
+</div>
+
+<div id='tag' style="width:290px;">
+    <h3>Tag</h3>
+    <div class="categories">
+        {% for cat in site.categories\%}
+        <a href="/categories.html#{{cat | first}}" rel="{{ cat|last|size  }}">{{cat | first}}</a>
+        {% endfor \%}
     </div>
 </div>
+
+<script type="text/javascript">
+    //实现标签云功能
+    var settings = {
+        //height of sphere container
+        height: 300,
+        //width of sphere container
+        width: 300,
+        //radius of sphere
+        radius: 100,
+        //rotation speed
+        speed: 0.5,
+        //sphere rotations slower
+        slower: 0.9,
+        //delay between update position
+        timer: 5,
+        //dependence of a font size on axis Z
+        fontMultiplier: 15,
+        //tag css stylies on mouse over
+        hoverStyle: {
+            border: 'none',
+            color: '#0b2e6f'
+        },
+        //tag css stylies on mouse out
+        mouseOutStyle: {
+            border: '',
+            color: ''
+        }
+    };
+
+jq(function() {
+   jq('#tagcloud').tagoSphere(settings);
+   });
+    </script>
+
+<script>
+    //实现标签功能
+    jq(function() {
+       jq("#tag a").tagcloud();
+       });
+</script>
+
+ 
+<!--<script type="text/javascript">-->
+<!--    var jq = jQuery.noConflict();-->
+<!--    </script>-->
+<!---->
+<!--<div id='tag_cloud'>-->
+<!--    <h3>分类</h3>-->
+<!--    <div class="categories">-->
+<!--        {% for cat in site.categories\%}-->
+<!--        <a href="/categories.html#{{cat | first}}" rel="{{ cat|last|size  }}">{{cat | first}}</a>-->
+<!--        {% endfor \%}-->
+<!--    </div>-->
+<!--</div>-->
+<!---->
+<!--<script src="/js/jquery.tagcloud.js" type="text/javascript" charset="utf-8"></script>-->
+<!--<script language="javascript">-->
+<!--    jq.fn.tagcloud.defaults = {-->
+<!--        size: {-->
+<!--            start: 12,-->
+<!--            end: 22,-->
+<!--            unit: 'px'-->
+<!--        },-->
+<!--        color: {-->
+<!--            start: '#7CCD7C',-->
+<!--            end: '#CD0000'-->
+<!--        }-->
+<!--    };-->
+<!---->
+<!--jq(function() {-->
+<!--   jq('#tag_cloud a').tagcloud();-->
+<!--   });-->
+<!--    </script>-->
