@@ -5,64 +5,14 @@ tagline: 如果你未曾失败过，说明你的努力还远远不够——做�
 ---
 {% include JB/setup %}
 
-<script type="text/javascript" src="js/tsScroll.min.js"></script>
-
-<script type="text/javascript">
-    tsScroll("demoTop","demoTopGd","up",20);
-    </script>
-
-<script language ="javascript" type ="text/javascript">
-    var  ScrollObj = function (scrollBodyId,scrollBoxId,showHeight,showWidth,lineHeight,stopTime,speed)  {
-        this .obj  =  document.getElementById(scrollBodyId);
-        this .box  =  document.getElementById(scrollBoxId);
-        
-        this .style  =   this .obj.style;
-        this .defaultHeight  =   this .obj.offsetHeight;
-        
-        this .obj.innerHTML  +=   this .obj.innerHTML;
-        this .obj.style.position  =   " relative " ;
-        
-        this .box.style.height  =  showHeight;
-        this .box.style.width  =  showWidth;
-        this .box.style.overflow  =   " hidden " ;
-        
-        this .scrollUp  =  doScrollUp;
-        
-        this .stopScroll  =   false ;
-        
-        this .curLineHeight  =   0 ;
-        this .lineHeight  =  lineHeight;
-        this .curStopTime  =   0 ;
-        this .stopTime  =  stopTime;
-        this .speed  =  speed;
-        
-        this .style.top  =  lineHeight;
-        
-        this .object  =  scrollBodyId  +   " Object " ;
-        eval( this .object  +   " =this " );
-        setInterval( this .object + " .scrollUp() " ,speed);
-        this .obj.onmouseover = new  Function( this .object + " .stopScroll=true " );
-        this .obj.onmouseout = new  Function( this .object + " .stopScroll=false " );
-    }
-function  doScrollUp() {
-    if (  this .stopScroll  ==   true  )
-    return ;
-    this .curLineHeight  +=   1 ;
-    if (  this .curLineHeight  >=   this .lineHeight ) {
-        this .curStopTime  +=   1 ;
-        if (  this .curStopTime  >=   this .stopTime ) {
-            this .curLineHeight  =   0 ;
-            this .curStopTime  =   0 ;
-        }
-    }
-    else {
-        this .style.top  =  parseInt( this .style.top)  -   1 ;
-        if (  - parseInt( this .style.top)  >=   this .defaultHeight ) {
-            this .style.top  =   0 ;
-        }
-    }
-}
-</script>
+<style type="text/css">
+    *{padding:0; margin:0;}
+    #roll{ border:0px solid red;height:230px; margin:10px auto; width:600px; overflow:hidden;list-style:none;}
+    #roll li{height:40px; padding-left:10px;line-height:30px; border-bottom:0px solid #ddd;}
+    a{text-decoration:none;color:#0066CC;}
+    a:hover{ color:#FF0000; text-decoration: underline;}
+    </style>
+<script type="text/javascript" src="tagcloud.js"></script>
 
 <div style="width:1200px; height:300px; margin: 00px 50px 00px 50px">
     <div style="float:left; width:50%"></div>
@@ -73,7 +23,7 @@ function  doScrollUp() {
         <img src="/img/personal.JPG" width="200" height="270" align="left" hspace="20" />
         
         <span style="align: right; margin-left:2em; text-align:justify; font-family: KaiTi; font-weight: bold; line-height:1.5em; overflow:visible; font-size:13pt">
-            这里是韩龙飞的个人主页。目前就读于北京理工大学，2010年入学，博士在读。喜欢折腾些新鲜玩意，但都不深入。热衷于统计学和机器学习方法，喜欢鼓捣R语言和网站开发，提倡分享和开源，努力坚持健身，热爱球类运动。篮球、羽毛球都会一点点，喜欢Huston Rockets，绝对的Gunners。目前，正努力成为一名优秀的博士生，狂热的机器学习极客，称职的老公。愿未来在CMU一切顺利！
+            这里是韩龙飞的个人主页。目前就读于北京理工大学，2010年入学，博士在读。喜欢折腾些新鲜玩意，但都不深入。热衷于统计学和机器学习方法，喜欢鼓捣R语言和网站开发，提倡分享和开源，努力坚持健身，热爱球类运动。篮球、羽毛球都会一点点，喜欢Huston Rockets，绝对的Gunners。目前，正努力成为一名优秀的博士生，机器学习极客，称职的老公。愿未来在CMU一切顺利！
         </span>
     </div>
     
@@ -82,17 +32,104 @@ function  doScrollUp() {
             博客列表
         </span>
         
-        <div id="scrollBox" style="border:1px;">
-            <div id="scrollBody">
-                <ul class="posts" style="font-family: KaiTi; font-weight: bold; font-size: 14pt">
-                    {% for post in site.posts %}
-                    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-        <script language="javascript" type="text/javascript">
-            var sample = new ScrollObj("scrollBody", "scrollBox", 25, 300, 19, 63, 50);
-            </script>
+        
+        <ul class="posts" id="roll" style="float:left; font-family: KaiTi; font-weight: bold; font-size: 14pt">
+            {% for post in site.posts %}
+            <li><!--<span>{{ post.date | date_to_string }}</span> &raquo;--> <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
+            {% endfor %}
+        </ul>
+        {% include category_cloud.html %}
     </div>
 </div>
+
+<div>
+    
+</div>
+
+<div id="whatever">
+    <a href="/path" rel="7">peace</a>
+    <a href="/path" rel="3">unity</a>
+    <a href="/path" rel="10">love</a>
+    <a href="/path" rel="5">having fun</a>
+</div>
+
+<script type="text/javascript">
+    $.fn.tagcloud.defaults = {
+        size: {start: 14, end: 18, unit: 'pt'},
+        color: {start: '#cde', end: '#f52'}
+    };
+
+$(function () {
+  $('#whatever a').tagcloud();
+  });
+    </script>
+
+<script type="text/javascript">
+    (function(A){
+     function _ROLL(obj){
+     this.ele = document.getElementById(obj);
+     this.interval = false;
+     this.currentNode = 0;
+     this.passNode = 0;
+     this.speed = 100;
+     this.childs = _childs(this.ele);
+     this.childHeight = parseInt(_style(this.childs[0])['height']);
+     addEvent(this.ele,'mouseover',function(){
+              window._loveYR.pause();
+              });
+     addEvent(this.ele,'mouseout',function(){
+              window._loveYR.start(_loveYR.speed);
+              });
+     }
+     function _style(obj){
+     return obj.currentStyle || document.defaultView.getComputedStyle(obj,null);
+     }
+     function _childs(obj){
+     var childs = [];
+     for(var i=0;i<obj.childNodes.length;i++){
+     var _this = obj.childNodes[i];
+     if(_this.nodeType===1){
+     childs.push(_this);
+     }
+     }
+     return childs;
+     }
+     function addEvent(elem,evt,func){
+     if(-[1,]){
+		   elem.addEventListener(evt,func,false);
+     }else{
+		   elem.attachEvent('on'+evt,func);
+     };
+     }
+     function innerest(elem){
+     var c = elem;
+     while(c.childNodes.item(0).nodeType==1){
+     c = c.childNodes.item(0);
+     }
+     return c;
+     }
+     _ROLL.prototype = {
+     start:function(s){
+     var _this = this;
+			  _this.speed = s || 100;
+     _this.interval = setInterval(function(){
+                                  _this.ele.scrollTop += 1;
+                                  _this.passNode++;
+                                  if(_this.passNode%_this.childHeight==0){
+                                  var o = _this.childs[_this.currentNode] || _this.childs[0];
+                                  _this.currentNode<(_this.childs.length-1)?_this.currentNode++:_this.currentNode=0;
+                                  _this.passNode = 0;
+                                  _this.ele.scrollTop = 0;
+                                  _this.ele.appendChild(o);
+                                  }
+                                  },_this.speed);
+     },
+     pause:function(){
+     var _this = this;
+     clearInterval(_this.interval);
+     }
+     }
+     A.marqueen = function(obj){A._loveYR = new _ROLL(obj); return A._loveYR;}
+     })(window);
+     marqueen('roll').start(100/*速度默认100*/);
+</script>
