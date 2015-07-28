@@ -25,7 +25,7 @@
     var jq = jQuery.noConflict();
     </script>
 
-<div id='tagcloud'>
+<div id='tagcloud' style="align: center; margin-left:2em;">
     <ul>
         {% for post in site.posts %}
         <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
@@ -33,9 +33,9 @@
     </ul>
 </div>
 
-<div id='tag' style="width:290px;">
-    <h3>Tag</h3>
-    <div class="categories">
+<div id='tag' style="width:80%;">
+    <h3 style="align: center; margin-left:2em; font-family: KaiTi; font-weight: bold; font-size:16pt; color: #0b2e6f;">标签云</h3>
+    <div class="categories" style="align: center; margin-left:2em;">
         {% for cat in site.categories\%}
         <a href="/categories.html#{{cat | first}}" rel="{{ cat|last|size  }}">{{cat | first}}</a>
         {% endfor \%}
