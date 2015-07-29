@@ -29,7 +29,7 @@ tagline: 如果你未曾失败过，说明你的努力还远远不够——做�
                     </td>
                     <td style="padding:10px">
                         <span style="text-align:justify; letter-spacing:0.5px; font-family: KaiTi; font-weight: bold; line-height:1.5em; overflow:visible; font-size:13pt;">
-                        这里是韩龙飞的个人主页。我喜欢折腾些新鲜玩意，但都不深入。热衷于统计学和机器学习方法，喜欢鼓捣R语言和网站开发，提倡分享和开源，努力坚持健身，热爱球类运动。篮球、羽毛球都会一点点，绝对的Gunners。目前，正努力成为一名优秀的博士生，机器学习极客，称职的老公。愿未来在CMU一切顺利！
+                        这里是韩龙飞的个人主页。我喜欢折腾些新鲜玩意，但都不深入。热衷于统计学和机器学习方法，喜欢鼓捣R语言和网站开发，提倡分享和开源，努力坚持健身，热爱球类运动。篮球、羽毛球都会一点点，绝对的Gunner。目前，正努力成为一名优秀的博士生，机器学习极客，称职的老公。愿未来在CMU一切顺利！
                         </span>
                     </td>
                 </tr>
