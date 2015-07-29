@@ -5,7 +5,7 @@
       {{ page.content | truncatewords: 250 }}
       {% endcapture %}
       {% if page.content != truncated_content %}
-      {{ page.content | number_of_words | divided_by:45 | append: 'min' }}
+      {{ page.content | number_of_words | divided_by:30 | append: 'min' }}
       {% endif %}</h3>
 </div>
 
