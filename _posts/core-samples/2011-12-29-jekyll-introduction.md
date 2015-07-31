@@ -1,6 +1,6 @@
 ---
 layout: post
-category : Jekyll-Bootstrap
+category : "博客搭建"
 tagline: "Supporting tagline"
 tags : [jekyll, tutorial]
 ---
