@@ -1,11 +1,11 @@
 <div class="page-header">
   <h1>{{ page.title }} {% if page.tagline %}<small>{{page.tagline}}</small>{% endif %}</h1>
-  <h3>预计阅读需要时间：
+  <h3>预计需要阅读时间：
       {% capture truncated_content %}
       {{ page.content | truncatewords: 250 }}
       {% endcapture %}
       {% if page.content != truncated_content %}
-      {{ page.content | number_of_words | divided_by:30 | append: 'min' }}
+      {{ content | strip_html | strip_newlines | size | divided_by:150 | append: 'min' }}
       {% endif %}</h3>
 </div>
 

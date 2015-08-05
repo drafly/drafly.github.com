@@ -2,7 +2,7 @@
 layout: post
 title: "凸优化——真锥和分割超平面"
 description: ""
-category: "Optimization"
+category: "凸优化"
 tags: [机器学习, 凸优化]
 ---
 {% include JB/setup %}
