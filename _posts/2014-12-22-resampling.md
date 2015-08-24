@@ -3,6 +3,7 @@ layout: post
 title: "R语言——重采样"
 description: ""
 category: "Statistical Computing with R"
+analytics: true
 tags: [R]
 ---
 {% include JB/setup %}

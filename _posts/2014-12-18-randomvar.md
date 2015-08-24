@@ -4,6 +4,7 @@ title: "R语言——随机变量生成"
 description: ""
 category: "Statistical Computing with R"
 tags: [R]
+analytics: true
 ---
 {% include JB/setup %}
 

@@ -3,6 +3,7 @@ layout: post
 title: "R语言——核密度估计"
 description: ""
 category: "Statistical Computing with R"
+analytics: true
 tags: [R]
 ---
 {% include JB/setup %}

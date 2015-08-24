@@ -4,6 +4,7 @@ title: "R语言——数据类型"
 description: ""
 category: "Statistical Computing with R"
 tags: [R]
+analytics: true
 ---
 {% include JB/setup %}
 <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>

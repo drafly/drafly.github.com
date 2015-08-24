@@ -3,6 +3,7 @@ layout: post
 title: "R语言——置换检验"
 description: ""
 category: "Statistical Computing with R"
+analytics: true
 tags: [R]
 ---
 {% include JB/setup %}

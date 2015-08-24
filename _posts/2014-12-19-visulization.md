@@ -4,6 +4,7 @@ title: "R语言——数据可视化"
 description: ""
 category: "Statistical Computing with R"
 tags: [R]
+analytics: true
 ---
 {% include JB/setup %}
 ### 1. 数据可视化
