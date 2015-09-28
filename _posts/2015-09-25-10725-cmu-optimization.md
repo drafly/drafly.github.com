@@ -10,11 +10,11 @@ tags: [凸优化, CMU10725]
 ### 1. 凸优化问题
 优化问题的定义为：
 
-$$
-min_{x \in D} f(x) \\\
-subject \; to \quad g_i(x) \leq 0, \quad i=1, \ldots, m \\\
-h_j(x)=0, \, j=1, \ldots, r
-$$
+$$min_{x \in D} f(x)$$
+
+$$subject \; to \, g_i(x) \leq 0, \, i=1, \ldots, m$$
+
+$$h_j(x)=0, \, j=1, \ldots, r$$
 
 其中，$$D=dom(f) \cap \bigcap_{i=1}^m dom(g_i) \cap \bigcap_{j=1}^pdom(h_j)$$。
 
@@ -32,14 +32,84 @@ $$
 
 凸优化问题相对优化问题的定义而言，要求函数$$f$$和$$g_i(x)$$是凸函数，$$h_j(x)=a_j^Tx+b_j$$是仿射函数($$Ax+b=0$$)。
 
-对于仿射集和凸集的差别在[凸优化－凸集](http://www.hanlongfei.com/凸优化/2015/05/22/convexset/)一文也做了分析，二者的差别就在于凸集是线段而仿射集是直线（一维情况下）。
+对于仿射集和凸集的差别在[凸优化－凸集](http://www.hanlongfei.com/凸优化/2015/05/22/convexset/)一文也做了分析，二者的差别就在于凸集是线段而仿射集是直线（一维情况下）。很明显，求解凸函数的极小值（convex minimization）和凹函数的极大值（concave maximization）都是凸优化问题（convex optimization problem）。
 
-很明显，求解凸函数的极小值（convex minimization）和凹函数的极大值（concave maximization）都是凸优化问题（convex optimization problem）。
+### 2. 凸优化解的集合
+我们定义凸优化解的集合（*Convex solution sets*）为$$X_{opt}$$，记为：
 
-对于凸优化问题，凸函数有一个特别的性质，即局部最优解是全剧最优解，即如果$$x \in D$$，同时$$x$$满足所有约束，那么对于局部$$y,\parallel x-y \parallel_2 \leq \rho$$，当$$f(x) \leq f(y)$$时，对于所有可行解$$y, f(x) \leq f(y)$$。这就意味着在优化求解过程中可以省略很多麻烦～
+\begin{aligned}
+X_{opt} = \quad & argmin \, f(x) \\\
+& subject \, to \, g_i(x) \leq 0, \, i=1, \ldots, m\\\
+& Ax=b
+\end{aligned}
+
+1. 凸优化解的集合有一个关键性质就是凸优化解的集合必为凸集。因为，如果凸优化问题不存在最优解，那么解空间为空集，为凸集；如果凸优化问题仅存在一个解，那必定为多维上的一点，而空间上的一点属于凸集；如果存在两个解，那么必定存在一条线段或者一个平面的解的集合，而线段或者平面都是凸集。接下来，就证明为什么存在两个解，就必然会存在多个解：
+
+证明：假设$$x,y$$都是优化问题的解，那么对于$$\forall \theta$$，其中$$1 \leq \theta \leq 1$$，则：
+
+* $$g_i(\theta x + (1 - \theta)y) \leq \theta g_i(x)+(1-\theta)g_i(y) \leq 0$$;
+
+* $$A(\theta x + (1 - \theta)y)=\thetaAx+(1-\theta)Ay=b$$;
+
+* $$f(\theta x + (1 - \theta)y) \leq \theta f(x) + (1-\theta)f(y) = \theta f_{\ast} + (1-\theta)f_{\ast}=f_{\ast}$$
+
+因此，点$$\theta x + (1 - \theta)y$$也是优化问题$$argmin \, f(x)$$的一个解，所以点$$x,y$$之间必然存在两点连线上的任意点都是优化问题的最优解。故，凸优化问题解的集合为凸集。也就意味着如果凸优化问题存在两个包含两个以上的解时，那么其必定包含无数个解。对于这一点，其实不是特别好想象。
+
+2. 凸优化解的集合还有另外一个性质就是：如果优化函数为严格凸函数，那么它的最优解必是唯一的，即解空间$$X_{opt}$$只包含一个元素，如二次优化问题。
+
+### 3. 凸优化问题实例：LASSO
+熟悉机器学习算法里面的线性回归或者逻辑回归的同学因该明白LASSO问题，其定义为：
+
+$$\min \limits_{\beta \in \mathbb{R}^p} \parallel y-X\beta \parallel_2^2 \\\
+subject \, to \quad \parallel \beta \parallel_1 \leq s$$
+
+LASSO是Tibshirani（对就是Tibshirani）在1996年JRSSB上的一篇文章上《Regression shrinkage and selection via lasso》提出的。所谓lasso，其全称是*least absolute shrinkage and selection operator*，其含义是在限制了$$\sum \parallel \beta \parallel_1 \leq s$$的情况下，求使得残差平和达到最小的参数的估值。Tibshirani指出，对于回归算法，当$$s$$足够小的时候，会使得某些回归系数的估值是0，可以起到变量选择的作用，是逐步回归的一种表现。
+
+因此，对于LASSO算法，其是否是凸优化问题？它的解集合是否是唯一的点？
+
+答案是，LASSO问题是凸优化问题，因为$$f(x)=\parallel y-X\beta \parallel_2^2$$和$$g(x)=\parallel \beta \parallel_1 - s$$均是凸函数，因此该问题为凸优化问题；如果样本数目$$n$$大于特征数目$$p$$，且X满秩，那么$$\nabla^2 f(\beta)=2X^T X \succeq 0$$，关于$$\beta$$二阶微分恒为半正定*p.s.d.*，因此，解是唯一的；但是，如果样本数目$$n$$小于特征数目$$p$$，那么会造成高维特征空间上的维数灾难问题，此时，X为奇异矩阵，则解不唯一。
+
+另一个实例是SVM算法，SVM算法的理论部分我就不多介绍了，会在机器学习算法篇章中对SVM做着重介绍，如果我们记SVM为：
+
+$$\min \limits_{\beta, \beta_0, \xi} \quad \frac{1}{2}\parallel \beta \parallel_2^2 + C \sum_{i=1}^n \xi_i \\\
+subject \, to \quad \xi_i \geq 0, \, i=1, \ldots, n\\\
+y_i(x_i^T \beta+\beta_0) \geq 1-\xi_i, \, i=1,\ldots,n$$
+
+其中，$$\frac{1}{\parallel \beta \parallel}$$为下图两个虚线边界的距离，$$\xi$$为引入分类错误的代价，代表下图错分样本点距正确分类边界的距离。具体如下图：
+
+<div align="center">
+<img src="/img/R/cmu10725/svm.jpg" width="300"/>
+</div>
+
+那么，该问题是否为凸优化问题呢？它的解是否是唯一？
+
+答案是，SVM目标函数是凸优化问题，但是，它的解并不唯一，因为它不是严格凸函数。有兴趣的同学可以留言来解释为什么SVM是凸优化问题！
+
+### 4. 局部最小值就是全局最小值
+局部最优解的定义为：如果$$\exists \, R > 0$$，使得$$f(x) \leq f(y)$$，其中*y*满足$$\parallel x-y \parallel_2 \leq R$$，则点*x*为优化问题的局部最优解（*locally optimal*）。
+
+对于凸优化问题，凸函数有一个特别的性质，即局部最优解是全剧最优解（*local minima are global minima*），即如果$$x \in D$$，同时$$x$$满足所有约束，那么对于局部$$y,\parallel x-y \parallel_2 \leq \rho$$，当$$f(x) \leq f(y)$$时，对于所有可行解$$y, f(x) \leq f(y)$$。相反，非凸优化问题则不具有该性质，如下图所示。
 
 <div align="center">
 <img src="/img/R/cmu10725/localminima.jpg" width="300"/>
 </div>
 
-未完待续。。。
+那么我们需要证明的是为什么凸优化问题的局部最优值就是全局最优值？
+
+证明：这里，我们采用反证法来证明该理论，假设*x*为凸优化问题的局部最优解，意味着函数在$$\rho$$范围内的点的值都小于$$f(x)$$。如果我们假设定理是错误的，那么必然存在一点$$z$$，使得$$f(z) < f(x)$$，且$$\parallel z-x \parallel_2 > \rho$$。
+
+此时，假设存在一点$$y$$，使得$$y=tz+(1-t)x$$，其中$$t \in [0,1]$$，那么：
+
+* $$y \in D$$，因为$$x \in D$$，同时$$z \in D$$，二者线性组合也必然存在于D；
+
+* $$g_i(y)=tg_i(z)+(1-t)g_i(x) \leq 0$$，因为$$g_i(z)，g_i(x) \leq 0$$；
+
+* $$h_i(j)=a_j^T(tz+(1-t)x)+b_j=a_j^T(tz+(1-t)x)+tb_j+(1-t)b_j=0$$。
+
+因此，意味着$$y$$同样也是是凸优化问题的可行解。
+
+然后，因为点$$y$$在$$t \in [0,1]$$内均成立，所以我们可以假设$$t$$足够小，但大于0，使得$$y$$可以落在点$$x$$以$$\rho$$为半径的圆内，这时，对于凸优化问题中可行解的两个点$$z,x$$之间的点$$y$$，我们可以得到如下公式：
+
+$$f(y) \leq tf(z) + (1-t)f(x)$$
+
+又因为$$t \rightarrow 0$$，且之前假设$$f(z) < f(x)$$，所以$$tf(z) < tf(x)$$，因此$$f(y) < f(x)$$，这就与之前最开始假设x为局部最优解的定义相违背，因此，我们最终证明得到*local minima are global minima*。
