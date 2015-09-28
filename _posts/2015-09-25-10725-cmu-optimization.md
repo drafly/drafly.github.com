@@ -49,7 +49,7 @@ X_{opt} = \quad & argmin \, f(x) \\\
 
 * $$g_i(\theta x + (1 - \theta)y) \leq \theta g_i(x)+(1-\theta)g_i(y) \leq 0$$;
 
-* $$A(\theta x + (1 - \theta)y)=\thetaAx+(1-\theta)Ay=b$$;
+* $$A(\theta x + (1 - \theta)y)=\theta Ax+(1-\theta)Ay=b$$;
 
 * $$f(\theta x + (1 - \theta)y) \leq \theta f(x) + (1-\theta)f(y) = \theta f_{\ast} + (1-\theta)f_{\ast}=f_{\ast}$$
 
@@ -113,3 +113,21 @@ y_i(x_i^T \beta+\beta_0) \geq 1-\xi_i, \, i=1,\ldots,n$$
 $$f(y) \leq tf(z) + (1-t)f(x)$$
 
 又因为$$t \rightarrow 0$$，且之前假设$$f(z) < f(x)$$，所以$$tf(z) < tf(x)$$，因此$$f(y) < f(x)$$，这就与之前最开始假设x为局部最优解的定义相违背，因此，我们最终证明得到*local minima are global minima*。
+
+### 5. 凸优化问题的一些trick
+1. First-order optimality condition：对于凸优化问题$$min \, f(x) \quad subject \, to \, x \in C$$，如果函数$$f$$可微，那么当且仅当$$\nabla f(x)^T (y-x) \geq 0 \quad \forall y \in C$$，可行解（feasible point）$$x$$为最优解。
+
+1. Partial optimization：如果$$x=(x_1,x_2) \in \mathbb{R}^{n_1+n_2}$$那么优化问题$$\min \limits_{x_1,x_2} f(x_1,x_2) \quad s.t. \, g_1(x) \leq 0, \, g_2(x_2) \leq 0$$等价于$$\min \limits_{x_1} \tilde{f}(x_1) \quad s.t. \, g_1(x_1) \leq 0$$，其中$$\tilde{f}(x_1)=min\{ f(x_1,x_2):g_2(x_2) \leq 0 \}$$；
+
+SVM采用的hinge loss就是利用的partial optimization的思想。如果我们把SVM优化问题的目标函数记为：
+
+$$\min \limits_{\beta,\beta_0,\xi} \quad \frac{1}{2}\parallel \beta \parallel_2^2 + C \sum_{i=1}^n \xi_i \\\
+subject \, to \quad \xi_i \geq 0, \, y_i(x_i^T \beta + \beta_0) \geq 1-\xi_i$$
+
+那么我们可以将约束改写为$$\xi_i \geq max\{0, \, 1-y_i(x_i^T \beta + \beta_0) \}$$，SVM在优化过程中选用的hinge form就是将约束中的**大于等于**改写为**等于**，即$$\xi_i = max \{ 0, \, 1-y_i(x_i^T \beta + \beta_0) \}$$，因此，优化目标函数就变为：
+
+$$\min \limits_{\beta,\beta_0} \quad \frac{1}{2}\parallel \beta \parallel_2^2+C \sum_{i=1}^n[1-y_i(x_i^T \beta + \beta_0)]_+$$
+
+上式就是SVM求解目标函数的最终形式，可称为hinge form of SVMs。
+
+3. Transformations of variables：如果函数$$h$$为单调递增函数，那么凸优化问题$$min\, f(x), \, subject\, to\, x \in C \Longleftrightarrow min \, h(f(x)), \, subject\, to\, x \in C$$；优化方法中的最大似然估计MLE就采用*log*函数对目标函数进行变换，就是采用的这个思想。
