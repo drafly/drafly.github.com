@@ -10,11 +10,11 @@ tags: [凸优化, CMU10725]
 ### 1. 凸优化问题
 优化问题的定义为：
 
-$$min_{x \in D} f(x)$$
-
-$$subject \; to \, g_i(x) \leq 0, \, i=1, \ldots, m$$
-
-$$h_j(x)=0, \, j=1, \ldots, r$$
+\begin{split}
+\min \limits_{x \in D} \quad & f(x) \\\
+subject \, to \quad & g_i(x) \leq 0, \, i=1, \ldots, m \\\
+& h_j(x)=0, \, j=1, \ldots, r
+\end{split}
 
 其中，$$D=dom(f) \cap \bigcap_{i=1}^m dom(g_i) \cap \bigcap_{j=1}^pdom(h_j)$$。
 
@@ -60,8 +60,10 @@ X_{opt} = \quad & argmin \, f(x) \\\
 ### 3. 凸优化问题实例：LASSO
 熟悉机器学习算法里面的线性回归或者逻辑回归的同学因该明白LASSO问题，其定义为：
 
-$$\min \limits_{\beta \in \mathbb{R}^p} \parallel y-X\beta \parallel_2^2 \\\
-subject \, to \quad \parallel \beta \parallel_1 \leq s$$
+\begin{split}
+\min \limits_{\beta \in \mathbb{R}^p} \quad & \parallel y-X\beta \parallel_2^2 \\\
+subject \, to \quad & \parallel \beta \parallel_1 \leq s
+\end{split}
 
 LASSO是Tibshirani（对就是Tibshirani）在1996年JRSSB上的一篇文章上《Regression shrinkage and selection via lasso》提出的。所谓lasso，其全称是*least absolute shrinkage and selection operator*，其含义是在限制了$$\sum \parallel \beta \parallel_1 \leq s$$的情况下，求使得残差平和达到最小的参数的估值。Tibshirani指出，对于回归算法，当$$s$$足够小的时候，会使得某些回归系数的估值是0，可以起到变量选择的作用，是逐步回归的一种表现。
 
@@ -71,9 +73,11 @@ LASSO是Tibshirani（对就是Tibshirani）在1996年JRSSB上的一篇文章上�
 
 另一个实例是SVM算法，SVM算法的理论部分我就不多介绍了，会在机器学习算法篇章中对SVM做着重介绍，如果我们记SVM为：
 
-$$\min \limits_{\beta, \beta_0, \xi} \quad \frac{1}{2}\parallel \beta \parallel_2^2 + C \sum_{i=1}^n \xi_i \\\
-subject \, to \quad \xi_i \geq 0, \, i=1, \ldots, n\\\
-y_i(x_i^T \beta+\beta_0) \geq 1-\xi_i, \, i=1,\ldots,n$$
+\begin{split}
+\min \limits_{\beta, \beta_0, \xi} \quad & \frac{1}{2}\parallel \beta \parallel_2^2 + C \sum_{i=1}^n \xi_i \\\
+subject \, to \quad & \xi_i \geq 0, \, i=1, \ldots, n\\\
+& y_i(x_i^T \beta+\beta_0) \geq 1-\xi_i, \, i=1,\ldots,n
+\end{split}
 
 其中，$$\frac{1}{\parallel \beta \parallel}$$为下图两个虚线边界的距离，$$\xi$$为引入分类错误的代价，代表下图错分样本点距正确分类边界的距离。具体如下图：
 
@@ -121,21 +125,27 @@ $$\nabla f(x)^T (y-x) \geq 0 \quad \forall y \in C$$
 
 * *Partial optimization*：如果$$x=(x_1,x_2) \in \mathbb{R}^{n_1+n_2}$$，那么优化问题
 
-$$\min \limits_{x_1,x_2} f(x_1,x_2) \\\
-s.t. \, g_1(x) \leq 0, \\\
-\quad g_2(x_2) \leq 0$$
+\begin{split}
+\min \limits_{x_1,x_2} \quad & f(x_1,x_2) \\\
+s.t. \quad & g_1(x) \leq 0, \\\
+& g_2(x_2) \leq 0
+\end{split}
 
 &emsp;&emsp;&emsp;&emsp;等价于：
 
-$$\min \limits_{x_1} \tilde{f}(x_1) \\\ 
-s.t. \, g_1(x_1) \leq 0$$
+\begin{split}
+\min \limits_{x_1} \quad & \tilde{f}(x_1) \\\ 
+s.t. \quad & g_1(x_1) \leq 0
+\end{split}
 
 &emsp;&emsp;&emsp;&emsp;其中$$\tilde{f}(x_1)=min\{ f(x_1,x_2):g_2(x_2) \leq 0 \}$$；
 
 &emsp;&emsp;&emsp;&emsp;SVM采用的*hinge loss*就是利用的*partial optimization*的思想。如果我们把SVM优化问题的目标函数记为：
 
-$$\min \limits_{\beta,\beta_0,\xi} \quad \frac{1}{2}\parallel \beta \parallel_2^2 + C \sum_{i=1}^n \xi_i \\\
-subject \, to \quad \xi_i \geq 0, \, y_i(x_i^T \beta + \beta_0) \geq 1-\xi_i$$
+\begin{split}
+\min \limits_{\beta,\beta_0,\xi}  \quad & \frac{1}{2}\parallel \beta \parallel_2^2 + C \sum_{i=1}^n \xi_i \\\
+subject \, to \quad & \xi_i \geq 0, \, y_i(x_i^T \beta + \beta_0) \geq 1-\xi_i
+\end{split}
 
 &emsp;&emsp;&emsp;&emsp;那么我们可以将约束改写为$$\xi_i \geq max\{0, \, 1-y_i(x_i^T \beta + \beta_0) \}$$，SVM在优化过程中选用的*hinge form*就是将约束中的**大于等于**改写为**等于**，即:
 
@@ -162,3 +172,47 @@ subject\, to \quad & s_i \geq 0, i=1,\ldots,m\\\
 & g_i(x)+s_i=0, i=1,\ldots,m\\\
 & Ax=b
 \end{split}
+
+&emsp;&emsp;&emsp;&emsp;SVM算法都引入*slack variables*来允许训练误差的出现，防止模型过拟合。
+
+### 5. 凸优化问题分类
+凸优化问题根据目标函数和约束函数的形式分为：
+
+* *linear programs*：线性规划；
+* *Quadratic programs*：二次规划；
+* *Semidefinite programs*：半正定规划；
+* *Cone programs*：锥规划。
+
+Ryan教授给了一个非常形象的例子来解释凸优化问题在优化问题领域的位置，以及以上几种优化问题间的关联关系，如下图：
+
+<div align="center">
+<img src="/img/R/cmu10725/classification.jpg" width="300"/>
+</div>
+
+线性规划问题（*LPs*）定义是优化问题满足以下形式，线性规划的实例包括*diet problem, transportation problem, basis pursuit和Dantzig selector*等：
+
+\begin{split}
+\min \limits_{x} \quad & c^Tx \\\
+subject \, to \quad & Dx \leq d \\\
+& Ax =b
+\end{split}
+
+二次规划问题（*QPs*）定义是优化问题满足以下形式，二次规划的实例包括*portfolio optimization, lasso, SVM*等：
+
+\begin{split}
+\min \limits_{x} \quad & C^Tx+\frac{1}{2}x^TQx \\\
+subject \, to \quad & Dx \leq d \\\
+&Ax=b
+\end{split}
+
+其中，$$Q \succeq 0$$是半正定。这里需要注意的是，当Q不是半正定的时候，上述问题则不属于凸优化问题。同样，当$$Q=0$$时，二次规划问题就变为线性规划问题。
+
+半正定规划问题（*SDPs*）定义是优化问题满足以下形式：
+
+\begin{split}
+\min \limits_{x} \quad & c^Tx \\\
+subject \, tp \quad & x_1F_1+\ldots +x_nF_n \succeq F_0 \\\
+&Ax=b
+\end{split}
+
+其中，$$F_j in \mattbb{S}^d$$，同时，$$A \in \mathbb{R^{m \times n}$$。从上面的定义可以看出，和线性规划的定义基本一样，这里SDPs要求$$F_j$$为矩阵，而LPs为向量，所以线性规划一定隶属于半正定规划的一个特例。
