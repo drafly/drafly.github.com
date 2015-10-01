@@ -186,7 +186,7 @@ subject\, to \quad & s_i \geq 0, i=1,\ldots,m\\\
 Ryan教授给了一个非常形象的例子来解释凸优化问题在优化问题领域的位置，以及以上几种优化问题间的关联关系，如下图：
 
 <div align="center">
-<img src="/img/R/cmu10725/classification.jpg" width="300"/>
+<img src="/img/R/cmu10725/classification.jpg" width="500"/>
 </div>
 
 线性规划问题（*LPs*）定义是优化问题满足以下形式，线性规划的实例包括*diet problem, transportation problem, basis pursuit和Dantzig selector*等：
@@ -215,4 +215,4 @@ subject \, tp \quad & x_1F_1+\ldots +x_nF_n \succeq F_0 \\\
 &Ax=b
 \end{split}
 
-其中，$$F_j in \mattbb{S}^d$$，同时，$$A \in \mathbb{R^{m \times n}$$。从上面的定义可以看出，和线性规划的定义基本一样，这里SDPs要求$$F_j$$为矩阵，而LPs为向量，所以线性规划一定隶属于半正定规划的一个特例。
+其中，$$F_j \in \mathbb{S}^d$$，同时，$$A \in \mathbb{R}^{m \times n}$$。从上面的定义可以看出，和线性规划的定义基本一样，这里SDPs要求$$F_j$$为矩阵，而LPs为向量，所以线性规划一定隶属于半正定规划的一个特例。
