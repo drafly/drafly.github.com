@@ -74,7 +74,7 @@ LASSO是Tibshirani（对就是Tibshirani）在1996年JRSSB上的一篇文章上�
 另一个实例是SVM算法，SVM算法的理论部分我就不多介绍了，会在机器学习算法篇章中对SVM做着重介绍，如果我们记SVM为：
 
 \begin{split}
-\min \limits_{\beta, \beta_0, \xi} \quad & \frac{1}{2}\parallel \beta \parallel_2^2 + C \sum_{i=1}^n \xi_i \\\
+\min \limits_{\beta, \beta_0, \xi} \quad & \frac{1}{2}\parallel \beta \parallel_2^2 + C \sum_i^n \xi_i \\\
 subject \, to \quad & \xi_i \geq 0, \, i=1, \ldots, n\\\
 & y_i(x_i^T \beta+\beta_0) \geq 1-\xi_i, \, i=1,\ldots,n
 \end{split}
