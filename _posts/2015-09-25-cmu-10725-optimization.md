@@ -143,7 +143,7 @@ s.t. \quad & g_1(x_1) \leq 0
 &emsp;&emsp;&emsp;&emsp;SVM采用的*hinge loss*就是利用的*partial optimization*的思想。如果我们把SVM优化问题的目标函数记为：
 
 \begin{split}
-\min \limits_{\beta,\beta_0,\xi}  \quad & \frac{1}{2}\parallel \beta \parallel_2^2 + C \sum_{i=1}^n \xi_i \\\
+\min \limits_{\beta,\beta_0,\xi}  \quad & \frac{1}{2}\parallel \beta \parallel_2^2 + C \sum_i^n \xi_i \\\
 subject \, to \quad & \xi_i \geq 0, \, y_i(x_i^T \beta + \beta_0) \geq 1-\xi_i
 \end{split}
 
