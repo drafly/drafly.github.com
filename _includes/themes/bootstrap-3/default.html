@@ -65,7 +65,11 @@
             </ul>
             
             <form class="navbar-form navbar-right" role="search">
-                <ul class="navbar-form navbar-right">
+                <ul >
+                    
+                </ul>
+                <ul class="navbar-form navbar-right" id="busuanzi_container_site_uv">
+                    总访问量<span id="busuanzi_value_site_uv"></span>人次 &nbsp;&nbsp;
                     最近更新日期：{{ site.time | date_to_string }}
                 </ul>
             </form>
@@ -92,5 +96,6 @@
 <!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="{{ ASSET_PATH }}/bootstrap/js/bootstrap.min.js"></script>
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   </body>
 </html>
