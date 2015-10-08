@@ -13,7 +13,10 @@
       {{ content | strip_html | strip_newlines | size | divided_by:150 | append: '分钟' }}
       {% endif %}
   </h3>
-   </div>
+   <h3 id="busuanzi_container_page_pv style="display: yes;">
+      总计阅读次数：<span id="busuanzi_value_page_pv"></span>次</h3>
+
+</div>
 
   
 
@@ -25,9 +28,6 @@
     <div class="date">
       <span>{{ page.date | date_to_long_string }}</span> 
     </div>
-    <span id="busuanzi_container_page_pv style="display: yes;">
-      总计阅读次数：<span id="busuanzi_value_page_pv"></span>次
-    </span>
 
     <div class="content">
       {{ content }}
