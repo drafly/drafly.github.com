@@ -4,15 +4,17 @@
 
 <div class="page-header">
   <h1>{{ page.title }} {% if page.tagline %}<small>{{page.tagline}}</small>{% endif %}</h1>
-  <h3 id="busuanzi_container_page_pv">预计阅读时间：
+  <h3>
+      预计阅读时间：
       {% capture truncated_content %}
       {{ page.content | truncatewords: 250 }}
       {% endcapture %}
       {% if page.content != truncated_content %}
       {{ content | strip_html | strip_newlines | size | divided_by:150 | append: '分钟' }}
-      {% endif %}</h3>
+      {% endif %}
+  </h3>
   
-  <h3 >
+  <h3 id="busuanzi_container_page_pv">
       总计阅读次数：<span id="busuanzi_value_page_pv"></span>次
   </h3>
 </div>
