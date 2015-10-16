@@ -129,12 +129,11 @@ $$\parallel x^{(k+1)} - x^{\ast} \parallel_2^2 \leq \parallel x^{(k)}-x^{\ast} \
 
 对于任意$$k=1,2,\ldots, K$$，求和上式可以获得：
 
-\begin{equation}
 \begin{split}
 \sum_{k=1}^K (\parallel x^{(k+1)} - x^{\ast} \parallel_2^2 - \parallel x^{(k)} - x^{\ast} \parallel_2^2) & = \parallel x^{(k+1)} - x^{\ast} \parallel_2^2 - \parallel x^{(1)} - x^{\ast} \parallel_2^2 \\\
 & \leq -2t \sum_{i=1}^k (f(x^{(i)}) - f^{\ast}) + \sum_{i=1}^k t^2 \parallel g^{(i)} \parallel_2^2
 \end{split}
-\end{equation}
+
 
 因为，$$\parallel x^{(k+1)} - x^{\ast} \parallel_2^2 \geq 0$$，所以：
 
