@@ -142,12 +142,8 @@ $$2t \sum_{i=1}^k (f(x^{(i)}) - f^{\ast}) \leq \parallel x^{(1)} - x^{\ast} \par
 
 如果令$$f(x_{best}^{k})$$为迭代$$k$$次内的最优解，那么$$f(x_{best}^{(k)}) \leq f(x^{(i)})$$，其中，$$i=1,2,\ldots,k$$，因此：
 
-\begin{equation}
-\begin{split}
-2tk(f(x_{best}^{(k)}) - f^{\ast}) = 2t \sum (f(x_{best}^{(k)}) - f^{\ast})
-\leq 2t \sum (f(x^{(i)}) - f^{\ast}) 
-\end{split}
-\end{equation}
+$$2tk(f(x_{best}^{(k)}) - f^{\ast}) = 2t \sum (f(x_{best}^{(k)}) - f^{\ast})
+\leq 2t \sum (f(x^{(i)}) - f^{\ast}) \leq \parallel x^{(1)} - x^{\ast} \parallel_2^2 + \sum t^2 \parallel g^{(i)} \parallel_2^2$$
 
 所以，我们可以得到$$f(x_{best}^{(k)}) - f^{\ast} \leq \frac{\parallel x^{(1)} - x^{\ast} \parallel_2^2 + \sum_{i=1}^k t^2 \parallel g^{(i)} \parallel_2^2}{2tk}$$
 
