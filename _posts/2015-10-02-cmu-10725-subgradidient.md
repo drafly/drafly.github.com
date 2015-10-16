@@ -144,8 +144,9 @@ $$2t \sum_{i=1}^k (f(x^{(i)}) - f^{\ast}) \leq \parallel x^{(1)} - x^{\ast} \par
 
 \begin{equation}
 \begin{split}
-2tk(f(x_{best}^{(k)}) - f^{\ast}) & = 2t \sum (f(x_{best}^{(k)}) - f^{\ast}) \\\
-& \leq 2t \sum (f(x^{(i)}) - f^{\ast}) 
+2tk(f(x_{best}^{(k)}) - f^{\ast}) = 2t \sum (f(x_{best}^{(k)}) - f^{\ast}) \\\
+\leq 2t \sum (f(x^{(i)}) - f^{\ast}) \\\
+\leq \parallel x^{(1)} - x^{\ast} \parallel_2^2 + \sum t^2 \parallel g^{(i)} \parallel_2^2
 \end{split}
 \end{equation}
 
