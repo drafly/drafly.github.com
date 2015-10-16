@@ -131,7 +131,7 @@ $$\parallel x^{(k+1)} - x^{\ast} \parallel_2^2 \leq \parallel x^{(k)}-x^{\ast} \
 
 \begin{equation}
 \begin{split}
-\sum_{k=1}^k (\parallel x^{(k+1)} - x^{\ast} \parallel_2^2 - \parallel x^{(k)} - x^{\ast} \parallel_2^2) & = \parallel x^{(k+1)} - x^{\ast} \parallel_2^2 - \parallel x^{(1)} - x^{\ast} \parallel_2^2 \\\
+\sum_{k=1}^K (\parallel x^{(k+1)} - x^{\ast} \parallel_2^2 - \parallel x^{(k)} - x^{\ast} \parallel_2^2) & = \parallel x^{(k+1)} - x^{\ast} \parallel_2^2 - \parallel x^{(1)} - x^{\ast} \parallel_2^2 \\\
 & \leq -2t \sum (f(x^{(i)}) - f^{\ast}) + \sum t^2 \parallel g^{(i)} \parallel_2^2 
 \end{split}
 \end{equation}
@@ -144,7 +144,7 @@ $$2t \sum_{i=1}^k (f(x^{(i)}) - f^{\ast}) \leq \parallel x^{(1)} - x^{\ast} \par
 
 \begin{equation}
 \begin{split}
-2tk(f(x_{best}^{(k)}) - f^{\ast}) & = 2t \sum_{i=1}^K (f(x_{best}^{(k)}) - f^{\ast}) \\\
+2tk(f(x_{best}^{(k)}) - f^{\ast}) & = 2t \sum (f(x_{best}^{(k)}) - f^{\ast}) \\\
 & \leq 2t \sum (f(x^{(i)}) - f^{\ast}) \\\
 & \leq \parallel x^{(1)} - x^{\ast} \parallel_2^2 + \sum t^2 \parallel g^{(i)} \parallel_2^2
 \end{split}
