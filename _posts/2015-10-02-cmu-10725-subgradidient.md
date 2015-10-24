@@ -2,7 +2,7 @@
 layout: post
 title: "cmu10725-次梯度下降"
 description: ""
-category: "凸优化"
+category: "Convex"
 tags: [凸优化, CMU10725]
 ---
 {% include JB/setup %}
