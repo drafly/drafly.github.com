@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "cmu10725-次梯度下降"
+title: "CMU10725-次梯度算法"
 description: ""
 category: "Convex"
 tags: [凸优化, CMU10725]
