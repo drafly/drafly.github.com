@@ -84,7 +84,7 @@ JB :
   comments :
     provider : disqus
     disqus :
-      short_name : draflyPHD
+        short_name : drafly
     livefyre :
       site_id : 123
     intensedebate :
