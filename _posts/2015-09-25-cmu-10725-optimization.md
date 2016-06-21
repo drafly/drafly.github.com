@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "CMU10725－优化问题"
+title: "凸优化－优化问题"
 description: ""
 category: "凸优化"
-tags: [凸优化, CMU10725]
+tags: [凸优化]
 ---
 {% include JB/setup %}
 

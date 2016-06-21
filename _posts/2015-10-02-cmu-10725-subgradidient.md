@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "CMU10725-次梯度算法"
+title: "凸优化-次梯度算法"
 description: ""
 category: "Convex"
-tags: [凸优化, CMU10725]
+tags: [凸优化]
 ---
 {% include JB/setup %}
 
