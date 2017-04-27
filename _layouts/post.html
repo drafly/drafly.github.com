@@ -2,6 +2,7 @@
 layout: default
 ---
 <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <!-- Post Header -->
 <header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
     <div class="container">
@@ -13,6 +14,17 @@ layout: default
                     <h2 class="subheading">{{ page.subtitle }}</h2>
                     {% endif %}
                     <span class="meta">Posted by {% if page.author %}{{ page.author }}{% else %}{{ site.title }}{% endif %} on {{ page.date | date: "%B %-d, %Y" }}</span>
+                    <h3>
+                      预计阅读时间：
+                      {% capture truncated_content %}
+                      {{ page.content | truncatewords: 250 }}
+                      {% endcapture %}
+                      {% if page.content != truncated_content %}
+                      {{ content | strip_html | strip_newlines | size | divided_by:150 | append: '分钟' }}
+                      {% endif %}
+                    </h3>
+                    <h3 id="busuanzi_container_page_pv style="display: yes;">
+                        总计阅读次数：<span id="busuanzi_value_page_pv"></span>次</h3>
                 </div>
             </div>
         </div>
