@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "机器学习-自步学习概述"
+title: "机器学习-自步学习"
 description: ""
 category: "机器学习"
 tags: []
