@@ -59,7 +59,7 @@ var cluster = d3.cluster()
 var stratify = d3.stratify()
     .parentId(function(d) { return d.id.substring(0, d.id.lastIndexOf(".")); });
 
-d3.csv("treedata.csv", function(error, data) {
+d3.csv("treedata1.csv", function(error, data) {
   if (error) throw error;
 
   var root = stratify(data)
