@@ -2,7 +2,7 @@ id,value
 flare,
 flare.analytics,
 flare.analytics.cluster,
-flare.analytics.cluster.AgglomerativeCluster
+flare.analytics.cluster.AgglomerativeCluster,
 flare.analytics.cluster.CommunityStructure,
 flare.analytics.cluster.HierarchicalCluster,
 flare.analytics.cluster.MergeEdge,
