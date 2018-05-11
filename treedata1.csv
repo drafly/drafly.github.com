@@ -13,4 +13,4 @@ flare.analytics.graph.MaxFlowMinCut,7840
 flare.analytics.graph.ShortestPaths,5914
 flare.analytics.graph.SpanningTree,3416
 flare.analytics.optimization,
-flare.analytics.optimization.AspectRatioBanker,7074
+flare.analytics.optimization.AspectRatioBanker,
