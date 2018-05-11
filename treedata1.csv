@@ -11,4 +11,4 @@ flare.analytics.graph.BetweennessCentrality,3534
 flare.analytics.graph.LinkDistance,5731
 flare.analytics.graph.MaxFlowMinCut,7840
 flare.analytics.graph.ShortestPaths,5914
-flare.analytics.graph.SpanningTree,
+flare.analytics.graph.SpanningTree,1
