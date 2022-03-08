@@ -1,11 +1,11 @@
 # Site settings
 title: Longfei Han
-header-img: img/home-bg.jpg
+header-img: img/lab.jpg
 email: hanlongfei@hotmail.com
 copyright_name: Longfei Han
 description: "做最好的自己"
 baseurl: ""
-url: "http://www.mengweiy.io/"
+url: "http://www.hanlongfei.com/"
 twitter_username: SBootstrap
 github_username:  drafly
 facebook_username:  StartBootstrap
@@ -23,3 +23,5 @@ paginate: 5
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 
 gems: [jekyll-paginate, jekyll-feed, jekyll-paginate]
+
+theme: jekyll-theme-cayman
