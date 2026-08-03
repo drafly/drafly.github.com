@@ -244,7 +244,7 @@ GitHub Pages 没有服务器端 301 重定向能力，因此最安全的方案�
 
 注意：
 
-- `public/CNAME` 当前为 `www.hanlongfei.com`。
+- `public/CNAME` 当前为 `www.longfeihan.cn`。
 - 旧仓库根目录 `CNAME` 为 `longfeihan.cn`。
 - Astro 构建采用 `public/CNAME`，但最终正式域名需要用户确认。
 - GitHub 仓库 Settings → Pages 需要选择 GitHub Actions 作为发布源。

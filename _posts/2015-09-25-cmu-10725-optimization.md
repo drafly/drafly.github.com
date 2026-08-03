@@ -32,7 +32,7 @@ subject \, to \quad & g_i(x) \leq 0, \, i=1, \ldots, m \\\
 
 凸优化问题相对优化问题的定义而言，要求函数$$f$$和$$g_i(x)$$是凸函数，$$h_j(x)=a_j^Tx+b_j$$是仿射函数($$Ax+b=0$$)。
 
-对于仿射集和凸集的差别在[凸优化－凸集](http://www.hanlongfei.com/凸优化/2015/05/22/convexset/)一文也做了分析，二者的差别就在于凸集是线段而仿射集是直线（一维情况下）。很明显，求解凸函数的极小值（convex minimization）和凹函数的极大值（concave maximization）都是凸优化问题（convex optimization problem）。
+对于仿射集和凸集的差别在[凸优化－凸集](https://www.longfeihan.cn/凸优化/2015/05/22/convexset/)一文也做了分析，二者的差别就在于凸集是线段而仿射集是直线（一维情况下）。很明显，求解凸函数的极小值（convex minimization）和凹函数的极大值（concave maximization）都是凸优化问题（convex optimization problem）。
 
 ### 2. 凸优化解的集合
 我们定义凸优化解的集合（*Convex solution sets*）为$$X_{opt}$$，记为：

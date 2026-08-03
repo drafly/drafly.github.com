@@ -2,7 +2,7 @@
 
 韩龙飞的个人学术网站，使用 Astro 5、TypeScript 与静态 Content Collections 构建，内容包括个人简介、研究方向、代表论文、团队成员和历史研究笔记。
 
-线上域名：<https://www.hanlongfei.com>
+线上域名：<https://www.longfeihan.cn>
 
 ## 本地开发
 
@@ -64,18 +64,18 @@ public/
 
 ## 自定义域名
 
-本项目的正式域名统一为 `www.hanlongfei.com`：
+本项目的正式域名统一为 `www.longfeihan.cn`：
 
-- `astro.config.mjs`：`site: "https://www.hanlongfei.com"`
-- `public/CNAME`：`www.hanlongfei.com`
+- `astro.config.mjs`：`site: "https://www.longfeihan.cn"`
+- `public/CNAME`：`www.longfeihan.cn`
 
 GitHub 设置：
 
 1. 打开 **Settings → Pages → Custom domain**。
-2. 输入 `www.hanlongfei.com` 并保存。
+2. 输入 `www.longfeihan.cn` 并保存。
 3. DNS 服务商中添加：
    - `www` 的 `CNAME` 记录指向 `drafly.github.io`；
-   - 如需裸域名 `hanlongfei.com` 自动跳转到 `www`，再按 GitHub Pages 提示配置裸域名的 `A`/`AAAA` 或 `ALIAS`/`ANAME` 记录。
+   - 如需裸域名 `longfeihan.cn` 自动跳转到 `www`，再按 GitHub Pages 提示配置裸域名的 `A`/`AAAA` 或 `ALIAS`/`ANAME` 记录。
 4. DNS 生效、GitHub 签发证书后勾选 **Enforce HTTPS**。
 5. 建议在 GitHub 个人设置的 **Pages → Add a domain** 中验证域名并保留 TXT 记录，降低域名被接管的风险。
 

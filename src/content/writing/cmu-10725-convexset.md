@@ -29,7 +29,7 @@ legacyUrl: "/2015/09/24/cmu-10725-convexset/"
 ### 3. 凸集和凸锥
 
 #### a. 凸集
-仿射集和凸集的概念在[凸优化－凸集](http://www.hanlongfei.com/凸优化/2015/05/22/convexset/)一文中做了详细介绍。
+仿射集和凸集的概念在[凸优化－凸集](https://www.longfeihan.cn/凸优化/2015/05/22/convexset/)一文中做了详细介绍。
 
 凸集为 $C \subseteq \mathbb{R}^n$，使得$x,y \in C \rightarrow tx+(1-t)y \in C$，其中$0 \leq t \leq 1$。具体表现为下图，左边第一个为凸集，第二个则不是凸集。
 
