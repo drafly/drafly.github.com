@@ -21,9 +21,13 @@ const pickThumb = (pub: (typeof publications)[number]): { src: string; alt: stri
 >
   <main class="inner-page">
     <InnerHero
-      index="论文 / 01"
-      title="医学人工智能与计算机视觉的代表性工作。"
-      lead="研究覆盖图像分割、图像复原、多模态匹配、图像处理流水线优化与自步学习等方向。"
+      index="代表论文 / PUBLICATIONS"
+      title="面向真实医疗与成像场景的视觉智能研究"
+      lead="从医学影像理解、低照度 RAW 成像到多模态学习，探索可解释、可靠且能够走向应用的视觉算法。"
+      facts={`${sortedPublications.length} 篇代表工作 · CVPR · MICCAI · IEEE TPAMI`}
+      image="/img/hero/publications-medical-ai.png"
+      imageAlt="医学影像分析、模型评估与临床应用科研可视化"
+      imageLabel="MEDICAL AI / VALIDATION / TRANSLATION"
     />
 
     <section class="publications-page">

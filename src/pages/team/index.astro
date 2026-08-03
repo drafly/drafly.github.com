@@ -14,9 +14,14 @@ const active = team.filter((member) => !isGraduated(member));
 >
   <main class="inner-page">
     <InnerHero
-      index="团队 / 02"
-      title="共同建设 MAGIC 实验室的人们。"
-      lead="一支在北京工商大学探索医学人工智能、计算机视觉与多模态学习的研究团队。"
+      index="MAGIC 实验室 / TEAM"
+      title="面向医学视觉，把研究做深、做实"
+      lead="围绕医学图像处理、图像信号处理与视觉语言模型开展研究，重视问题定义、算法创新与应用验证。"
+      facts={`${String(team.length).padStart(2, "0")} 位成员 · ${String(cohorts.length).padStart(2, "0")} 个届别 · 北京工商大学`}
+      image={team[0].image.src}
+      imageAlt={`${team[0].name}（${team[0].chineseName}）`}
+      imageLabel="MAGIC / MEDICAL AI / VISION"
+      imageFit="cover"
     />
 
     <section class="team-section" id="team">
@@ -24,7 +29,7 @@ const active = team.filter((member) => !isGraduated(member));
         <div class="team-intro" data-reveal>
           <div>
             <p>成员名册</p>
-            <h2>不同的视角，<br />同一个研究愿景。</h2>
+            <h2>一起提出问题，<br />也一起验证答案。</h2>
           </div>
           <div class="team-intro__summary">
             <p>

@@ -17,9 +17,13 @@ const posts = (await getCollection("writing", ({ data }) => import.meta.env.DEV 
 >
   <main class="inner-page">
     <InnerHero
-      index="博文 / 03"
-      title="关于学习、优化与代码的笔记。"
-      lead="从 Jekyll 时代迁移而来的历史博文，涵盖机器学习、凸优化、统计与工程笔记。"
+      index="研究笔记 / WRITING"
+      title="把方法、推导与实践写清楚"
+      lead="记录机器学习、凸优化、统计计算与工程实践中的推导、代码和阶段性思考。"
+      facts={`${posts.length} 篇归档 · 机器学习 · 凸优化 · 统计计算`}
+      image="/img/R/cmu10725/subgradient.jpg"
+      imageAlt="凸优化次梯度方法示意图"
+      imageLabel="OPTIMIZATION / CODE / NOTES"
     />
 
     <section class="writing-archive">

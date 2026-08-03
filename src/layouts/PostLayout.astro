@@ -38,13 +38,13 @@ const formatDate = (date: Date) =>
       <header class="post-detail__header">
         <div class="post-detail__grid" aria-hidden="true"></div>
         <div class="site-shell post-detail__header-inner">
-          <p class="post-detail__kicker">Writing / {langLabel}</p>
+          <p class="post-detail__kicker">研究笔记 / {categories[0] ?? langLabel}</p>
           <h1>{title}</h1>
           <div class="post-detail__meta">
             <time datetime={publishedAt.toISOString()}>{formatDate(publishedAt)}</time>
             {updatedAt && (
               <span class="post-detail__meta-updated">
-                Updated {formatDate(updatedAt)}
+                更新于 {formatDate(updatedAt)}
               </span>
             )}
             {categories.map((category) => (
@@ -61,7 +61,7 @@ const formatDate = (date: Date) =>
 
         {tags.length > 0 && (
           <footer class="post-detail__footer">
-            <h2>Tags</h2>
+            <h2>标签</h2>
             <ul class="post-detail__tags">
               {tags.map((tag) => (
                 <li>{tag}</li>

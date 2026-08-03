@@ -219,7 +219,7 @@ body.home-v2 {
 .profile-sidebar__org {
   margin: 6px 0 0;
   color: var(--v2-muted);
-  font-size: 12px;
+  font-size: 13px;
   text-align: center;
 }
 
@@ -233,7 +233,7 @@ body.home-v2 {
   display: block;
   margin-bottom: 12px;
   color: var(--v2-accent);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.16em;
 }
@@ -305,7 +305,7 @@ body.home-v2 {
 
 .profile-sidebar__social a span:last-child {
   color: var(--v2-muted);
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .profile-sidebar__social a:hover span:last-child {
@@ -370,13 +370,26 @@ body.home-v2 {
 .bio-copy p {
   margin: 0 0 16px;
   color: var(--v2-text);
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.9;
   text-align: justify;
 }
 
 .bio-copy p:last-child {
   margin-bottom: 0;
+}
+
+.bio-quote {
+  margin: 22px 0 0;
+  padding: 16px 20px;
+  border-left: 3px solid var(--v2-accent);
+  border-radius: 0 10px 10px 0;
+  background: var(--v2-accent-soft);
+  color: var(--v2-text);
+  font-family: var(--v2-heading);
+  font-size: 14.5px;
+  line-height: 1.9;
+  letter-spacing: 0.03em;
 }
 
 .bio-actions {
@@ -444,7 +457,7 @@ body.home-v2 {
 .direction-card > span {
   display: block;
   color: var(--v2-accent);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.14em;
 }
@@ -453,7 +466,7 @@ body.home-v2 {
   margin: 14px 0 10px;
   color: var(--v2-text);
   font-family: var(--v2-heading);
-  font-size: 17px;
+  font-size: 19px;
   font-weight: 600;
   line-height: 1.4;
 }
@@ -461,7 +474,7 @@ body.home-v2 {
 .direction-card p {
   margin: 0;
   color: var(--v2-muted);
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.75;
 }
 
@@ -634,7 +647,7 @@ body.home-v2 {
 
 .post-row-v2 time {
   color: var(--v2-muted);
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.08em;
 }
 
@@ -660,7 +673,7 @@ body.home-v2 {
   align-items: center;
   gap: 8px;
   color: var(--v2-accent);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.12em;
 }
