@@ -1,0 +1,217 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import { getCollection } from "astro:content";
+import { profile, news } from "../data/profile";
+import { publications, pubCover } from "../data/site";
+
+const formatDate = (date: Date) =>
+  `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, "0")}.${String(date.getDate()).padStart(2, "0")}`;
+
+const posts = (await getCollection("writing", ({ data }) => import.meta.env.DEV || !data.draft))
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())
+  .slice(0, 4);
+
+const sortedPublications = [...publications].sort((a, b) => b.year - a.year);
+const featured = sortedPublications.slice(0, 3);
+
+const directions = [
+  {
+    index: "01",
+    title: "图像信号处理（ISP）",
+    text: "面向成像系统与医学影像设备的信号处理与图像增强，研究从传感器原始数据到高质量图像的完整处理链路，提升弱光、噪声等复杂条件下的成像质量。"
+  },
+  {
+    index: "02",
+    title: "医学图像处理（Medical Image Analysis）",
+    text: "聚焦内窥镜等医学影像的智能分析，研究分割、检测与诊断等核心算法，推动人工智能技术在临床诊疗场景中的落地应用。"
+  },
+  {
+    index: "03",
+    title: "视觉语言模型（Vision Language Models）",
+    text: "研究视觉与语言的跨模态对齐与统一表征，探索多模态大模型在医学影像理解、影像报告生成等任务中的应用。"
+  }
+];
+
+const socialIcons: Record<string, string> = {
+  github:
+    "M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12",
+  googlescholar:
+    "M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z",
+  dblp:
+    "M3.075.002c-.096.013-.154.092-.094.31L4.97 7.73 3.1 8.6s-.56.26-.4.85l2.45 9.159s.16.59.72.33l6.169-2.869 1.3-.61s.52-.24.42-.79l-.01-.06-1.13-4.22-.658-2.45-.672-2.49v-.04s-.16-.59-.84-1L3.5.141s-.265-.16-.425-.139zM18.324 5.03a.724.724 0 0 0-.193.06l-5.602 2.6.862 3.2 1.09 4.08.01.06c.05.47-.411.79-.411.79l-1.88.87.5 1.89.04.1c.07.17.28.6.81.91l6.95 4.269s.68.41.52-.17l-1.981-7.4 1.861-.86s.56-.26.4-.85L18.85 5.42s-.116-.452-.526-.39z",
+  orcid:
+    "M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.097-3.722h-2.222z",
+  gitee:
+    "M11.984 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.016 0zm6.09 5.333c.328 0 .593.266.592.593v1.482a.594.594 0 0 1-.593.592H9.777c-.982 0-1.778.796-1.778 1.778v5.63c0 .327.266.592.593.592h5.63c.982 0 1.778-.796 1.778-1.778v-.296a.593.593 0 0 0-.592-.593h-4.15a.592.592 0 0 1-.592-.592v-1.482a.593.593 0 0 1 .593-.592h6.815c.327 0 .593.265.593.592v3.408a4 4 0 0 1-4 4H5.926a.593.593 0 0 1-.593-.593V9.778a4.444 4.444 0 0 1 4.445-4.444h8.296Z"
+};
+---
+
+<SiteLayout
+  title="Longfei Han · 韩龙飞"
+  description="韩龙飞 · 医学人工智能研究者 | 北京工商大学 MAGIC 实验室"
+>
+  <main class="home-layout">
+    <aside class="profile-sidebar" data-reveal>
+      <img
+        class="profile-sidebar__avatar"
+        src={profile.avatar.src}
+        alt={`${profile.name.zh}的肖像`}
+        width={profile.avatar.width}
+        height={profile.avatar.height}
+      />
+      <h1 class="profile-sidebar__name">
+        {profile.name.zh}
+        <span class="profile-sidebar__name-en" lang="en">{profile.name.en}</span>
+      </h1>
+      <p class="profile-sidebar__role">{profile.role}</p>
+      <p class="profile-sidebar__org">{profile.org}</p>
+
+      <div class="profile-sidebar__block">
+        <span class="profile-sidebar__title">联系方式</span>
+        <ul class="profile-sidebar__contact">
+          <li>
+            <span>邮箱</span>
+            <a href={`mailto:${profile.email}`}>{profile.email}</a>
+          </li>
+          <li>
+            <span>地址</span>
+            <span>{profile.location} · 中国</span>
+          </li>
+        </ul>
+      </div>
+
+      {profile.social.length > 0 && (
+        <div class="profile-sidebar__block">
+          <span class="profile-sidebar__title">学术链接</span>
+          <div class="profile-sidebar__social">
+            {profile.social.map((link) => (
+              <a href={link.url} rel="noreferrer">
+                <span class="profile-sidebar__social-label">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d={socialIcons[link.icon]} />
+                  </svg>
+                  <span>{link.label}</span>
+                </span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <div class="profile-sidebar__block">
+        <span class="profile-sidebar__title">研究兴趣</span>
+        <div class="interest-tags">
+          {profile.interests.map((interest) => <span>{interest}</span>)}
+        </div>
+      </div>
+    </aside>
+
+    <div class="content-main">
+      <section class="home-section" id="biography">
+        <h2>个人简介</h2>
+        <div class="bio-copy" data-reveal set:html={profile.bio} />
+        <div class="bio-actions" data-reveal>
+          <a class="button-v2 button-v2--primary" href="mailto:longfeihan@btbu.edu.cn">
+            联系我 <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="home-section" id="research">
+        <h2>研究方向</h2>
+        <div class="direction-grid" data-reveal>
+          {directions.map((direction) => (
+            <article class="direction-card">
+              <span>{direction.index}</span>
+              <h3>{direction.title}</h3>
+              <p>{direction.text}</p>
+            </article>
+          ))}
+        </div>
+        <p class="lab-note" data-reveal>
+          欢迎有自驱力的硕士研究生与高年级本科生加入。请将研究兴趣与简历发送至
+          <a href="mailto:longfeihan@btbu.edu.cn">longfeihan@btbu.edu.cn</a>。
+        </p>
+      </section>
+
+      <section class="home-section" id="news">
+        <h2>最新动态</h2>
+        <ul class="news-list" data-reveal>
+          {news.map((item) => (
+            <li>
+              <time>{item.date}</time>
+              <span>{item.text}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section class="home-section" id="featured-publications">
+        <h2>精选论文</h2>
+        <div class="pub-featured" data-reveal>
+          {featured.map((pub) => (
+            <article class="pub-card">
+              <div class="pub-card__media">
+                <img src={pubCover(pub)} alt={`${pub.title} 示意图`} loading="lazy" />
+              </div>
+              <div class="pub-card__body">
+                <h3>
+                  <a class="pub-card__title" href={`/publications/${pub.slug}/`}>
+                    {pub.title}
+                  </a>
+                </h3>
+                <p class="pub-card__venue">{pub.venue} · {pub.year}</p>
+                <div class="pub-card__links">
+                  {pub.code && (
+                    <a href={pub.code} rel="noreferrer">
+                      代码 <span aria-hidden="true">↗</span>
+                    </a>
+                  )}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+        <div class="pub-featured__more" data-reveal>
+          <a href="/publications/">
+            全部论文 <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="home-section" id="recent-posts">
+        <h2>最新博文</h2>
+        {posts.length > 0 ? (
+          <>
+            <div class="post-list-v2" data-reveal>
+              {posts.map((post) => (
+                <a
+                  class="post-row-v2 post-row-v2--link"
+                  href={`/writing/${post.slug}/`}
+                >
+                  <time>{formatDate(post.data.publishedAt)}</time>
+                  <span>{post.data.title}</span>
+                  <span>
+                    阅读 <span aria-hidden="true">→</span>
+                  </span>
+                </a>
+              ))}
+            </div>
+            <div class="writing-v2__more">
+              <a href="/writing/">
+                全部博文 <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </>
+        ) : (
+          <div class="writing-empty" data-reveal>
+            <p class="writing-empty__kicker">归档迁移中</p>
+            <h3>历史博文正在陆续迁移。</h3>
+            <p>旧站博文将分批迁入本站，第一批文章很快就会与大家见面。</p>
+          </div>
+        )}
+      </section>
+    </div>
+  </main>
+</SiteLayout>

@@ -1,0 +1,43 @@
+---
+const pathname = Astro.url.pathname;
+
+const isActive = (href: string) => pathname === href || pathname.startsWith(href);
+
+const links = [
+  { href: "/publications/", label: "论文" },
+  { href: "/team/", label: "团队" },
+  { href: "/writing/", label: "博文" }
+];
+---
+
+<nav class="nav-v2" aria-label="Primary navigation">
+  <div class="site-shell nav-v2__inner">
+    <a class="nav-v2__brand" href="/" aria-label="韩龙飞 — 主页">
+      <span class="nav-v2__mark" aria-hidden="true">LH</span>
+      <span>Longfei Han</span>
+    </a>
+
+    <button
+      class="nav-v2__toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="primary-menu"
+    >
+      <span class="sr-only">Toggle menu</span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
+
+    <div class="nav-v2__menu" id="primary-menu">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class:list={{ "is-active": isActive(link.href) }}
+          aria-current={isActive(link.href) ? "page" : undefined}
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>

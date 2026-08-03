@@ -1,0 +1,40 @@
+---
+interface Props {
+  /** 完整作者列表，逗号分隔，* 表示通讯作者，† 表示共同一作。 */
+  authors: string;
+}
+
+const { authors } = Astro.props;
+
+const parts = authors
+  .split(",")
+  .map((part) => part.trim())
+  .filter((part) => part.length > 0);
+
+const isSelf = (part: string) => part.replace(/[*†]+$/, "").includes("Longfei Han");
+
+const splitMarker = (part: string) => {
+  const match = part.match(/([*†]+)$/);
+  return match
+    ? { name: part.slice(0, -match[1].length), markers: match[1] }
+    : { name: part, markers: "" };
+};
+---
+
+{
+  parts.map((part, index) => {
+    const { name, markers } = splitMarker(part);
+    const rendered = (
+      <>
+        {name}
+        {markers && <sup aria-label="作者标记">{markers}</sup>}
+      </>
+    );
+    return (
+      <>
+        {index > 0 && ", "}
+        {isSelf(part) ? <strong class="author-self">{rendered}</strong> : rendered}
+      </>
+    );
+  })
+}

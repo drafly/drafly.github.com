@@ -1,0 +1,18 @@
+---
+interface Props {
+  index: string;
+  title: string;
+  lead: string;
+}
+
+const { index, title, lead } = Astro.props;
+---
+
+<header class="inner-hero">
+  <div class="inner-hero__grid" aria-hidden="true"></div>
+  <div class="site-shell inner-hero__content" data-reveal>
+    <p class="inner-hero__index">{index}</p>
+    <h1>{title}</h1>
+    <p class="inner-hero__lead">{lead}</p>
+  </div>
+</header>

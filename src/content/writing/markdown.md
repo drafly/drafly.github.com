@@ -1,0 +1,171 @@
+---
+title: "深入浅出Markdown"
+description: "Markdown 语法入门教程：标题、段落、引用、列表、代码、链接、图片、强调、公式与代码高亮等常用语法的写法与示例。"
+publishedAt: 2014-12-15
+categories: ["博客搭建"]
+tags: ["Markdown", "tutorial"]
+draft: false
+featured: false
+language: "zh"
+legacyUrl: "/2014/12/15/markdown/"
+---
+
+## 什么是Markdown
+Markdown 是一种轻量级标记语言，创始人为约翰·格鲁伯（John Gruber）。它允许人们”使用易读易写的纯文本格式编写文档，然后转换成有效的XHTML(或者HTML)文档”。简单来说，Markdown是一个兼顾可读性与易用性的轻量级标记体系。Markdown并不追求大而全，它只关心HTML里最常用的几个标记，对于一些不常用的标记它允许直接将HTML标记插入文本。Markdown中一些特定的字符会被解析为格式化命令，但如果添加一个反斜杠('\')在那些有特殊意义的字符前面，那么字符将被理解为字面意义。
+
+## 使用Markdown的优点
+- 语法简单，易写易读
+
+- 简洁，提高文档撰写效率
+
+- 格式自由，与文档样式无关
+
+- 有丰富的解释器或工具支持
+
+- 基于纯文本格式，便于搜索
+
+## Markdown语法
+
+### 1. 标题
+文字前加\#号代表后面的文字的字号会变大，显示为标题，#号数量越多，代表字号越小，标题层级越低，而单独一个\#就是最高一级的标题，特别注意#号和文字之间一定要有一个空格。如输入：
+   
+	### 标题3
+	#### 标题4
+
+就会有如下显示：
+   
+### 标题3
+      
+#### 标题4
+
+### 2. 段落
+当你写完一段文字，如何开始下一段呢？Markdown中仅仅回车换行一次是不管用的，需要多一次回车，总共两次回车换行才能空出一行来。因为Markdown中用一个或一个以上的空行来分割段落，这里的空行是指真的空出了一行，就是写完一段后需要两次回车。例如：
+
+	我在这~（后面多一次回车）
+	
+	你在哪？
+	
+### 3. 引用
+行首使用>加上一个空格表示引用段落，内部可以嵌套多个引用。
+
+	>为了中华人民共和国的伟大事业而奋斗终生！！！
+
+### 4. 列表
+列表分为有序列表和无需列表，无需列表可以使用使用*、+或-后面加上空格来表示。有序列表使用数字加英文句号加空格表示，这里数字可以不按顺序写，markdown会自动为你按顺序编码。如输入：
+
+	> * 特征1
+	> * 特征2
+	> * 特征3
+
+	> 1. 第一章
+	> 1. 第二章
+	> 1. 第三章
+
+则会有如下显示：
+
+* 特征1
+* 特征2
+* 特征3
+
+1. 第一章
+1. 第二章
+1. 第三章
+
+### 5. 代码区域
+行内代码使用**反斜杠`**表示(键盘的shift\+~)。代码段落则是在每行文字前加4个空格或者1个缩进符表示。例如输入：
+
+	>This is my code block.
+	>if (a > 2)
+	>  return (True)
+
+则会有如下显示：
+
+```if (a > 2){
+  return (True)
+}
+```
+### 6. 链接
+对于超链接，只要这样写：前面[]里是要显示出来的文字，而紧接着的（）里是点击后要转到的链接的网址即可实现如下形式：
+
+[drafly的博客首页](drafly.github.io)
+
+对于图片，其书写规则与网页超链接很像，只需在[]前面加!即可，而()内容被图片存储路径所替代，例如：
+
+![我是阿森纳支持者](/img/Arsenal.png)
+
+需要注意的是，Markdown不支持更改图片大小，所以如果需要更改图片大小只能采用html语言，如下：
+
+	<img src="/img/Arsenal.png" width="100" />
+	
+最后图片缩放到宽度为100，显示如下：
+
+<img src="/img/Arsenal.png" width="100" />
+
+### 7. 强调
+Markdown使用星号(*)和下划线(_)作为表示强调。用一个*或者_可以表示*斜体*，两个*或者_表示**粗体**。**分割线**要求在一行中使用三个以上的星号或者下划线来建立，且该行内不能有其他东西。例如输入：
+
+	*我是斜体*
+	**我是粗体**
+	****
+	上面是个分割线
+
+显示如下：
+
+*我是斜体*，**我是粗体**
+
+*****
+	上面是个分割线
+
+### 8. 公式
+在网页中使用latex最流行的解决方案应该是MathJax。这是一个基于JavaScript的Latex渲染引擎，它将网页中的Latex公式转变成多个不同字体的文字或图片的组合。一般我们采用kramdown引擎（Jekyll 可以使用的 markdown 引擎至少有 maruku, rdiscount, kramdown）来支持MathJax。在本地使用前，通常需要以下三个操作：
+
+1. 安装该插件`gem install kramdown`
+1. 修改_config.yml文件的highlighter为kramdown即可
+1. 在编辑的网页页面前加入以下js代码。例如：bootstrap模板需要将以下代码写在后面：
+```
+<script type="text/javascript"
+src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+```
+如果不想每次都在撰写页面都输入上述语句，可以在bootstrap的default.html的模板中加入上述语句，即可使所有新生成的网页支持MathJax。
+
+完成上述三个操作，在撰写公式时，使用双$符号标记Latex语言，如果双$符号前后各有一个空行，则产生换行居中的公式。例如输入a^2 + b^2 = c^2,并在公式前后分别加两个$符号可获得以下结果：
+
+$$
+a^2 + b^2 = c^2
+$$
+
+### 9. 代码高亮
+代码高亮插件可以用来很方便地对网页中的程序代码进行高亮显示,从而在视觉上使得网页上的代码看得比较舒服。Jekyll有很多种代码高亮的方法，比如常用的Pygments和Rouge渲染，或者gist嵌入。但是从配置角度而言，这两种高亮方式比较复杂，相反，采用js和css处理代码高亮从配置这个角度来讲就显得十分简洁。Prettify是支持代码高亮的js库中最为好用的。有两种方法可以用来启用[google-code-prettify](https://code.google.com/p/google-code-prettify/)，这里只介绍最为简洁的一种方式：run_prettify.js文件引用,该方法为在网页开头加入``即可，或者将run_prettify.js文件保存在本地调用。具体细节可参考[手把手教你用google-code-prettify进行代码高亮](http://jingyan.baidu.com/article/67508eb4e660ed9cca1ce4ec.html)和Google Prettify源代码网站的使用说明：[google-code-prettify Getting Started](https://code.google.com/p/google-code-prettify/wiki/GettingStarted)。例如输入以下R语言代码实现以为散点图绘制：
+
+	y <- rep(0, 30)
+	x1 <- cbind(rnorm(30, -2, 1), y)
+	x2 <- cbind(rnorm(30, 2, 1), y)
+	r <- range(x1, x2)
+	par(bg = "white")
+	plot(x1, col="lightblue", pch = 1, xlim = r, ylim = c(0,0.5),fg = "purple")
+	points(x2, col = "lightblue", pch = 1)
+	y1 <- matrix(c(-2, 0), nrow = 1, byrow=T)
+	points(y1, pch = 21, cex = 1.5, bg= "lightblue", col = "green")
+	y2 <- matrix(c(2, 0), nrow = 1, byrow=T)
+	points(y2, pch = 24, cex = 1.5, bg= "yellow", col = "green")
+	abline(v = 0, col="slateblue4", lty=2, lwd=3)
+显示结果如下：
+
+<pre class="prettyprint lang=r">
+y <- rep(0, 30)
+x1 <- cbind(rnorm(30, -2, 1), y)
+x2 <- cbind(rnorm(30, 2, 1), y)
+r <- range(x1, x2)
+par(bg = "white")
+plot(x1, col="lightblue", pch = 1, xlim = r, ylim = c(0,0.5),fg = "purple")
+points(x2, col = "lightblue", pch = 1)
+y1 <- matrix(c(-2, 0), nrow = 1, byrow=T)
+points(y1, pch = 21, cex = 1.5, bg= "lightblue", col = "green")
+y2 <- matrix(c(2, 0), nrow = 1, byrow=T)
+points(y2, pch = 24, cex = 1.5, bg= "yellow", col = "green")
+abline(v = 0, col="slateblue4", lty=2, lwd=3)
+</pre>
+
+## 结束语
+总体来说，Markdown就是一些对html解析过程中特殊字符做了重定义，方便用户书写。非常简单高效的一种html语言。

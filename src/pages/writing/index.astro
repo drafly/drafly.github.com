@@ -1,0 +1,54 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import InnerHero from "../../components/InnerHero.astro";
+import { getCollection } from "astro:content";
+
+const formatDate = (date: Date) =>
+  `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, "0")}.${String(date.getDate()).padStart(2, "0")}`;
+
+const posts = (await getCollection("writing", ({ data }) => import.meta.env.DEV || !data.draft)).sort(
+  (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime()
+);
+---
+
+<SiteLayout
+  title="博文 · Longfei Han"
+  description="韩龙飞的写作归档：机器学习、凸优化与工程实践笔记。"
+>
+  <main class="inner-page">
+    <InnerHero
+      index="博文 / 03"
+      title="关于学习、优化与代码的笔记。"
+      lead="从 Jekyll 时代迁移而来的历史博文，涵盖机器学习、凸优化、统计与工程笔记。"
+    />
+
+    <section class="writing-archive">
+      <div class="site-shell">
+        {posts.length > 0 ? (
+          <div class="post-list-v2">
+            {posts.map((post) => (
+              <a
+                class="post-row-v2 post-row-v2--link"
+                href={`/writing/${post.slug}/`}
+              >
+                <time>{formatDate(post.data.publishedAt)}</time>
+                <span>{post.data.title}</span>
+                <span>
+                  {post.data.categories[0] ?? "博文"} <span aria-hidden="true">→</span>
+                </span>
+              </a>
+            ))}
+          </div>
+        ) : (
+          <div class="writing-empty">
+            <p class="writing-empty__kicker">归档迁移中</p>
+            <h3>历史博文正在陆续迁移。</h3>
+            <p>
+              旧站博文将分批迁入本站，第一批文章很快就会与大家见面。
+            </p>
+          </div>
+        )}
+      </div>
+    </section>
+  </main>
+</SiteLayout>

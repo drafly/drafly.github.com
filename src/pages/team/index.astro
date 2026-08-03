@@ -1,0 +1,123 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import InnerHero from "../../components/InnerHero.astro";
+import { team, gradYear, isGraduated } from "../../data/site";
+
+const cohorts = [...new Set(team.map((member) => member.enrolled))].sort((a, b) => a - b);
+const graduated = team.filter(isGraduated);
+const active = team.filter((member) => !isGraduated(member));
+---
+
+<SiteLayout
+  title="团队 · MAGIC Lab"
+  description="北京工商大学 MAGIC 实验室成员。"
+>
+  <main class="inner-page">
+    <InnerHero
+      index="团队 / 02"
+      title="共同建设 MAGIC 实验室的人们。"
+      lead="一支在北京工商大学探索医学人工智能、计算机视觉与多模态学习的研究团队。"
+    />
+
+    <section class="team-section" id="team">
+      <div class="site-shell">
+        <div class="team-intro" data-reveal>
+          <div>
+            <p>成员名册</p>
+            <h2>不同的视角，<br />同一个研究愿景。</h2>
+          </div>
+          <div class="team-intro__summary">
+            <p>
+              MAGIC 实验室汇聚了在医学图像理解、计算机视觉与多模态学习
+              方向共同努力的研究生。
+            </p>
+            <dl aria-label="团队名册摘要">
+              <div>
+                <dt>{String(team.length).padStart(2, "0")}</dt>
+                <dd>成员</dd>
+              </div>
+              <div>
+                <dt>{String(cohorts.length).padStart(2, "0")}</dt>
+                <dd>届别</dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
+        {active.length > 0 && (
+          <section class="team-cohort" aria-labelledby="team-active-heading">
+            <div class="team-cohort__head">
+              <div>
+                <h3 id="team-active-heading">在读</h3>
+                <p>学制 3 年 · 在 MAGIC 实验室共同探索医学人工智能。</p>
+              </div>
+              <span class="team-cohort__count">{String(active.length).padStart(2, "0")}</span>
+            </div>
+            <div class="team-grid">
+              {active.map((member) => (
+                <article class="team-member" data-reveal>
+                  <div class="team-member__image">
+                    <img
+                      src={member.image.src}
+                      alt={`${member.name}（${member.chineseName}）`}
+                      width={member.image.width}
+                      height={member.image.height}
+                    />
+                    <span aria-hidden="true">{member.enrolled}</span>
+                  </div>
+                  <div class="team-member__meta">
+                    <p>{member.program} · {member.enrolled}–在读</p>
+                    <h3>{member.name} <span lang="zh-CN">{member.chineseName}</span></h3>
+                    <a href={`mailto:${member.email}`} aria-label={`给 ${member.name} 发邮件`}>
+                      <span>{member.email}</span>
+                      <span aria-hidden="true">↗</span>
+                    </a>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {graduated.length > 0 && (
+          <section class="team-cohort" aria-labelledby="team-graduated-heading">
+            <div class="team-cohort__head">
+              <div>
+                <h3 id="team-graduated-heading">已毕业</h3>
+                <p>从 MAGIC 实验室出发，继续各自的学术与职业旅程。</p>
+              </div>
+              <span class="team-cohort__count">{String(graduated.length).padStart(2, "0")}</span>
+            </div>
+            <div class="team-grid">
+              {graduated.map((member) => (
+                <article class="team-member" data-reveal>
+                  <div class="team-member__image">
+                    <img
+                      src={member.image.src}
+                      alt={`${member.name}（${member.chineseName}）`}
+                      width={member.image.width}
+                      height={member.image.height}
+                    />
+                    <span aria-hidden="true">{member.enrolled}</span>
+                  </div>
+                  <div class="team-member__meta">
+                    <p>{member.program} · {member.enrolled}–{gradYear(member)}</p>
+                    <h3>{member.name} <span lang="zh-CN">{member.chineseName}</span></h3>
+                    <a href={`mailto:${member.email}`} aria-label={`给 ${member.name} 发邮件`}>
+                      <span>{member.email}</span>
+                      <span aria-hidden="true">↗</span>
+                    </a>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
+
+        <p class="team-roster-note" data-reveal>
+          毕业时间按学制 3 年自动推算，以 MAGIC 实验室原始名册为准。
+        </p>
+      </div>
+    </section>
+  </main>
+</SiteLayout>

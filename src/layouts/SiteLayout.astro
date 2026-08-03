@@ -1,0 +1,50 @@
+---
+import "../styles/global.css";
+import SiteNav from "../components/SiteNav.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  lang?: string;
+}
+
+const {
+  title,
+  description,
+  lang = "zh"
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;600&family=Lora:wght@400;600&family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>{title}</title>
+  </head>
+  <body class="home-v2">
+    <SiteNav />
+    <slot />
+
+    <footer class="footer-v2">
+      <div class="site-shell footer-v2__inner">
+        <p>© {new Date().getFullYear()} 韩龙飞</p>
+        <p>计算机视觉 · 多模态学习 · 高效神经网络</p>
+      </div>
+    </footer>
+
+    <script src="../../js/site-v2.js"></script>
+  </body>
+</html>

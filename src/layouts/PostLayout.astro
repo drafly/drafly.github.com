@@ -1,0 +1,75 @@
+---
+import "katex/dist/katex.min.css";
+import SiteLayout from "./SiteLayout.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  publishedAt: Date;
+  updatedAt?: Date;
+  categories?: string[];
+  tags?: string[];
+  language?: string;
+}
+
+const {
+  title,
+  description,
+  publishedAt,
+  updatedAt,
+  categories = [],
+  tags = [],
+  language = "zh"
+} = Astro.props;
+
+const langLabel = language === "zh" ? "中文" : "English";
+
+const formatDate = (date: Date) =>
+  `${date.getFullYear()}.${String(date.getMonth() + 1).padStart(2, "0")}.${String(date.getDate()).padStart(2, "0")}`;
+---
+
+<SiteLayout
+  title={`${title} · Writing · Longfei Han`}
+  description={description || title}
+  lang={language === "zh" ? "zh" : "en"}
+>
+  <main class="inner-page">
+    <article class="post-detail">
+      <header class="post-detail__header">
+        <div class="post-detail__grid" aria-hidden="true"></div>
+        <div class="site-shell post-detail__header-inner">
+          <p class="post-detail__kicker">Writing / {langLabel}</p>
+          <h1>{title}</h1>
+          <div class="post-detail__meta">
+            <time datetime={publishedAt.toISOString()}>{formatDate(publishedAt)}</time>
+            {updatedAt && (
+              <span class="post-detail__meta-updated">
+                Updated {formatDate(updatedAt)}
+              </span>
+            )}
+            {categories.map((category) => (
+              <span class="post-detail__category">{category}</span>
+            ))}
+          </div>
+        </div>
+      </header>
+
+      <div class="site-shell post-detail__body">
+        <div class="post-prose" data-reveal>
+          <slot />
+        </div>
+
+        {tags.length > 0 && (
+          <footer class="post-detail__footer">
+            <h2>Tags</h2>
+            <ul class="post-detail__tags">
+              {tags.map((tag) => (
+                <li>{tag}</li>
+              ))}
+            </ul>
+          </footer>
+        )}
+      </div>
+    </article>
+  </main>
+</SiteLayout>

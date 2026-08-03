@@ -1,0 +1,71 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import InnerHero from "../../components/InnerHero.astro";
+import Authors from "../../components/Authors.astro";
+import { publications, pubCover } from "../../data/site";
+
+const sortedPublications = [...publications].sort((a, b) => b.year - a.year);
+
+/** 缩略图一律使用算法原理图（封面图），仅在缺封面时回退结果图。 */
+const pickThumb = (pub: (typeof publications)[number]): { src: string; alt: string } => {
+  const cover = pubCover(pub);
+  return cover
+    ? { src: cover, alt: `${pub.title} 示意图` }
+    : { src: pub.resultsImage ?? "", alt: `${pub.title} 主要结果` };
+};
+---
+
+<SiteLayout
+  title="论文 · Longfei Han"
+  description="韩龙飞在医学人工智能、计算机视觉与机器学习方向的代表性论文。"
+>
+  <main class="inner-page">
+    <InnerHero
+      index="论文 / 01"
+      title="医学人工智能与计算机视觉的代表性工作。"
+      lead="研究覆盖图像分割、图像复原、多模态匹配、图像处理流水线优化与自步学习等方向。"
+    />
+
+    <section class="publications-page">
+      <div class="site-shell publication-list">
+        {sortedPublications.map((publication, index) => (
+          <article class="publication-row" data-reveal>
+            <div class="publication-row__index">{String(index + 1).padStart(2, "0")}</div>
+            <div class="publication-row__media">
+              <img
+                src={pickThumb(publication).src}
+                alt={pickThumb(publication).alt}
+                loading={index > 1 ? "lazy" : "eager"}
+              />
+            </div>
+            <div class="publication-row__content">
+              <p>{publication.venue} · {publication.year}</p>
+              <h2>
+                <a href={`/publications/${publication.slug}/`}>{publication.title}</a>
+              </h2>
+              <div class="publication-row__meta">
+                <p class="publication-row__authors">
+                  <Authors authors={publication.authors} />
+                </p>
+                {publication.code && (
+                  <a class="publication-row__code" href={publication.code} rel="noreferrer">
+                    代码 <span aria-hidden="true">↗</span>
+                  </a>
+                )}
+              </div>
+            </div>
+            <div class="publication-row__action">
+              <a
+                href={`/publications/${publication.slug}/`}
+                aria-label={`${publication.title} 的详情`}
+              >
+                详情 <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+      <p class="publication-list__note">* 通讯作者 · † 共同一作</p>
+    </section>
+  </main>
+</SiteLayout>

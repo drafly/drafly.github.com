@@ -1,36 +1,187 @@
 ---
-layout: page
-description: "如果你未曾失败过，说明你的努力还远远不够——做最好的自己"
+layout: default
+title: "Longfei Han"
+description: "Medical AI researcher and MAGIC Lab director"
+body-class: "home-v2"
 ---
 
-{% for post in paginator.posts %}
-<div class="post-preview">
-    <a href="{{ post.url | prepend: site.baseurl }}">
-        <h2 class="post-title">            {{ post.title }}
-        </h2>
-        {% if post.subtitle %}
-        <h3 class="post-subtitle">
-            {{ post.subtitle }}
-        </h3>
-        {% endif %}
-    </a>
-    <p class="post-meta">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}</p>
-</div>
-<hr>
-{% endfor %}
+<main>
+  <section class="hero-v2" id="home">
+    <div class="hero-v2__grid" aria-hidden="true"></div>
+    <div class="hero-v2__glow hero-v2__glow--one" aria-hidden="true"></div>
+    <div class="hero-v2__glow hero-v2__glow--two" aria-hidden="true"></div>
 
-<!-- Pager -->
-{% if paginator.total_pages > 1 %}
-<ul class="pager">
-    {% if paginator.previous_page %}
-    <li class="previous">
-        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
-    </li>
-    {% endif %}
-    {% if paginator.next_page %}
-    <li class="next">
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
-    </li>
-    {% endif %}
-</ul>
-{% endif %}
+    <div class="site-shell hero-v2__inner">
+      <div class="hero-v2__copy" data-reveal>
+        <p class="hero-v2__status">
+          <span class="status-dot" aria-hidden="true"></span>
+          Associate Professor · MAGIC Lab
+        </p>
+        <h1>Building intelligence<br>for <span>medical vision.</span></h1>
+        <p class="hero-v2__lead">
+          I am Longfei Han, a researcher working at the intersection of medical
+          AI, computer vision, multimodal learning and efficient neural networks.
+        </p>
+        <div class="hero-v2__actions">
+          <a class="button-v2 button-v2--primary" href="{{ site.baseurl }}/LAB.html">
+            Explore research
+            <span aria-hidden="true">↗</span>
+          </a>
+          <a class="button-v2 button-v2--ghost" href="{{ site.baseurl }}/People.html">
+            About me
+          </a>
+        </div>
+        <dl class="hero-v2__signals" aria-label="Research focus">
+          <div>
+            <dt>01</dt>
+            <dd>Medical AI</dd>
+          </div>
+          <div>
+            <dt>02</dt>
+            <dd>Multimodal learning</dd>
+          </div>
+          <div>
+            <dt>03</dt>
+            <dd>Efficient models</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="hero-v2__visual" data-reveal>
+        <div class="scan-frame">
+          <div class="scan-frame__meta">
+            <span>MAGIC / PROFILE</span>
+            <span>BTBU · CN</span>
+          </div>
+          <img src="{{ site.baseurl }}/img/personal2.jpg" alt="Portrait of Longfei Han">
+          <div class="scan-frame__line" aria-hidden="true"></div>
+          <div class="scan-frame__corner scan-frame__corner--tl" aria-hidden="true"></div>
+          <div class="scan-frame__corner scan-frame__corner--br" aria-hidden="true"></div>
+        </div>
+        <div class="research-pulse" aria-label="Current research direction">
+          <span class="research-pulse__label">Current focus</span>
+          <strong>Trustworthy &amp; efficient medical intelligence</strong>
+          <span class="research-pulse__wave" aria-hidden="true"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-shell hero-v2__ticker" aria-label="Latest update">
+      <span>Latest</span>
+      <p>One paper accepted at MICCAI 2024</p>
+      <a href="{{ site.baseurl }}/LAB.html">All updates <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <section class="research-v2" id="research">
+    <div class="site-shell">
+      <header class="section-heading-v2" data-reveal>
+        <p>Research / 01</p>
+        <h2>Research that moves<br>from models to medicine.</h2>
+        <p>
+          We develop robust learning systems for medical imaging, with an emphasis
+          on representation, segmentation and deployable intelligence.
+        </p>
+      </header>
+
+      <div class="focus-switcher" data-focus-switcher data-reveal>
+        <div class="focus-switcher__tabs" role="tablist" aria-label="Research areas">
+          <button class="focus-tab is-active" type="button" role="tab"
+            aria-selected="true" aria-controls="focus-panel" data-focus="medical">
+            Medical AI
+          </button>
+          <button class="focus-tab" type="button" role="tab"
+            aria-selected="false" aria-controls="focus-panel" data-focus="multi">
+            Multimodal learning
+          </button>
+          <button class="focus-tab" type="button" role="tab"
+            aria-selected="false" aria-controls="focus-panel" data-focus="efficient">
+            Efficient models
+          </button>
+        </div>
+
+        <div class="focus-switcher__panel" id="focus-panel" role="tabpanel">
+          <div class="focus-switcher__copy">
+            <span class="focus-index" data-focus-index>01 — 03</span>
+            <h3 data-focus-title>Medical image understanding</h3>
+            <p data-focus-copy>
+              Learning reliable visual representations for segmentation,
+              recognition and clinically meaningful decision support.
+            </p>
+            <a href="{{ site.baseurl }}/LAB.html">View related work <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="focus-switcher__map" aria-hidden="true">
+            <svg viewBox="0 0 520 310" role="img" aria-label="Research network visualization">
+              <defs>
+                <linearGradient id="networkGradient" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="currentColor" stop-opacity=".9"/>
+                  <stop offset="1" stop-color="currentColor" stop-opacity=".15"/>
+                </linearGradient>
+              </defs>
+              <g class="network-grid">
+                <path d="M20 50H500M20 110H500M20 170H500M20 230H500M20 290H500"/>
+                <path d="M60 20V300M150 20V300M240 20V300M330 20V300M420 20V300"/>
+              </g>
+              <path class="network-path"
+                d="M40 238 C110 210,115 88,192 112 S286 260,350 166 S432 58,486 94"/>
+              <path class="network-path network-path--secondary"
+                d="M40 172 C124 104,178 254,246 184 S370 64,486 214"/>
+              <g class="network-nodes">
+                <circle cx="40" cy="238" r="7"/>
+                <circle cx="192" cy="112" r="12"/>
+                <circle cx="350" cy="166" r="18"/>
+                <circle cx="486" cy="94" r="7"/>
+              </g>
+              <g class="network-labels">
+                <text x="32" y="266">INPUT</text>
+                <text x="171" y="86">ENCODE</text>
+                <text x="326" y="202">FUSION</text>
+                <text x="446" y="72">CLINICAL</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="publication-v2" id="publications">
+    <div class="site-shell publication-v2__grid">
+      <div class="publication-v2__image" data-reveal>
+        <img src="{{ site.baseurl }}/img/publication/ASPS.png"
+          alt="Architecture diagram for the ASPS medical image segmentation model">
+        <span>MODEL / ASPS</span>
+      </div>
+      <article class="publication-v2__copy" data-reveal>
+        <p>Selected publication / MICCAI 2024</p>
+        <h2>Augmented Segment Anything Model for Polyp Segmentation</h2>
+        <p>
+          A dual-encoder framework with cross-branch feature augmentation and
+          uncertainty-guided prediction regularization for robust segmentation.
+        </p>
+        <div class="publication-v2__links">
+          <a href="https://github.com/HuiqianLi/ASPS">Code <span aria-hidden="true">↗</span></a>
+          <a href="{{ site.baseurl }}/LAB.html">All publications <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="writing-v2" id="writing">
+    <div class="site-shell">
+      <header class="section-heading-v2 section-heading-v2--compact" data-reveal>
+        <p>Writing / 02</p>
+        <h2>Notes on learning,<br>optimization and code.</h2>
+      </header>
+      <div class="post-list-v2" data-reveal>
+        {% for post in site.posts limit: 4 %}
+        <a class="post-row-v2" href="{{ post.url | prepend: site.baseurl }}">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y.%m.%d" }}</time>
+          <span>{{ post.title }}</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+</main>

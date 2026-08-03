@@ -8,7 +8,7 @@
 <script async src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<body>
+<body class="{{ page.body-class }}">
     {% include nav.html %}
 
     {{ content }}
@@ -16,6 +16,8 @@
     {% include footer.html %}
 
     {% include ga.html %}
+
+    <script src="{{ "/js/site-v2.js" | prepend: site.baseurl }}"></script>
 
 </body>
 

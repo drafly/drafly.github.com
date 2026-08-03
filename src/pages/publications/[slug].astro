@@ -1,0 +1,164 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import PubLink from "../../components/PubLink.astro";
+import Authors from "../../components/Authors.astro";
+import { publications, pubCover } from "../../data/site";
+
+export function getStaticPaths() {
+  return publications.map((pub) => ({ params: { slug: pub.slug }, props: { pub } }));
+}
+
+const { pub } = Astro.props;
+const primaryHref = pub.paperUrl ?? pub.arxivUrl;
+
+const toBibtexName = (name: string) => {
+  const parts = name.trim().split(/\s+/);
+  const first = parts.shift() ?? "";
+  return parts.length ? `${parts.join(" ")}, ${first}` : first;
+};
+
+const bibtexAuthors = pub.authors
+  .split(",")
+  .map((part) => part.trim().replace(/^[*†]+/, "").replace(/[*†]+$/, ""))
+  .filter((part) => part.length > 0 && !/et al/i.test(part))
+  .map(toBibtexName)
+  .join(" and ");
+
+const firstAuthor = pub.authors.split(",")[0]?.trim().split(/\s+/).pop() ?? "Han";
+const bibtexKey = `${firstAuthor}${pub.year}${pub.venue.replace(/[^A-Za-z0-9]/g, "")}`;
+
+const bibtex = pub.bibtex ?? `@inproceedings{${bibtexKey},
+  title     = {${pub.title}},
+  author    = {${bibtexAuthors}},
+  booktitle = {${pub.venue}},
+  year      = {${pub.year}}
+}`;
+---
+
+<SiteLayout
+  title={`${pub.title} · Longfei Han`}
+  description={`${pub.venue} ${pub.year} · ${pub.authors}`}
+>
+  <main class="inner-page pub-detail">
+    <div class="site-shell pub-detail__shell">
+      <a class="pub-detail__back" href="/publications/">
+        <span aria-hidden="true">←</span> 全部论文
+      </a>
+
+      <header class="pub-detail__header">
+        <h1>{pub.title}</h1>
+        <p class="pub-detail__authors"><Authors authors={pub.authors} /></p>
+        {/[*†]/.test(pub.authors) && (
+          <p class="pub-detail__markers">* 通讯作者 · † 共同一作</p>
+        )}
+        {pub.affiliation && <p class="pub-detail__affiliation">{pub.affiliation}</p>}
+        <div class="pub-detail__venue">{pub.venue} · {pub.year}</div>
+        <div class="pub-detail__links">
+          {primaryHref && (
+            <PubLink
+              href={primaryHref}
+              label="论文"
+              icon="paper"
+              primary
+            />
+          )}
+          {pub.arxivUrl && pub.arxivUrl !== pub.paperUrl && (
+            <PubLink href={pub.arxivUrl} label="arXiv" icon="arxiv" />
+          )}
+          {pub.officialUrl && pub.officialUrl !== pub.paperUrl && (
+            <PubLink href={pub.officialUrl} label="原文" icon="official" />
+          )}
+          {pub.code && <PubLink href={pub.code} label="代码" icon="code" />}
+        </div>
+      </header>
+
+      <figure class="pub-detail__teaser">
+        <img src={pubCover(pub)} alt={`${pub.title} 示意图`} />
+      </figure>
+
+      {pub.description && (
+        <section class="pub-detail__section pub-detail__section--intro">
+          <p class="pub-detail__desc">{pub.description}</p>
+        </section>
+      )}
+
+      {pub.abstract && (
+        <section class="pub-detail__section">
+          <h2>摘要</h2>
+          <p class="pub-detail__abstract">{pub.abstract}</p>
+        </section>
+      )}
+
+      <section class="pub-detail__section">
+        <h2>主要结果</h2>
+        {pub.resultsImage ? (
+          <figure class="pub-detail__results">
+            <img src={pub.resultsImage} alt={`${pub.title} 主要结果`} />
+            {pub.resultsCaption && <figcaption>{pub.resultsCaption}</figcaption>}
+          </figure>
+        ) : pub.results ? (
+          <p class="pub-detail__abstract">{pub.results}</p>
+        ) : (
+          <p class="pub-detail__pending">结果内容整理中，稍后补充。</p>
+        )}
+      </section>
+
+      <section class="pub-detail__section">
+        <div class="pub-detail__bibtex-head">
+          <h2>BibTeX</h2>
+          <button id="copy-bibtex" class="pub-detail__copy" type="button">复制</button>
+        </div>
+        <pre class="pub-detail__bibtex"><code>{bibtex}</code></pre>
+      </section>
+    </div>
+  </main>
+</SiteLayout>
+
+<script>
+  const button = document.getElementById("copy-bibtex");
+  if (button) {
+    const source = button.closest(".pub-detail__section")?.querySelector("pre")?.textContent ?? "";
+    const showState = (label: string, copied: boolean) => {
+      button.textContent = label;
+      button.classList.toggle("is-copied", copied);
+      if (copied) {
+        setTimeout(() => {
+          button.textContent = "复制";
+          button.classList.remove("is-copied");
+        }, 1600);
+      }
+    };
+    const copyWithFallback = async (): Promise<boolean> => {
+      if (navigator.clipboard?.writeText) {
+        try {
+          // Race against a possible permission prompt so the button never hangs.
+          const timeout = new Promise<never>((_, reject) =>
+            setTimeout(() => reject(new Error("clipboard timeout")), 1200)
+          );
+          await Promise.race([navigator.clipboard.writeText(source), timeout]);
+          return true;
+        } catch {
+          /* fall through to legacy path */
+        }
+      }
+      try {
+        const area = document.createElement("textarea");
+        area.value = source;
+        area.style.position = "fixed";
+        area.style.opacity = "0";
+        document.body.appendChild(area);
+        area.select();
+        const legacyCopy = (document as unknown as { execCommand: (id: string) => boolean })
+          .execCommand;
+        const ok = legacyCopy("copy");
+        area.remove();
+        return ok;
+      } catch {
+        return false;
+      }
+    };
+    button.addEventListener("click", async () => {
+      showState((await copyWithFallback()) ? "已复制" : "复制失败", true);
+    });
+  }
+</script>
