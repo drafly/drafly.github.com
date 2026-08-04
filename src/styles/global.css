@@ -852,6 +852,13 @@ img {
   color: var(--v2-text);
 }
 
+.team-member__contact-pending {
+  margin: 28px 0 0;
+  color: var(--v2-muted);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+
 .team-roster-note {
   margin: 24px 0 0;
   color: var(--v2-muted);

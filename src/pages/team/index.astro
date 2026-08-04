@@ -4,7 +4,8 @@ import InnerHero from "../../components/InnerHero.astro";
 import { team, gradYear, isGraduated } from "../../data/site";
 
 const graduated = team.filter(isGraduated);
-const active = team.filter((member) => !isGraduated(member));
+const active = team.filter((member) => member.category !== "visitor-intern" && !isGraduated(member));
+const visitorsAndInterns = team.filter((member) => member.category === "visitor-intern");
 ---
 
 <SiteLayout
@@ -86,10 +87,53 @@ const active = team.filter((member) => !isGraduated(member));
                   <div class="team-member__meta">
                     <p>{member.program} · {member.enrolled}–在读</p>
                     <h3>{member.name} <span lang="zh-CN">{member.chineseName}</span></h3>
-                    <a href={`mailto:${member.email}`} aria-label={`给 ${member.name} 发邮件`}>
-                      <span>{member.email}</span>
-                      <span aria-hidden="true">↗</span>
-                    </a>
+                    {member.email ? (
+                      <a href={`mailto:${member.email}`} aria-label={`给 ${member.name} 发邮件`}>
+                        <span>{member.email}</span>
+                        <span aria-hidden="true">↗</span>
+                      </a>
+                    ) : (
+                      <p class="team-member__contact-pending">邮箱待更新</p>
+                    )}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {visitorsAndInterns.length > 0 && (
+          <section class="team-cohort" aria-labelledby="team-visitor-intern-heading">
+            <div class="team-cohort__head">
+              <div>
+                <h3 id="team-visitor-intern-heading">访问与实习</h3>
+                <p>短期加入 MAGIC 实验室，在真实研究任务中学习、协作与实践。</p>
+              </div>
+              <span class="team-cohort__count">{String(visitorsAndInterns.length).padStart(2, "0")}</span>
+            </div>
+            <div class="team-grid">
+              {visitorsAndInterns.map((member) => (
+                <article class="team-member" data-reveal>
+                  <div class="team-member__image">
+                    <img
+                      src={member.image.src}
+                      alt={`${member.name}（${member.chineseName}）`}
+                      width={member.image.width}
+                      height={member.image.height}
+                    />
+                    <span aria-hidden="true">{member.enrolled}</span>
+                  </div>
+                  <div class="team-member__meta">
+                    <p>{member.program} · {member.enrolled}–访问 / 实习</p>
+                    <h3>{member.name} <span lang="zh-CN">{member.chineseName}</span></h3>
+                    {member.email ? (
+                      <a href={`mailto:${member.email}`} aria-label={`给 ${member.name} 发邮件`}>
+                        <span>{member.email}</span>
+                        <span aria-hidden="true">↗</span>
+                      </a>
+                    ) : (
+                      <p class="team-member__contact-pending">邮箱待更新</p>
+                    )}
                   </div>
                 </article>
               ))}
@@ -121,10 +165,14 @@ const active = team.filter((member) => !isGraduated(member));
                   <div class="team-member__meta">
                     <p>{member.program} · {member.enrolled}–{gradYear(member)}</p>
                     <h3>{member.name} <span lang="zh-CN">{member.chineseName}</span></h3>
-                    <a href={`mailto:${member.email}`} aria-label={`给 ${member.name} 发邮件`}>
-                      <span>{member.email}</span>
-                      <span aria-hidden="true">↗</span>
-                    </a>
+                    {member.email ? (
+                      <a href={`mailto:${member.email}`} aria-label={`给 ${member.name} 发邮件`}>
+                        <span>{member.email}</span>
+                        <span aria-hidden="true">↗</span>
+                      </a>
+                    ) : (
+                      <p class="team-member__contact-pending">邮箱待更新</p>
+                    )}
                   </div>
                 </article>
               ))}

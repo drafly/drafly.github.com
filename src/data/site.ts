@@ -1,13 +1,14 @@
 import type { ImageMetadata } from "astro";
 
-import jyn from "../../img/jyn.jpg";
-import lwx from "../../img/lwx.jpg";
-import ybw from "../../img/ybw.jpg";
-import ymw from "../../img/ymw.jpg";
-import lxz from "../../img/lxz.jpg";
-import sws from "../../img/sws.jpg";
-import wmz from "../../img/wmz.jpg";
-import zy from "../../img/zy.jpg";
+import jyn from "../../img/team-comic/jyn.png";
+import lwx from "../../img/team-comic/lwx.png";
+import ybw from "../../img/team-comic/ybw.png";
+import ymw from "../../img/team-comic/ymw.png";
+import lxz from "../../img/team-comic/lxz.png";
+import sws from "../../img/team-comic/sws.png";
+import wmz from "../../img/team-comic/wmz.png";
+import zy from "../../img/team-comic/zy.png";
+import lxh from "../../img/team-comic/lxh.png";
 
 import acmmm from "../../img/publication/acmmm.jpg";
 import sequenceSpecific from "../../img/publication/Sequence-Specific.png";
@@ -20,8 +21,9 @@ export interface TeamMember {
   program: string;
   /** 入学年份（学制 3 年）。 */
   enrolled: number;
-  email: string;
+  email?: string;
   image: ImageMetadata;
+  category?: "student" | "visitor-intern";
 }
 
 /** 学制 3 年，返回毕业年份。 */
@@ -44,7 +46,8 @@ export const team: TeamMember[] = [
   { name: "Xinze Li", chineseName: "李欣泽", program: "BTBU M.E.", enrolled: 2022, email: "1499810932@qq.com", image: lxz },
   { name: "Wenshuai Song", chineseName: "宋文帅", program: "BTBU M.E.", enrolled: 2022, email: "2922133057@qq.com", image: sws },
   { name: "Mengzhen Wang", chineseName: "王梦真", program: "BTBU M.E.", enrolled: 2023, email: "wmzhappy123@163.com", image: wmz },
-  { name: "Ying Zhai", chineseName: "翟颖", program: "BTBU M.E.", enrolled: 2023, email: "zhaiying0925@163.com", image: zy }
+  { name: "Ying Zhai", chineseName: "翟颖", program: "BTBU M.E.", enrolled: 2023, email: "zhaiying0925@163.com", image: zy },
+  { name: "Xinhui Liu", chineseName: "刘芯卉", program: "BTBU M.E.", enrolled: 2024, image: lxh }
 ];
 
 export interface Publication {
