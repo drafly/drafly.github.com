@@ -495,16 +495,26 @@ img {
 .publication-row__content .author-self sup,
 .publication-row__authors sup,
 .pub-detail__authors sup {
+  position: relative;
+  top: -0.32em;
+  display: inline-block;
+  margin-left: 0.06em;
   font-size: 0.72em;
   font-weight: 600;
-  vertical-align: super;
+  line-height: 0;
+  vertical-align: baseline;
 }
 
 .publication-list__note,
 .pub-detail__markers {
-  margin: 26px 0 0;
   color: var(--v2-muted);
   font-size: 12px;
+}
+
+.publication-list__note {
+  margin: 0;
+  padding: 0 0 18px;
+  text-align: right;
 }
 
 .pub-detail__markers {

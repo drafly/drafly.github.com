@@ -32,6 +32,7 @@ const pickThumb = (pub: (typeof publications)[number]): { src: string; alt: stri
 
     <section class="publications-page">
       <div class="site-shell publication-list">
+        <p class="publication-list__note">* 通讯作者 · † 共同一作</p>
         {sortedPublications.map((publication, index) => (
           <article class="publication-row" data-reveal>
             <div class="publication-row__index">{String(index + 1).padStart(2, "0")}</div>
@@ -69,7 +70,6 @@ const pickThumb = (pub: (typeof publications)[number]): { src: string; alt: stri
           </article>
         ))}
       </div>
-      <p class="publication-list__note">* 通讯作者 · † 共同一作</p>
     </section>
   </main>
 </SiteLayout>
