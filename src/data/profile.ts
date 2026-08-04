@@ -1,5 +1,5 @@
 import type { ImageMetadata } from "astro";
-import avatarImg from "../../img/personal2.jpg";
+import avatarImg from "../assets/images/profile/personal2.jpg";
 
 export interface SocialLink {
   label: string;
@@ -37,4 +37,3 @@ export const news = [
   { date: "2026-06", text: "一篇论文被 MICCAI 2026 接收。" },
   { date: "2026-03", text: "一篇论文发表于 Biomedical Signal Processing and Control。" }
 ];
-

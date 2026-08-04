@@ -1,19 +1,19 @@
 import type { ImageMetadata } from "astro";
 
-import jyn from "../../img/team-comic/jyn.png";
-import lwx from "../../img/team-comic/lwx.png";
-import ybw from "../../img/team-comic/ybw.png";
-import ymw from "../../img/team-comic/ymw.png";
-import lxz from "../../img/team-comic/lxz.png";
-import sws from "../../img/team-comic/sws.png";
-import wmz from "../../img/team-comic/wmz.png";
-import zy from "../../img/team-comic/zy.png";
-import lxh from "../../img/team-comic/lxh.png";
+import jyn from "../assets/images/team/jyn.png";
+import lwx from "../assets/images/team/lwx.png";
+import ybw from "../assets/images/team/ybw.png";
+import ymw from "../assets/images/team/ymw.png";
+import lxz from "../assets/images/team/lxz.png";
+import sws from "../assets/images/team/sws.png";
+import wmz from "../assets/images/team/wmz.png";
+import zy from "../assets/images/team/zy.png";
+import lxh from "../assets/images/team/lxh.png";
 
-import acmmm from "../../img/publication/acmmm.jpg";
-import sequenceSpecific from "../../img/publication/Sequence-Specific.png";
-import figSpmor from "../../img/publication/fig_spmor.png";
-import smmor from "../../img/publication/smmor.png";
+import acmmm from "../assets/images/publications/acmmm.jpg";
+import sequenceSpecific from "../assets/images/publications/Sequence-Specific.png";
+import figSpmor from "../assets/images/publications/fig_spmor.png";
+import smmor from "../assets/images/publications/smmor.png";
 
 export interface TeamMember {
   name: string;
@@ -59,7 +59,7 @@ export interface Publication {
   year: number;
   /** 封面图（Astro 导入的图片资源）。 */
   image?: ImageMetadata;
-  /** 封面图（本地路径，优先于 image，用于 local-papers 中的新论文）。 */
+  /** 封面图（公开静态路径，优先于 image）。 */
   imageSrc?: string;
   abstract?: string;
   /** 论文的一句话描述（英文，显示在封面图下方）。 */

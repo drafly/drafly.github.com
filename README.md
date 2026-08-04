@@ -28,21 +28,26 @@ npm run preview
 
 ```text
 src/
+  assets/images/    由 Astro 优化处理的头像与论文图片
   components/       Astro 页面组件
   content/writing/  已迁移的历史博文
   data/             个人、团队与论文结构化数据
   layouts/          页面和文章布局
   pages/            首页、论文、团队与博文路由
+  scripts/          导航、内容切换与入场动画
   styles/           全局与页面样式
 public/
-  img/              公开图片和 Banner 资源
+  img/              博文插图与页面 Banner 等公开资源
   papers-figures/   论文封面及结果图
   CNAME             GitHub Pages 自定义域名
 .github/workflows/
   deploy.yml        Astro → GitHub Pages 自动部署
+archive/
+  jekyll-site/      原 Jekyll 站点源码与旧版资源
+  research-sources/ 不参与构建的本地研究资料
 ```
 
-仓库根目录中的 Jekyll 文件和旧静态页面仅作为迁移来源保留，不参与 Astro 生产构建。网站入口与发布产物均以 `src/`、`public/` 和 `astro.config.mjs` 为准。
+旧版 Jekyll 站点已完整隔离在 `archive/jekyll-site/`，不参与安装、开发或生产构建。网站入口与发布产物均以 `src/`、`public/` 和 `astro.config.mjs` 为准。
 
 ## GitHub Pages 部署
 
