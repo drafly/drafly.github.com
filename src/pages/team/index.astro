@@ -1,6 +1,8 @@
 ---
 import SiteLayout from "../../layouts/SiteLayout.astro";
 import InnerHero from "../../components/InnerHero.astro";
+import { Image } from "astro:assets";
+import teamHero from "../../assets/images/hero/team-comic-portrait.png";
 import { team, gradYear, isGraduated } from "../../data/site";
 
 const graduated = team.filter(isGraduated);
@@ -18,7 +20,7 @@ const visitorsAndInterns = team.filter((member) => member.category === "visitor-
       title="让好奇，经得起验证"
       lead="围绕医学视觉与智能成像协作探索，也重视每位成员从问题定义、实验设计到成果表达的完整成长。"
       facts="独立思考 · 开放协作 · 长期成长"
-      image="/img/hero/team-comic-portrait.png"
+      image={teamHero}
       imageAlt="韩龙飞与医学人工智能研究元素的漫画风插画"
       imageLabel="THINK / BUILD / GROW"
       imageFit="cover"
@@ -68,7 +70,7 @@ const visitorsAndInterns = team.filter((member) => member.category === "visitor-
             <div class="team-cohort__head">
               <div>
                 <h3 id="team-active-heading">在读</h3>
-                <p>学制 3 年 · 在 MAGIC 实验室共同探索医学人工智能。</p>
+                <p>把每一次讨论、实验与复盘，都变成成长的一部分。</p>
               </div>
               <span class="team-cohort__count">{String(active.length).padStart(2, "0")}</span>
             </div>
@@ -76,11 +78,15 @@ const visitorsAndInterns = team.filter((member) => member.category === "visitor-
               {active.map((member) => (
                 <article class="team-member" data-reveal>
                   <div class="team-member__image">
-                    <img
-                      src={member.image.src}
+                    <Image
+                      src={member.image}
                       alt={`${member.name}（${member.chineseName}）`}
-                      width={member.image.width}
-                      height={member.image.height}
+                      widths={[320, 480, 640, 960]}
+                      sizes="(max-width: 760px) calc(100vw - 68px), (max-width: 1080px) 50vw, 25vw"
+                      format="webp"
+                      quality={82}
+                      loading="lazy"
+                      decoding="async"
                     />
                     <span aria-hidden="true">{member.enrolled}</span>
                   </div>
@@ -115,11 +121,15 @@ const visitorsAndInterns = team.filter((member) => member.category === "visitor-
               {visitorsAndInterns.map((member) => (
                 <article class="team-member" data-reveal>
                   <div class="team-member__image">
-                    <img
-                      src={member.image.src}
+                    <Image
+                      src={member.image}
                       alt={`${member.name}（${member.chineseName}）`}
-                      width={member.image.width}
-                      height={member.image.height}
+                      widths={[320, 480, 640, 960]}
+                      sizes="(max-width: 760px) calc(100vw - 68px), (max-width: 1080px) 50vw, 25vw"
+                      format="webp"
+                      quality={82}
+                      loading="lazy"
+                      decoding="async"
                     />
                     <span aria-hidden="true">{member.enrolled}</span>
                   </div>
@@ -146,7 +156,7 @@ const visitorsAndInterns = team.filter((member) => member.category === "visitor-
             <div class="team-cohort__head">
               <div>
                 <h3 id="team-graduated-heading">已毕业</h3>
-                <p>从 MAGIC 实验室出发，继续各自的学术与职业旅程。</p>
+                <p>带着一路积累的思考与能力，走向各自新的阶段。</p>
               </div>
               <span class="team-cohort__count">{String(graduated.length).padStart(2, "0")}</span>
             </div>
@@ -154,11 +164,15 @@ const visitorsAndInterns = team.filter((member) => member.category === "visitor-
               {graduated.map((member) => (
                 <article class="team-member" data-reveal>
                   <div class="team-member__image">
-                    <img
-                      src={member.image.src}
+                    <Image
+                      src={member.image}
                       alt={`${member.name}（${member.chineseName}）`}
-                      width={member.image.width}
-                      height={member.image.height}
+                      widths={[320, 480, 640, 960]}
+                      sizes="(max-width: 760px) calc(100vw - 68px), (max-width: 1080px) 50vw, 25vw"
+                      format="webp"
+                      quality={82}
+                      loading="lazy"
+                      decoding="async"
                     />
                     <span aria-hidden="true">{member.enrolled}</span>
                   </div>
@@ -179,10 +193,6 @@ const visitorsAndInterns = team.filter((member) => member.category === "visitor-
             </div>
           </section>
         )}
-
-        <p class="team-roster-note" data-reveal>
-          毕业时间按学制 3 年自动推算，以 MAGIC 实验室原始名册为准。
-        </p>
       </div>
     </section>
   </main>
