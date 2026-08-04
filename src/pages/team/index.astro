@@ -3,7 +3,6 @@ import SiteLayout from "../../layouts/SiteLayout.astro";
 import InnerHero from "../../components/InnerHero.astro";
 import { team, gradYear, isGraduated } from "../../data/site";
 
-const cohorts = [...new Set(team.map((member) => member.enrolled))].sort((a, b) => a - b);
 const graduated = team.filter(isGraduated);
 const active = team.filter((member) => !isGraduated(member));
 ---
@@ -15,12 +14,12 @@ const active = team.filter((member) => !isGraduated(member));
   <main class="inner-page">
     <InnerHero
       index="MAGIC 实验室 / TEAM"
-      title="面向医学视觉，把研究做深、做实"
-      lead="围绕医学图像处理、图像信号处理与视觉语言模型开展研究，重视问题定义、算法创新与应用验证。"
-      facts={`${String(team.length).padStart(2, "0")} 位成员 · ${String(cohorts.length).padStart(2, "0")} 个届别 · 北京工商大学`}
+      title="一起把好问题、好奇心做成经得起验证的研究"
+      lead="围绕医学视觉与智能成像协作探索，也重视每位成员从问题定义、实验设计到成果表达的完整成长。"
+      facts="独立思考 · 开放协作 · 长期成长"
       image="/img/hero/team-comic-portrait.png"
       imageAlt="韩龙飞与医学人工智能研究元素的漫画风插画"
-      imageLabel="MAGIC / MEDICAL AI / VISION"
+      imageLabel="THINK / BUILD / GROW"
       imageFit="cover"
     />
 
@@ -28,26 +27,40 @@ const active = team.filter((member) => !isGraduated(member));
       <div class="site-shell">
         <div class="team-intro" data-reveal>
           <div>
-            <p>成员名册</p>
+            <p>共同成长</p>
             <h2>一起提出问题，<br />也一起验证答案。</h2>
           </div>
           <div class="team-intro__summary">
-            <p>
-              MAGIC 实验室汇聚了在医学图像理解、计算机视觉与多模态学习
-              方向共同努力的研究生。
-            </p>
-            <dl aria-label="团队名册摘要">
-              <div>
-                <dt>{String(team.length).padStart(2, "0")}</dt>
-                <dd>成员</dd>
-              </div>
-              <div>
-                <dt>{String(cohorts.length).padStart(2, "0")}</dt>
-                <dd>届别</dd>
-              </div>
-            </dl>
+            <aside class="team-name-story" aria-labelledby="team-name-story-title">
+              <p>WHY MAGIC</p>
+              <h3 id="team-name-story-title" lang="en">
+                Medical AI Group for Imaging and Computing
+              </h3>
+              <p>
+                MAGIC 代表我们围绕医学人工智能、视觉成像与计算方法开展研究，
+                也代表一群因好奇心相聚、在协作中探索和成长的人。
+              </p>
+            </aside>
           </div>
         </div>
+
+        <dl class="team-paths" aria-label="MAGIC 实验室研究与成长路径" data-reveal>
+          <div>
+            <dt>研究起点</dt>
+            <dd>从真实问题出发</dd>
+            <dd>明确问题定义</dd>
+          </div>
+          <div>
+            <dt>工作过程</dt>
+            <dd>让方法与实验相互验证</dd>
+            <dd>完成设计、实现与复盘</dd>
+          </div>
+          <div>
+            <dt>成长目标</dt>
+            <dd>形成独立研究能力</dd>
+            <dd>做出可信、清楚的研究</dd>
+          </div>
+        </dl>
 
         {active.length > 0 && (
           <section class="team-cohort" aria-labelledby="team-active-heading">

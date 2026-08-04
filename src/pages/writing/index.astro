@@ -13,17 +13,17 @@ const posts = (await getCollection("writing", ({ data }) => import.meta.env.DEV 
 
 <SiteLayout
   title="博文 · Longfei Han"
-  description="韩龙飞的写作归档：机器学习、凸优化与工程实践笔记。"
+  description="韩龙飞关于研究与工作关键思路的总结和分享。"
 >
   <main class="inner-page">
     <InnerHero
       index="研究笔记 / WRITING"
-      title="把方法、推导与实践写清楚"
-      lead="记录机器学习、凸优化、统计计算与工程实践中的推导、代码和阶段性思考。"
-      facts={`${posts.length} 篇归档 · 机器学习 · 凸优化 · 统计计算`}
+      title="把复杂方法，写成可复用的理解"
+      lead="从公式推导到代码验证，记录研究和工作中的关键思路，在持续总结与分享中，让零散经验沉淀为可复用、可交流的知识。"
+      facts={`${posts.length} 篇博文 · 总结 · 分享 · 实践`}
       image="/img/hero/writing-math-derivation.png"
       imageAlt="从数学推导、凸优化轨迹到神经网络实验验证的研究流程"
-      imageLabel="DERIVATION / OPTIMIZATION / EXPERIMENTS"
+      imageLabel="SUMMARIZE / SHARE / PRACTICE"
     />
 
     <section class="writing-archive">
@@ -45,7 +45,7 @@ const posts = (await getCollection("writing", ({ data }) => import.meta.env.DEV 
           </div>
         ) : (
           <div class="writing-empty">
-            <p class="writing-empty__kicker">归档迁移中</p>
+            <p class="writing-empty__kicker">博文迁移中</p>
             <h3>历史博文正在陆续迁移。</h3>
             <p>
               旧站博文将分批迁入本站，第一批文章很快就会与大家见面。
