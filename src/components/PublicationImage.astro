@@ -1,0 +1,48 @@
+---
+import { Image } from "astro:assets";
+import { publicationImageAssets } from "../data/publicationImageAssets";
+
+interface Props {
+  src?: string;
+  alt: string;
+  widths?: number[];
+  sizes?: string;
+  loading?: "eager" | "lazy";
+  fetchpriority?: "high" | "low" | "auto";
+}
+
+const {
+  src,
+  alt,
+  widths = [320, 480, 720, 960],
+  sizes = "100vw",
+  loading = "lazy",
+  fetchpriority = "auto"
+} = Astro.props;
+
+const asset = src ? publicationImageAssets[src] : undefined;
+---
+
+{src && (
+  asset ? (
+    <Image
+      src={asset}
+      alt={alt}
+      widths={widths}
+      sizes={sizes}
+      format="webp"
+      quality={82}
+      loading={loading}
+      decoding="async"
+      fetchpriority={fetchpriority}
+    />
+  ) : (
+    <img
+      src={src}
+      alt={alt}
+      loading={loading}
+      decoding="async"
+      fetchpriority={fetchpriority}
+    />
+  )
+)}

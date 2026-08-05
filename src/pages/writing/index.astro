@@ -1,6 +1,7 @@
 ---
 import SiteLayout from "../../layouts/SiteLayout.astro";
 import InnerHero from "../../components/InnerHero.astro";
+import writingHero from "../../assets/images/hero/writing-math-derivation.png";
 import { getCollection } from "astro:content";
 
 const formatDate = (date: Date) =>
@@ -21,7 +22,7 @@ const posts = (await getCollection("writing", ({ data }) => import.meta.env.DEV 
       title="把复杂方法，写成可复用的理解"
       lead="从公式推导到代码验证，记录研究和工作中的关键思路，在持续总结与分享中，让零散经验沉淀为可复用、可交流的知识。"
       facts={`${posts.length} 篇博文 · 总结 · 分享 · 实践`}
-      image="/img/hero/writing-math-derivation.png"
+      image={writingHero}
       imageAlt="从数学推导、凸优化轨迹到神经网络实验验证的研究流程"
       imageLabel="SUMMARIZE / SHARE / PRACTICE"
     />

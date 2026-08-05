@@ -2,6 +2,8 @@
 import SiteLayout from "../../layouts/SiteLayout.astro";
 import InnerHero from "../../components/InnerHero.astro";
 import Authors from "../../components/Authors.astro";
+import PublicationImage from "../../components/PublicationImage.astro";
+import publicationsHero from "../../assets/images/hero/publications-medical-ai.png";
 import { publications, pubCover } from "../../data/site";
 
 const sortedPublications = [...publications].sort((a, b) => b.year - a.year);
@@ -25,7 +27,7 @@ const pickThumb = (pub: (typeof publications)[number]): { src: string; alt: stri
       title="让视觉智能在真实场景中更可靠"
       lead="围绕医学影像、低照度 RAW 成像与多模态学习，从问题建模、方法设计到真实数据验证，持续缩短算法与实际应用之间的距离。"
       facts="更清晰的成像 · 更可靠的理解 · 更接近应用的验证"
-      image="/img/hero/publications-medical-ai.png"
+      image={publicationsHero}
       imageAlt="医学影像分析、模型评估与临床应用科研可视化"
       imageLabel="IMAGING / UNDERSTANDING / VALIDATION"
     />
@@ -37,10 +39,12 @@ const pickThumb = (pub: (typeof publications)[number]): { src: string; alt: stri
           <article class="publication-row" data-reveal>
             <div class="publication-row__index">{String(index + 1).padStart(2, "0")}</div>
             <div class="publication-row__media">
-              <img
+              <PublicationImage
                 src={pickThumb(publication).src}
                 alt={pickThumb(publication).alt}
-                loading={index > 1 ? "lazy" : "eager"}
+                widths={[240, 360, 480, 720]}
+                sizes="(max-width: 760px) calc(100vw - 40px), 340px"
+                loading="lazy"
               />
             </div>
             <div class="publication-row__content">

@@ -1,6 +1,8 @@
 ---
 import SiteLayout from "../layouts/SiteLayout.astro";
+import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
+import PublicationImage from "../components/PublicationImage.astro";
 import { profile, news } from "../data/profile";
 import { publications, pubCover } from "../data/site";
 
@@ -52,12 +54,17 @@ const socialIcons: Record<string, string> = {
 >
   <main class="home-layout">
     <aside class="profile-sidebar" data-reveal>
-      <img
+      <Image
         class="profile-sidebar__avatar"
-        src={profile.avatar.src}
+        src={profile.avatar}
         alt={`${profile.name.zh}的肖像`}
-        width={profile.avatar.width}
-        height={profile.avatar.height}
+        widths={[240, 320, 480]}
+        sizes="(max-width: 900px) 180px, 240px"
+        format="webp"
+        quality={84}
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
       />
       <h1 class="profile-sidebar__name">
         {profile.name.zh}
@@ -153,7 +160,12 @@ const socialIcons: Record<string, string> = {
           {featured.map((pub) => (
             <article class="pub-card">
               <div class="pub-card__media">
-                <img src={pubCover(pub)} alt={`${pub.title} 示意图`} loading="lazy" />
+                <PublicationImage
+                  src={pubCover(pub)}
+                  alt={`${pub.title} 示意图`}
+                  widths={[240, 360, 480, 720]}
+                  sizes="(max-width: 760px) calc(100vw - 40px), 320px"
+                />
               </div>
               <div class="pub-card__body">
                 <h3>
