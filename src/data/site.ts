@@ -9,6 +9,10 @@ import sws from "../assets/images/team/sws.png";
 import wmz from "../assets/images/team/wmz.png";
 import zy from "../assets/images/team/zy.png";
 import lxh from "../assets/images/team/lxh.png";
+import xjy from "../assets/images/team/xjy.png";
+import csy from "../assets/images/team/csy.png";
+import mf from "../assets/images/team/mf.jpg";
+import lf from "../assets/images/team/lf.jpg";
 
 import acmmm from "../assets/images/publications/acmmm.jpg";
 import sequenceSpecific from "../assets/images/publications/Sequence-Specific.png";
@@ -47,7 +51,11 @@ export const team: TeamMember[] = [
   { name: "Wenshuai Song", chineseName: "宋文帅", program: "BTBU M.E.", enrolled: 2022, email: "2922133057@qq.com", image: sws },
   { name: "Mengzhen Wang", chineseName: "王梦真", program: "BTBU M.E.", enrolled: 2023, email: "wmzhappy123@163.com", image: wmz },
   { name: "Ying Zhai", chineseName: "翟颖", program: "BTBU M.E.", enrolled: 2023, email: "zhaiying0925@163.com", image: zy },
-  { name: "Xinhui Liu", chineseName: "刘芯卉", program: "BTBU M.E.", enrolled: 2024, image: lxh }
+  { name: "Xinhui Liu", chineseName: "刘芯卉", program: "BTBU M.E.", enrolled: 2024, image: lxh },
+  { name: "Jingyue Xu", chineseName: "徐菁悦", program: "BTBU M.E.", enrolled: 2025, image: xjy },
+  { name: "Siyue Chen", chineseName: "陈思月", program: "BTBU M.E.", enrolled: 2025, image: csy },
+  { name: "Fan Mo", chineseName: "莫凡", program: "BTBU M.E.", enrolled: 2026, image: mf },
+  { name: "Feng Lin", chineseName: "林峰", program: "BTBU M.E.", enrolled: 2026, image: lf }
 ];
 
 export interface Publication {
