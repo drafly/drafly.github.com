@@ -133,6 +133,26 @@ body.home-v2 {
   color: var(--v2-accent);
 }
 
+.nav-v2__menu .nav-v2__language {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding-left: clamp(16px, 2vw, 28px);
+  border-left: 1px solid var(--v2-line);
+  color: var(--v2-muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.nav-v2__menu .nav-v2__language::after {
+  display: none;
+}
+
+.nav-v2__language .is-current {
+  color: var(--v2-accent);
+}
+
 .nav-v2__toggle {
   display: none;
   width: 44px;
@@ -769,6 +789,13 @@ body.home-v2 {
 
   .nav-v2__menu a {
     padding: 13px 8px;
+  }
+
+  .nav-v2__menu .nav-v2__language {
+    margin-top: 8px;
+    padding: 17px 8px 5px;
+    border-top: 1px solid var(--v2-line);
+    border-left: 0;
   }
 
   .nav-v2.is-open .nav-v2__menu {

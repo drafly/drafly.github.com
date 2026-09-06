@@ -1,20 +1,26 @@
 ---
 import "../styles/global.css";
 import SiteNav from "../components/SiteNav.astro";
+import { siteCopy, type Locale } from "../i18n/home";
 
 interface Props {
   title: string;
   description: string;
-  lang?: string;
+  lang?: Locale;
+  alternates?: Partial<Record<Locale, string>>;
 }
 
 const {
   title,
   description,
-  lang = "zh"
+  lang = "zh",
+  alternates
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const copy = siteCopy[lang];
+const zhAlternate = alternates?.zh ? new URL(alternates.zh, Astro.site) : undefined;
+const enAlternate = alternates?.en ? new URL(alternates.en, Astro.site) : undefined;
 ---
 
 <!doctype html>
@@ -25,6 +31,9 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <link rel="canonical" href={canonical} />
+    {zhAlternate && <link rel="alternate" hreflang="zh-CN" href={zhAlternate} />}
+    {enAlternate && <link rel="alternate" hreflang="en" href={enAlternate} />}
+    {zhAlternate && <link rel="alternate" hreflang="x-default" href={zhAlternate} />}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -35,13 +44,13 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <title>{title}</title>
   </head>
   <body class="home-v2">
-    <SiteNav />
+    <SiteNav lang={lang} />
     <slot />
 
     <footer class="footer-v2">
       <div class="site-shell footer-v2__inner">
-        <p>© {new Date().getFullYear()} 韩龙飞 · MAGIC Lab</p>
-        <p>时间不会辜负每一次认真</p>
+        <p>© {new Date().getFullYear()} {copy.footerName}</p>
+        <p>{copy.footerMotto}</p>
       </div>
     </footer>
 

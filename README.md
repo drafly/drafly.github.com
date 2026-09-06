@@ -22,7 +22,7 @@ npm run build
 npm run preview
 ```
 
-`npm run build` 会先运行 Astro 类型与内容检查，再将静态网站输出到 `dist/`。当前生产构建共生成 51 个页面。
+`npm run build` 会先运行 Astro 类型与内容检查，再将静态网站输出到 `dist/`。当前生产构建共生成 52 个页面。
 
 ## 目录结构
 
@@ -32,6 +32,7 @@ src/
   components/       Astro 页面组件
   content/writing/  已迁移的历史博文
   data/             个人、团队与论文结构化数据
+  i18n/             中英文界面文案与翻译
   layouts/          页面和文章布局
   pages/            首页、论文、团队与博文路由
   scripts/          导航、内容切换与入场动画
@@ -88,7 +89,8 @@ GitHub 设置：
 
 ## 内容维护
 
-- 个人简介与动态：`src/data/profile.ts`
+- 姓名、邮箱与学术链接：`src/data/profile.ts`
+- 中英文主页简介、研究方向与动态：`src/i18n/home.ts`
 - 论文与团队：`src/data/site.ts`
 - 博文：`src/content/writing/`
 - 页面 Banner 图片：`public/img/hero/`
@@ -98,3 +100,12 @@ GitHub 设置：
 ```bash
 npm run build
 ```
+
+## 多语言
+
+- 中文主页：`/`
+- 英文主页：`/en/`
+- 导航栏的“中 / EN”按钮会在两个主页之间直接切换。
+- 两个版本已配置 canonical、`hreflang="zh-CN"`、`hreflang="en"` 与 `x-default`。
+
+当前仅主页完成双语化；论文、团队和博文仍使用原有中文路由，后续可按 `/en/publications/`、`/en/team/`、`/en/writing/` 分阶段扩展。

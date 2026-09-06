@@ -1,18 +1,27 @@
 ---
+import { siteCopy, type Locale } from "../i18n/home";
+
+interface Props {
+  lang?: Locale;
+}
+
 const pathname = Astro.url.pathname;
+const { lang = "zh" } = Astro.props;
+const copy = siteCopy[lang];
+const isEnglish = lang === "en";
 
 const isActive = (href: string) => pathname === href || pathname.startsWith(href);
 
 const links = [
-  { href: "/publications/", label: "论文" },
-  { href: "/team/", label: "团队" },
-  { href: "/writing/", label: "博文" }
+  { href: "/publications/", label: copy.nav.publications },
+  { href: "/team/", label: copy.nav.team },
+  { href: "/writing/", label: copy.nav.writing }
 ];
 ---
 
-<nav class="nav-v2" aria-label="Primary navigation">
+<nav class="nav-v2" aria-label={copy.primaryNavLabel}>
   <div class="site-shell nav-v2__inner">
-    <a class="nav-v2__brand" href="/" aria-label="韩龙飞 — 主页">
+    <a class="nav-v2__brand" href={isEnglish ? "/en/" : "/"} aria-label={copy.brandLabel}>
       <span class="nav-v2__mark" aria-hidden="true">LH</span>
       <span>Longfei Han</span>
     </a>
@@ -22,8 +31,9 @@ const links = [
       type="button"
       aria-expanded="false"
       aria-controls="primary-menu"
+      aria-label={copy.menuLabel}
     >
-      <span class="sr-only">Toggle menu</span>
+      <span class="sr-only">{copy.toggleMenuText}</span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
     </button>
@@ -38,6 +48,16 @@ const links = [
           {link.label}
         </a>
       ))}
+      <a
+        class="nav-v2__language"
+        href={isEnglish ? "/" : "/en/"}
+        aria-label={copy.languageLabel}
+        hreflang={isEnglish ? "zh-CN" : "en"}
+      >
+        <span class:list={{ "is-current": !isEnglish }} lang="zh-CN">中</span>
+        <span aria-hidden="true">/</span>
+        <span class:list={{ "is-current": isEnglish }} lang="en">EN</span>
+      </a>
     </div>
   </div>
 </nav>
