@@ -34,7 +34,7 @@ const posts = (await getCollection("writing", ({ data }) => import.meta.env.DEV 
             {posts.map((post) => (
               <a
                 class="post-row-v2 post-row-v2--link"
-                href={`/writing/${post.slug}/`}
+                href={`/writing/${post.id}/`}
               >
                 <time>{formatDate(post.data.publishedAt)}</time>
                 <span>{post.data.title}</span>

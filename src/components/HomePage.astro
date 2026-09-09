@@ -195,10 +195,10 @@ const socialIcons: Record<string, string> = {
               {posts.map((post) => (
                 <a
                   class="post-row-v2 post-row-v2--link"
-                  href={`/writing/${post.slug}/`}
+                  href={`/writing/${post.id}/`}
                 >
                   <time>{formatDate(post.data.publishedAt)}</time>
-                  <span>{copy.postTitles[post.slug] ?? post.data.title}</span>
+                  <span>{copy.postTitles[post.id] ?? post.data.title}</span>
                   <span>
                     {copy.readLabel} <span aria-hidden="true">→</span>
                   </span>
