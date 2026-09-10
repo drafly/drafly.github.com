@@ -99,6 +99,33 @@ export const pubCover = (pub: Publication): string | undefined => pub.imageSrc ?
 
 export const publications: Publication[] = [
   {
+    slug: "afenet",
+    title: "AFENet: Attention-driven feature evolution network for precise polyp segmentation",
+    authors: "Peiliang Huang, Huiqian Li, Jieru Yao, Longfei Han*",
+    venue: "Biomedical Signal Processing and Control",
+    year: 2026,
+    imageSrc: "/papers-figures/afenet-cover.png",
+    coverRatio: 1.81,
+    description:
+      "We propose AFENet for precise polyp segmentation, replacing conventional skip connections with Co-attentive Representation Learning and progressively correcting uncertain regions through Attention-driven Uncertainty Refinement across the decoder.",
+    affiliation: "北京工商大学 · 计算机与人工智能学院",
+    abstract:
+      "Accurate polyp segmentation is challenging because polyps vary substantially in morphology and often have low contrast against surrounding mucosa. Conventional skip connections may pass redundant or task-irrelevant encoder features directly to the decoder, while many refinement methods emphasize boundaries and operate only at the final decoding stage. AFENet addresses these limitations through two complementary modules. Co-attentive Representation Learning (CaRL) jointly optimizes spatial and channel attention to strengthen discriminative features and suppress irrelevant responses. Attention-driven Uncertainty Refinement (AUR) then performs coarse-to-fine correction throughout decoding, focusing on ambiguous regions to reduce false-positive and false-negative predictions. Experiments on PS-NBI2K, PolypGen, and PICCOLO, spanning white-light and narrow-band endoscopic imaging, demonstrate consistently strong segmentation performance and cross-modality generalization.",
+    results:
+      "AFENet achieved Dice scores of 0.899 on PS-NBI2K, 0.821 on PolypGen, and 0.854 on PICCOLO. Compared with ConDSeg, Dice improved by 0.22, 0.49, and 0.59 percentage points on the three datasets, respectively. Ablation experiments further showed that CaRL and AUR provide complementary gains, with the complete model attaining the best overall performance on PS-NBI2K.",
+    paperUrl: "https://doi.org/10.1016/j.bspc.2026.111306",
+    doi: "10.1016/j.bspc.2026.111306",
+    bibtex: `@article{huang2027afenet,
+  author  = {Huang, Peiliang and Li, Huiqian and Yao, Jieru and Han, Longfei},
+  title   = {{AFENet}: Attention-driven feature evolution network for precise polyp segmentation},
+  journal = {Biomedical Signal Processing and Control},
+  volume  = {129},
+  pages   = {111306},
+  year    = {2027},
+  doi     = {10.1016/j.bspc.2026.111306}
+}`
+  },
+  {
     slug: "retinex-rawmamba",
     title: "Retinex-RAWMamba: Bridging Demosaicing and Denoising for Low-Light RAW Image Enhancement",
     authors: "Xianmin Chen, Longfei Han*, Peiliang Huang, Xiaoxu Feng, Dingwen Zhang, Junwei Han",

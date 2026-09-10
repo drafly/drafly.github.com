@@ -42,6 +42,7 @@ export const homeCopy = {
     recruitmentPrefix: "欢迎有自驱力的硕士研究生与高年级本科生加入。请将研究兴趣与简历发送至",
     newsTitle: "近期动态",
     news: [
+      { date: "2026-09", text: "一篇论文发表于 Biomedical Signal Processing and Control。" },
       { date: "2026-06", text: "一篇论文被 MICCAI 2026 接收。" },
       { date: "2026-03", text: "一篇论文发表于 Biomedical Signal Processing and Control。" }
     ],
@@ -98,6 +99,7 @@ export const homeCopy = {
     recruitmentPrefix: "Motivated master's students and senior undergraduates are welcome to join us. Please send your research interests and CV to",
     newsTitle: "News",
     news: [
+      { date: "2026-09", text: "One paper was published in Biomedical Signal Processing and Control." },
       { date: "2026-06", text: "One paper was accepted by MICCAI 2026." },
       { date: "2026-03", text: "One paper was published in Biomedical Signal Processing and Control." }
     ],

@@ -2,6 +2,7 @@ import type { ImageMetadata } from "astro";
 
 import retinexCover from "../../public/papers-figures/retinex-rawmamba-cover.jpg";
 import retinexResults from "../../public/papers-figures/retinex-rawmamba-results.jpg";
+import afenetCover from "../../public/papers-figures/afenet-cover.png";
 import fulnetCover from "../../public/papers-figures/fulnet-cover.jpg";
 import fulnetResults from "../../public/papers-figures/fulnet-results.jpg";
 import decouplenetCover from "../../public/papers-figures/decouplenet-cover.jpg";
@@ -27,6 +28,7 @@ import smmor from "../assets/images/publications/smmor.png";
 export const publicationImageAssets: Record<string, ImageMetadata> = {
   "/papers-figures/retinex-rawmamba-cover.jpg": retinexCover,
   "/papers-figures/retinex-rawmamba-results.jpg": retinexResults,
+  "/papers-figures/afenet-cover.png": afenetCover,
   "/papers-figures/fulnet-cover.jpg": fulnetCover,
   "/papers-figures/fulnet-results.jpg": fulnetResults,
   "/papers-figures/decouplenet-cover.jpg": decouplenetCover,
