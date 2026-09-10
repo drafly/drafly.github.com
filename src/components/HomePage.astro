@@ -22,8 +22,10 @@ const posts = (await getCollection("writing", ({ data }) => import.meta.env.DEV 
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())
   .slice(0, 4);
 
-const sortedPublications = [...publications].sort((a, b) => b.year - a.year);
-const featured = sortedPublications.slice(0, 3);
+const featuredSlugs = ["retinex-rawmamba", "asps", "isp-pipeline-optimization"];
+const featured = featuredSlugs
+  .map((slug) => publications.find((publication) => publication.slug === slug))
+  .filter((publication): publication is (typeof publications)[number] => Boolean(publication));
 
 const socialIcons: Record<string, string> = {
   github:

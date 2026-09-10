@@ -295,6 +295,63 @@ export const publications: Publication[] = [
 }`
   },
   {
+    slug: "asps",
+    title: "ASPS: Augmented Segment Anything Model for Polyp Segmentation",
+    authors: "Huiqian Li, Dingwen Zhang*, Jieru Yao, Longfei Han*, Zhongyu Li, Junwei Han",
+    venue: "MICCAI",
+    year: 2024,
+    imageSrc: "/papers-figures/asps-cover.png",
+    coverRatio: 2.047,
+    description:
+      "We propose ASPS, a prompt-free adaptation of the Segment Anything Model for polyp segmentation that combines cross-branch feature augmentation with uncertainty-guided prediction regularization to improve domain-specific representation and generalization.",
+    affiliation: "北京工商大学 · 计算机与人工智能学院",
+    abstract:
+      "Segment Anything Model (SAM) offers strong generic segmentation capability, but its transfer to endoscopic imagery is limited by the domain gap from natural images. Its Transformer encoder emphasizes global, low-frequency information and may miss local polyp details, while its out-of-distribution predictions can be accompanied by poorly calibrated confidence. ASPS addresses these limitations without relying on prompts. Cross-branch Feature Augmentation (CFA) adds a trainable CNN encoder alongside the frozen ViT encoder and integrates local, high-frequency, multi-scale features through cross-branch attention. Uncertainty-guided Prediction Regularization (UPR) adapts selected normalization parameters and uses SAM's IoU score together with pixel-level uncertainty to guide confidence-aware training. The two modules jointly enhance feature representation and domain generalization for automatic polyp segmentation.",
+    results:
+      "Experiments on CVC-ClinicDB, Kvasir-SEG, CVC-ColonDB, ETIS, and EndoScene show that ASPS consistently improves SAM-based baselines. The ViT-H configuration achieved average Dice and IoU scores of 0.890 and 0.817, compared with 0.870 and 0.804 for Polyp-PVT. It obtained Dice scores of 0.951 on CVC-ClinicDB, 0.920 on Kvasir-SEG, 0.799 on CVC-ColonDB, 0.861 on ETIS, and 0.919 on EndoScene. Ablation experiments confirm complementary contributions from the CNN branch, cross-branch attention, multi-level feature fusion, and uncertainty-guided regularization.",
+    paperUrl: "https://doi.org/10.1007/978-3-031-72114-4_12",
+    code: "https://github.com/HuiqianLi/ASPS",
+    doi: "10.1007/978-3-031-72114-4_12",
+    bibtex: `@inproceedings{li2024asps,
+  author    = {Li, Huiqian and Zhang, Dingwen and Yao, Jieru and Han, Longfei and Li, Zhongyu and Han, Junwei},
+  title     = {{ASPS}: Augmented Segment Anything Model for Polyp Segmentation},
+  booktitle = {Medical Image Computing and Computer Assisted Intervention -- MICCAI 2024},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {15009},
+  pages     = {118--128},
+  year      = {2024},
+  doi       = {10.1007/978-3-031-72114-4_12}
+}`
+  },
+  {
+    slug: "llava-endo",
+    title: "LLaVA-Endo: a large language-and-vision assistant for gastrointestinal endoscopy",
+    authors: "Jieru Yao†, Xueran Li†, Qiang Xie†, Longfei Han*, Yiwen Jia*, Nian Liu*, Dingwen Zhang, Junwei Han",
+    venue: "FCS",
+    year: 2024,
+    imageSrc: "/papers-figures/llava-endo-cover.png",
+    coverRatio: 1.257,
+    description:
+      "We introduce LLaVA-Endo, the first large language-and-vision assistant fine-tuned with gastrointestinal endoscopy knowledge, supported by a large-scale instruction-following dataset and progressive transfer learning from public biomedical data to domain-specific endoscopy data.",
+    affiliation: "北京工商大学 · 计算机与人工智能学院",
+    abstract:
+      "Existing AI-assisted gastrointestinal endoscopy systems typically rely on separate visual models for individual tasks, limiting interaction and adaptability to clinicians' instructions. LLaVA-Endo extends multimodal instruction tuning to gastrointestinal endoscopy by constructing large-scale image-text and conversational data from examination reports. Its progressive transfer learning strategy first adapts LLaVA with public biomedical data and then fine-tunes it with domain-specific endoscopy instruction data using LoRA. This two-stage design transfers general biomedical knowledge before specializing the model for endoscopic image understanding, enabling open-ended visual dialogue and clinically relevant reasoning across a range of gastrointestinal findings.",
+    results:
+      "The study assembled 3,423 endoscopy cases, producing 14,030 image-caption pairs, 17,504 instruction-following samples, and 64,640 dialogue samples. On a held-out set of 20 images, LLaVA-Endo achieved a GPT-4 evaluation score of 9.19 and an average human rating of 8.57, outperforming GPT-4V, Gemini, LLaVA-Med, LLaVA 1.5, mPLUG-Owl, and MiniGPT-v2. GPT-4 and human evaluation scores showed a correlation of 0.8073. Ablation results further support the benefit of the 13B model and the two-phase progressive transfer learning strategy.",
+    paperUrl: "https://doi.org/10.1007/s11704-024-40319-8",
+    doi: "10.1007/s11704-024-40319-8",
+    bibtex: `@article{yao2025llavaendo,
+  author  = {Yao, Jieru and Li, Xueran and Xie, Qiang and Han, Longfei and Jia, Yiwen and Liu, Nian and Zhang, Dingwen and Han, Junwei},
+  title   = {{LLaVA-Endo}: a large language-and-vision assistant for gastrointestinal endoscopy},
+  journal = {Frontiers of Computer Science},
+  volume  = {19},
+  number  = {4},
+  pages   = {194331},
+  year    = {2025},
+  doi     = {10.1007/s11704-024-40319-8}
+}`
+  },
+  {
     slug: "dense-nuclei-detection",
     title: "Position-based anchor optimization for point supervised dense nuclei detection",
     authors: "Jieru Yao, Longfei Han, Guangyu Guo, Zhaohui Zheng*, Runmin Cong, Xiankai Huang, Jin Ding, Kaihui Yang, Dingwen Zhang, Junwei Han",

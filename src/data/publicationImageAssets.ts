@@ -15,6 +15,8 @@ import mhkdCover from "../../public/papers-figures/mhkd-cover.jpg";
 import mhkdResults from "../../public/papers-figures/mhkd-results.jpg";
 import nucleiCover from "../../public/papers-figures/dense-nuclei-detection-cover.jpg";
 import nucleiResults from "../../public/papers-figures/dense-nuclei-detection-results.jpg";
+import aspsCover from "../../public/papers-figures/asps-cover.png";
+import llavaEndoCover from "../../public/papers-figures/llava-endo-cover.png";
 import imageTextResults from "../../public/papers-figures/image-text-matching-results.jpg";
 import ispResults from "../../public/papers-figures/isp-pipeline-optimization-results.jpg";
 import spmorResults from "../../public/papers-figures/spmor-results.jpg";
@@ -41,6 +43,8 @@ export const publicationImageAssets: Record<string, ImageMetadata> = {
   "/papers-figures/mhkd-results.jpg": mhkdResults,
   "/papers-figures/dense-nuclei-detection-cover.jpg": nucleiCover,
   "/papers-figures/dense-nuclei-detection-results.jpg": nucleiResults,
+  "/papers-figures/asps-cover.png": aspsCover,
+  "/papers-figures/llava-endo-cover.png": llavaEndoCover,
   "/papers-figures/image-text-matching-results.jpg": imageTextResults,
   "/papers-figures/isp-pipeline-optimization-results.jpg": ispResults,
   "/papers-figures/spmor-results.jpg": spmorResults,
