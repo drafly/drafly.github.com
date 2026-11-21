@@ -99,6 +99,34 @@ export const pubCover = (pub: Publication): string | undefined => pub.imageSrc ?
 
 export const publications: Publication[] = [
   {
+    slug: "sfd-polyp",
+    title: "Learning Diverse and Realistic Polyp Data via Style-Fused Diffusion Models",
+    authors: "Longfei Han, Ying Zhai, Haisheng Li*",
+    venue: "MICCAI",
+    year: 2026,
+    imageSrc: "/papers-figures/sfd-polyp-cover.png",
+    coverRatio: 2.047,
+    description:
+      "SFD-Polyp generates realistic, morphologically diverse endoscopic image–mask pairs with a style-fused conditional diffusion model, expanding training data for polyp segmentation without additional manual annotation.",
+    affiliation: "北京工商大学 · 计算机与人工智能学院；合肥综合性国家科学中心人工智能研究院；合肥微知众象科技有限公司",
+    abstract:
+      "Accurate polyp segmentation depends on annotated endoscopic images, but available data often lack sufficient diversity in lesion shape and visual appearance. SFD-Polyp addresses both limitations with mask-conditioned diffusion. Its Style Integration Module (SIM) introduces appearance cues from real endoscopic images into the denoising process, improving color and texture realism while retaining alignment with the conditioning mask. At inference, Morphology-Preserving Mask Synthesis (MPMS) derives plausible mask variants from existing annotations and uses them to generate new image–mask pairs. This expands the range of lesion morphologies without requiring additional pixel-level labeling. The paper evaluates the synthetic data as training augmentation with SANet and Polyp-PVT on five public polyp-segmentation benchmarks.",
+    results:
+      "With SFD-Polyp augmentation, SANet's Dice score rose from 0.888 to 0.910 on CVC-300 and from 0.753 to 0.799 on CVC-ColonDB; Polyp-PVT's Dice on CVC-ColonDB rose from 0.808 to 0.817. Results vary by dataset and backbone: some scores remained similar or decreased slightly. Ablations with SANet show that combining SIM and MPMS gives the strongest overall result among the tested module configurations.",
+    paperUrl: "https://papers.miccai.org/miccai-2026/paper/4818_paper.pdf",
+    officialUrl: "https://papers.miccai.org/miccai-2026/0557-Paper4818.html",
+    code: "https://github.com/zhaiying0925/SFD-polyp",
+    bibtex: `@inproceedings{han2026sfdpolyp,
+  author    = {Han, Longfei and Zhai, Ying and Li, Haisheng},
+  title     = {Learning Diverse and Realistic Polyp Data via Style-Fused Diffusion Models},
+  booktitle = {Medical Image Computing and Computer Assisted Intervention -- MICCAI 2026},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {16892},
+  publisher = {Springer Nature Switzerland},
+  year      = {2026}
+}`
+  },
+  {
     slug: "afenet",
     title: "AFENet: Attention-driven feature evolution network for precise polyp segmentation",
     authors: "Peiliang Huang, Huiqian Li, Jieru Yao, Longfei Han*",
