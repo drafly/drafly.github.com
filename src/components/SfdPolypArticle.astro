@@ -1,0 +1,149 @@
+---
+import PublicationImage from "./PublicationImage.astro";
+---
+
+<article class="sfd-article" lang="zh-CN">
+  <header class="sfd-article__intro">
+    <h2>生成式AI构建高仿真内镜影像，助力病灶精准分割</h2>
+    <p>在消化内镜检查中，息肉的大小、形态与表面纹理千差万别。如何在有限的真实图像与精细标注之外，为AI提供更多可信的训练样本？我们提出SFD-Polyp生成式医学影像合成方法：利用扩散模型学习真实内镜影像的视觉特征，并生成具有不同息肉形态、与分割标注相匹配的高仿真图像。</p>
+    <p>这项研究关注的不只是“生成一张看起来真实的内镜图片”，更要解决一个面向分割训练的关键问题：生成图像中的病灶区域，能否与配套的像素级掩膜保持准确对应？只有兼顾病灶形态多样性、内镜影像真实感与图像—标注一致性，合成样本才有望成为可靠的训练数据。</p>
+  </header>
+
+  <section aria-labelledby="sfd-background">
+    <h3 id="sfd-background"><span>01</span>研究背景｜真实内镜标注稀缺，病灶形态复杂</h3>
+    <p>病灶分割是消化内镜AI研究的重要任务。对于较小、边缘模糊或形态不规则的息肉，模型不仅要“看见”病灶，更要准确识别病灶轮廓。高质量的像素级标注通常需要专业人员逐张勾画，获取成本较高。不同内镜设备、光照条件和黏膜纹理，也会使同类病灶呈现不同外观；而息肉本身又具有明显的尺度与形状差异。仅依赖数量有限、来源相对集中的真实样本，难以覆盖这些变化。</p>
+    <p>生成式AI为缓解数据不足提供了新的技术路径：基于已有内镜图像与标注，生成具有新形态、新外观的训练样本。然而，“图像看起来真实”不等于“数据可以用于分割训练”。生成过程如果改变了息肉的实际轮廓，却没有同步保持其与掩膜的对应关系，就可能引入像素级标注偏差，影响模型学习。因此，核心挑战在于同时兼顾病灶形态合理性、内镜视觉真实感（图像的颜色、纹理）和图像—掩膜的一致性。</p>
+  </section>
+
+  <section aria-labelledby="sfd-method">
+    <h3 id="sfd-method"><span>02</span>核心技术｜生成不同形态的息肉，融合真实内镜风格</h3>
+    <p>针对这一挑战，我们提出SFD-Polyp风格融合条件扩散框架：以分割掩膜约束病灶的位置与形态，再引入真实内镜影像的外观特征指导生成。与单纯追求图像逼真不同，该框架旨在使合成可控的病灶尽可能遵循给定的掩膜条件，同时呈现更接近真实内镜画面的色彩和纹理特征。</p>
+    <figure>
+      <PublicationImage
+        src="/papers-figures/sfd-polyp-framework.png"
+        alt="SFD-Polyp 的训练与推理流程，以及风格融合模块和形态保持掩膜生成模块"
+        widths={[480, 720, 960, 1448]}
+        sizes="(max-width: 760px) calc(100vw - 40px), 860px"
+      />
+    </figure>
+    <p class="sfd-article__callout">可以简单理解为：MPMS先生成形态变化合理的掩膜，SIM则在掩膜条件约束的扩散生成过程中融入真实内镜风格。这样，生成图像与对应掩膜共享同一病灶结构条件，减少“图像变了、标注却没有同步变化”的问题，并形成可用于后续分割训练的配对样本，而无需为每张合成图像重新人工勾画边界。</p>
+  </section>
+
+  <section aria-labelledby="sfd-examples">
+    <h3 id="sfd-examples"><span>03</span>生成效果｜真实与合成内镜影像对比</h3>
+    <p>对于面向分割训练的内镜图像生成，评价不能只看“像不像真实影像”，还要看“生成的病灶是否与掩膜对应”。下图通过真实图像、真实掩膜及其合成结果的对比，直观展示病灶形态、图像风格和标注对应关系。</p>
+    <figure>
+      <a href="/papers-figures/sfd-polyp-comparison.png" target="_blank" rel="noopener noreferrer" aria-label="查看真实与合成息肉图像对比原图">
+        <PublicationImage
+          src="/papers-figures/sfd-polyp-comparison.png"
+          alt="六组真实图像、真实掩膜、合成图像与合成掩膜的对比"
+          widths={[480, 720, 960, 1280]}
+          sizes="(max-width: 760px) calc(100vw - 40px), 860px"
+        />
+      </a>
+      <figcaption>图1　SFD-Polyp真实与合成内镜影像对比。每组自上而下依次为真实图像、真实掩膜、合成图像、合成掩膜；重点观察息肉形态变化、内镜纹理与颜色，以及病灶和分割标注的对应关系。<a href="/papers-figures/sfd-polyp-comparison.png" target="_blank" rel="noopener noreferrer">查看原图 ↗</a></figcaption>
+    </figure>
+    <p>从可视化结果看，合成样本呈现出不同的病灶大小、轮廓和局部形态，画面的黏膜纹理、颜色、光照和反光特征也具有一定变化。与此同时，生成的息肉区域与其对应掩膜保持匹配，说明这类数据不只是“看起来像内镜影像”，还可以形成带有分割标注的配对样本。这种“形态变化＋真实风格＋对应标注”的联合生成方式，有助于为模型提供简单裁剪、旋转或调色难以覆盖的训练变化。论文还在五个公开息肉分割数据集及不同分割网络上进行了验证，结果表明，合成数据在部分实验设置下能够改善下游分割表现。</p>
+  </section>
+</article>
+
+<style>
+  .sfd-article {
+    margin-top: 64px;
+    color: var(--v2-text);
+    font-family: var(--v2-heading);
+  }
+
+  .sfd-article__intro h2 {
+    margin: 0 0 30px;
+    font-size: clamp(24px, 3.3vw, 32px);
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .sfd-article p {
+    margin: 18px 0 0;
+    font-size: 15.5px;
+    line-height: 2.05;
+    text-align: justify;
+  }
+
+  .sfd-article section {
+    margin-top: 62px;
+  }
+
+  .sfd-article h3 {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin: 0 0 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--v2-line);
+    font-size: clamp(19px, 2.4vw, 24px);
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  .sfd-article h3 span {
+    color: var(--v2-accent);
+    font-family: var(--v2-body);
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+
+  .sfd-article figure {
+    margin: 32px 0 0;
+  }
+
+  .sfd-article figure :global(img) {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--v2-line);
+    border-radius: var(--v2-radius);
+  }
+
+  .sfd-article__callout {
+    padding: 20px 24px;
+    border-left: 3px solid var(--v2-accent);
+    border-radius: 0 var(--v2-radius) var(--v2-radius) 0;
+    background: var(--v2-bg-soft);
+  }
+
+  .sfd-article figcaption {
+    margin-top: 12px;
+    color: var(--v2-muted);
+    font-family: var(--v2-body);
+    font-size: 12.5px;
+    line-height: 1.75;
+  }
+
+  .sfd-article figcaption a {
+    color: var(--v2-accent);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 760px) {
+    .sfd-article {
+      margin-top: 44px;
+    }
+
+    .sfd-article section {
+      margin-top: 46px;
+    }
+
+    .sfd-article p {
+      font-size: 14px;
+    }
+
+    .sfd-article h3 {
+      gap: 10px;
+    }
+
+    .sfd-article__callout {
+      padding: 16px 18px;
+    }
+  }
+</style>

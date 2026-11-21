@@ -3,6 +3,7 @@ import SiteLayout from "../../layouts/SiteLayout.astro";
 import PubLink from "../../components/PubLink.astro";
 import Authors from "../../components/Authors.astro";
 import PublicationImage from "../../components/PublicationImage.astro";
+import SfdPolypArticle from "../../components/SfdPolypArticle.astro";
 import { publications, pubCover } from "../../data/site";
 
 export function getStaticPaths() {
@@ -73,7 +74,7 @@ const bibtex = pub.bibtex ?? `@inproceedings{${bibtexKey},
         </div>
       </header>
 
-      <figure class="pub-detail__teaser">
+      {pub.slug === "sfd-polyp" ? <SfdPolypArticle /> : <figure class="pub-detail__teaser">
         <PublicationImage
           src={pubCover(pub)}
           alt={`${pub.title} 示意图`}
@@ -82,22 +83,22 @@ const bibtex = pub.bibtex ?? `@inproceedings{${bibtexKey},
           loading="eager"
           fetchpriority="high"
         />
-      </figure>
+      </figure>}
 
-      {pub.description && (
+      {pub.slug !== "sfd-polyp" && pub.description && (
         <section class="pub-detail__section pub-detail__section--intro">
           <p class="pub-detail__desc">{pub.description}</p>
         </section>
       )}
 
-      {pub.abstract && (
+      {pub.slug !== "sfd-polyp" && pub.abstract && (
         <section class="pub-detail__section">
           <h2>摘要</h2>
           <p class="pub-detail__abstract">{pub.abstract}</p>
         </section>
       )}
 
-      <section class="pub-detail__section">
+      {pub.slug !== "sfd-polyp" && <section class="pub-detail__section">
         <h2>主要结果</h2>
         {pub.resultsImage ? (
           <figure class="pub-detail__results">
@@ -114,7 +115,7 @@ const bibtex = pub.bibtex ?? `@inproceedings{${bibtexKey},
         ) : (
           <p class="pub-detail__pending">结果内容整理中，稍后补充。</p>
         )}
-      </section>
+      </section>}
 
       <section class="pub-detail__section">
         <div class="pub-detail__bibtex-head">
